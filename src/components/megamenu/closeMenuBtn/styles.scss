@@ -1,0 +1,23 @@
+.megamenu .close-menu-btn {
+  position: absolute;
+  right: 1%;
+  top: 1vh;
+  height: 6vh;
+  z-index: 110;
+}
+
+.megamenu .close-menu-btn button {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.megamenu .close-menu-btn button:hover .fa {
+  color: #333;
+}
+
+.megamenu .close-menu-btn .fa {
+  color: #333;
+  font-size: 4vh;
+}

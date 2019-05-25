@@ -5,9 +5,39 @@ import { openMenu } from 'redux/actions/menu';
 import WpItem from 'wp/item';
 import HomeHeader from './header';
 import HomeInicioMenu from './menu';
+import Megamenu from 'components/megamenu';
 import './styles.scss';
 
 class HomeInicio extends React.Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      megamenuOpen: false,
+      megamenuData: null
+    }
+
+    this.openMenu = this.openMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  openMenu(items){
+    this.setState(function(){
+      return {
+        megamenuOpen: true,
+        megamenuData: items
+      }
+    });
+  }
+
+  closeMenu(){
+    this.setState({
+      megamenuOpen: false,
+      megamenuData: null
+    })
+  }
+
   render(){
     return(
       <section id='home-inicio'>
@@ -15,7 +45,10 @@ class HomeInicio extends React.Component {
         <HomeHeader />
         <WpItem type='post' slug='estudia-en-el-curza' share={false} render='back' img_size='full' />
         <div className='fondo-articulo'></div>
-        <HomeInicioMenu />
+        <HomeInicioMenu openMenu={this.openMenu} />
+        <div id='home-inicio-megamenu'>
+          <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} debug={true} />
+        </div>
       </section>
     )
   }
