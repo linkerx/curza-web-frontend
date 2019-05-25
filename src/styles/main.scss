@@ -1,0 +1,53 @@
+@import 'styles/variables/mqueries.scss';
+@import 'styles/variables/colors.scss';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: $text;
+  overflow-x: hidden;
+
+  @media #{$super-wide} {
+      font-size:14px;
+  }
+
+  @media #{$wide} {
+      font-size:12px;
+  }
+
+  @media #{$square} {
+      font-size:10px;
+  }
+
+  @media #{$all-narrow} {
+      font-size:12px;
+  }
+
+}
+
+.wrapper-central {
+  position:relative;
+  margin: auto;
+  height:100%;
+
+  @media #{$super-wide} {
+      width:1200px;
+  }
+
+  @media #{$wide} {
+      width:1000px;
+  }
+
+  @media #{$square} {
+      width:800px;
+  }
+
+  @media #{$all-narrow} {
+      width:95%;
+  }
+}

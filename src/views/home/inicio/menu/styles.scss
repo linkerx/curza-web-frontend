@@ -1,0 +1,31 @@
+#home-inicio-menu {
+  position: absolute;
+  bottom: 15vh;
+  right: 20%;
+  width: 30%;
+  height: auto;
+  z-index: 30;
+  color: #fff;
+}
+
+#home-inicio-menu nav.menu li {
+  margin:15px;
+  list-style: none;
+  text-align: right;
+}
+
+#home-inicio-menu nav.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight:bold;
+}
+
+#home-inicio-menu nav.menu li a:hover {
+  font-style: italic;
+  color: #ccc;
+}
+
+#home-inicio-menu nav.menu li a.active {
+  color: #00ffff;
+}

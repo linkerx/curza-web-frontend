@@ -1,0 +1,11 @@
+// Media Queries
+$super-wide: "only screen and (min-width: 1400px)";
+$wide: "only screen and (min-width: 1200px) and (max-width: 1400px)";
+$square: "only screen and (min-width: 800px) and (max-width: 1200px)";
+$narrow: "only screen and (min-width: 400px) and (max-width: 800px)";
+$super-narrow: "only screen and (max-width: 400px)";
+
+// MQ Combinados
+$all-wide: $wide+", "+$super-wide;
+$all-wide-sq: $square+", "+$wide+", "+$super-wide;
+$all-narrow: $narrow+", "+$super-narrow;
