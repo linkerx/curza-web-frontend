@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './styles.scss';
-
+import WpMenu from 'wp/menu';
 class HomeHeader extends React.Component {
     render(){
         return(
@@ -18,16 +17,13 @@ class HomeHeader extends React.Component {
                     </div>
                     <div className='wrapper-servicios'>
                         <div className='redes-sociales'>
-                        <ul>
-                            <li><Link to='https://facebook.com'><i className="fab fa-facebook-f"></i></Link></li>
-                            <li><Link to='https://twitter.com'><i className="fab fa-twitter"></i></Link></li>
-                        </ul>
+                            <WpMenu location='redes-sociales-menu-location' />
                         </div>
                         <div className='telefonos'>
                                 <i className='fas fa-phone'></i>
                                 <span>+54 - 2920 - 422921/423772</span>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         )
