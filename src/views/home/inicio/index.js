@@ -15,18 +15,20 @@ class HomeInicio extends React.Component {
 
     this.state = {
       megamenuOpen: false,
-      megamenuData: null
+      megamenuData: null,
+      menuSelected: null
     }
 
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
 
-  openMenu(items){
+  openMenu(item){
     this.setState(function(){
       return {
         megamenuOpen: true,
-        megamenuData: items
+        menuSelected: item.id,
+        megamenuData: item.children
       }
     });
   }
@@ -34,7 +36,8 @@ class HomeInicio extends React.Component {
   closeMenu(){
     this.setState({
       megamenuOpen: false,
-      megamenuData: null
+      megamenuData: null,
+      menuSelected: null
     })
   }
 
@@ -45,7 +48,7 @@ class HomeInicio extends React.Component {
         <HomeHeader />
         <WpItem type='post' slug='estudia-en-el-curza' share={false} render='back' img_size='full' />
         <div className='fondo-articulo'></div>
-        <HomeInicioMenu openMenu={this.openMenu} />
+        <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>
           <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} debug={true} />
         </div>

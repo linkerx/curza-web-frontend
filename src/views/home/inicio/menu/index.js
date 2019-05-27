@@ -50,7 +50,11 @@ class HomeInicioMenu extends React.Component {
           <ul className='menu'>
           {
             this.state.menu.items.map(function (menuItem, index) {
-                return (<MenuItem key={index} showSubmenu={false} item={menuItem} path={this.props.path} action={() => {this.props.openMenu(menuItem.children) }} />)
+                var active = false;
+                if(this.props.activeSubmenuItem === menuItem.id){
+                  active = true;
+                }
+                return (<MenuItem key={index} showSubmenu={false} item={menuItem} path={this.props.path} action={() => {this.props.openMenu(menuItem) }} activeSubmenu={active} activeSubmenuClass='submenu-active' />)
             }.bind(this))
           }
           {

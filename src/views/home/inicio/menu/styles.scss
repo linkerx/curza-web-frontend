@@ -1,17 +1,23 @@
 #home-inicio-menu {
   position: absolute;
   bottom: 15vh;
-  right: 20%;
-  width: 30%;
+  right: 15%;
+  width: 25%;
   height: auto;
   z-index: 30;
   color: #fff;
 }
 
 #home-inicio-menu nav.menu li {
-  margin:15px;
+  margin:5px;
+  padding:10px;
   list-style: none;
   text-align: right;
+  background: transparent;
+}
+
+#home-inicio-menu nav.menu li.submenu-active {
+  background-color: #10396d;
 }
 
 #home-inicio-menu nav.menu li a {
