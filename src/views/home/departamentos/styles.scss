@@ -1,3 +1,5 @@
+@import "../../../styles/variables/colors.scss";
+
 #home-departamentos {
   position: relative;
   width: 100%;
@@ -5,7 +7,6 @@
   padding-top: 40px;
   background-color: #ddd;
 }
-
 #home-departamentos h1 {
   font-size:2.5em;
   color: #333;
@@ -13,4 +14,39 @@
   margin-bottom: 20px;
   padding-top: 5px;
   border-top:1px solid #333;
+}
+#home-departamentos ul {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+#home-departamentos ul li {
+  flex: 20%;
+  margin: 1px;
+  height: 80px;
+  list-style: none;
+  box-sizing: border-box;
+  &.azul-claro{
+    background-color: $background-1;
+  }
+  &.azul-medio{
+    background-color: $background-2;
+  }
+  &.azul-oscuro{
+    background-color: $background-3;
+  }
+}
+#home-departamentos ul li a {
+  text-decoration: none;
+  display:flex;
+  height:100%;
+}
+#home-departamentos ul li span {
+  font-size: 1.2em;
+  color: white;
+  margin:auto;
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
 }
