@@ -5,7 +5,6 @@ import HomeAccesos from './accesos';
 import HomeNovedades from './novedades';
 import HomeDepartamentos from './departamentos';
 import HomeServicios from './servicios';
-import Footer from "views/footer";
 
 class Home extends React.Component {
   render(){
@@ -16,7 +15,6 @@ class Home extends React.Component {
         <HomeDepartamentos />
         <HomeServicios />
         <HomeNovedades />
-        <Footer />
       </section>
     )
   }

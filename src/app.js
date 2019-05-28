@@ -41,7 +41,6 @@ class App extends Component {
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <WpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
-                  <Footer {...props} />
                 </div>
               ) }.bind(this) }
               />

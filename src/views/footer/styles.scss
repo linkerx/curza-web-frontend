@@ -1,6 +1,165 @@
+@import "styles/variables/colors.scss";
+@import 'styles/variables/mqueries.scss';
+/**
+* Estilo para footer
+* Utiliza variables de  la paleta de colores
+*/
+
 #footer {
   position: relative;
-  width: 100%;
-  height: 500px;
-  background-color: #6194af;
+  background-color: $background-footer;
+  color:#fff;
+  display:flex;
+  /**
+  * estilos dentro de footer 
+  */
+  & .contenedor{
+    position: relative;
+    display:flex;
+    margin: 40px 0;
+    @media #{$all-narrow} {
+      display:block;
+      width:100%;
+    }
+  }
+  /* columnaas laterales  */
+  & .contenedor .columna {
+    flex-grow: 2;
+    width: 30%;
+    @media #{$all-narrow} {
+      display:block;
+      width:100%;
+    }
+  }
+  /* logo en la primer columna */
+  & .footer-logo{
+    margin: auto;
+    width:150px;
+    position:relative;
+    display: flex;
+  }
+  /* columna central */
+  & .contenedor .columna-2 {
+    flex-grow: 1;
+    width: 40%;
+    margin:auto 20px;
+    @media #{$all-narrow} {
+      text-align: center;
+      margin: auto;
+      display:block;
+      width:100%;
+    }
+  }
+  & .columna-2 h3{
+    text-transform: uppercase;
+    margin: 10px 0;
+    
+  }
+  /* redes sociales */
+  & .redes-sociales ul {
+    display: flex;
+    flex-wrap: wrap;
+    @media #{$all-narrow} {
+      text-align: center;
+      margin: 0;
+      display:block;
+      width:100%;
+    }
+  }
+  & .redes-sociales li {
+    list-style: none;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    color:#fff;
+    box-sizing: border-box;
+    padding-top: 10px;
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  & .redes-sociales li a {
+    display:block;
+    position:absolute;
+    top:0;
+    height: 0;
+    width:100%;
+    height:100%;
+  }
+  & .redes-sociales li span {
+    display: none;
+  }
+
+  /* menu principal */
+  & .columna .main-menu ul {
+    position: relative;
+    margin: 0 40px;
+    @media #{$all-narrow} {
+      text-align: center;
+      margin: 0;
+      display:none;
+      width:100%;
+    }
+  }
+  & .columna .main-menu ul li{
+    list-style: none;
+    & a {
+      line-height: 25px;
+      font-size: 1.2em;
+      text-transform: uppercase; 
+      text-decoration: none;
+      color: $font-1;
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+
+  /* linea separadora */
+  & .vertical-line{
+    padding:0 2px;
+    border-left:1px solid $font-1;
+  }
+  /* 
+  * Boton de subir 
+  * Se muestra unicamente en narrow(all)
+  */
+  & .subir {
+    display:none;
+    @media #{$all-narrow} {
+      display: inline-block;
+      background-color: $font-1;
+      width: 40px;
+      height: 40px;
+      color: #000;
+      font-size: 15px;
+      text-align: center;
+      border: $font-1 solid 1px;
+      border-radius: 3px;
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      transition: background-color .4s;
+      z-index: 1000;
+      &:hover {
+        color: $font-1;
+        box-shadow: 0px 0px 25px 5px $background-3;
+        background-color: $background-1;
+      }
+      & span{
+        text-decoration: none;
+        margin: 12px auto;
+        text-align: center;
+      }  
+    }
+  }
+
+}
+/* Scroll suave */
+html{
+  scroll-behavior: smooth !important;
 }
