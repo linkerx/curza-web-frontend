@@ -57,16 +57,10 @@ class FixedHeader extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    menu_opened: state.menu_opened,
-  }
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     openMenu,
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FixedHeader);
+export default connect(null, mapDispatchToProps)(FixedHeader);

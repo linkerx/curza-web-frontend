@@ -5,9 +5,7 @@ import './styles.scss';
 class Header extends React.Component {
   render(){
     return(
-      <div id='header'>
-        <MainMenu />
-      </div>
+      <div id='header'>Aqui Header</div>
     )
   }
 }

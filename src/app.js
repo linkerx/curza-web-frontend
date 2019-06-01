@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path='/' render={ function(props) { return ( <Home {...props} show={this.endLoading} /> ) }.bind(this) } />
               <Route path='/:slug' render={ function(props) { return (
                 <div className='wrapper'>
-                  <Header {...props} openMenu={this.openMenu} closeMenu={this.closeMenu} />
+                  <Header />
                   <Switch>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <WpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
@@ -45,8 +45,8 @@ class App extends Component {
               ) }.bind(this) }
               />
             </Switch>
+            <Footer />
           </div>
-        <Route path='/' render={ function(props) { return ( <Footer {...props} /> ) } } />
       </div>
     );
   }
