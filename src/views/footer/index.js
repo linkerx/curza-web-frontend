@@ -9,7 +9,7 @@ class Footer extends React.Component {
         <div className='wrapper-central'>
           <div className="contenedor">
             <div className="columna">
-              <img className="footer-logo" src={"images/logo_blanco.png"} alt="Logo" />
+              <img className="footer-logo" src={"/images/logo_blanco.png"} alt="Logo" />
             </div>
             <div className="vertical-line"></div>
             <div className="columna-2">

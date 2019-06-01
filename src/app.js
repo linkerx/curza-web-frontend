@@ -4,7 +4,8 @@ import MainMenu from "views/menu";
 import FixedHeader from "views/fixed-header";
 import Header from "views/header";
 import Footer from "views/footer";
-import Novedades from "views/novedades";
+import Novedades from "views/curza/novedades";
+import Institucional from "views/curza/institucional";
 import Home from "views/home";
 import WpNetwork from "wp/network";
 import 'styles/main.scss';
@@ -39,6 +40,7 @@ class App extends Component {
                   <Header />
                   <Switch>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
+                    <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <WpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
