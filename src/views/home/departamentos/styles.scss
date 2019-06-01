@@ -31,6 +31,8 @@
   height: 80px;
   list-style: none;
   box-sizing: border-box;
+  transition: transform .5s;
+  z-index: 30;
   &.azul-claro{
     background-color: $background-1;
   }
@@ -39,6 +41,11 @@
   }
   &.azul-oscuro{
     background-color: $background-3;
+  }
+
+  &:hover {
+    z-index: 31;
+    transform: scale(1.1);
   }
 }
 #home-departamentos ul li a {
