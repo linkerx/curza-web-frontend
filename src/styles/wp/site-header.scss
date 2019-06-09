@@ -1,0 +1,13 @@
+@import "styles/variables/colors.scss";
+
+#wp-site-header {
+    width:100%;
+    position:relative;
+    height: 60px;
+    border-bottom: 2px solid #10396d;
+}
+
+#wp-site-header h1{
+   padding-top:18px;
+   text-align: center;
+}
