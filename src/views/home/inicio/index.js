@@ -50,7 +50,7 @@ class HomeInicio extends React.Component {
         <div className='fondo-articulo'></div>
         <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>
-          <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} debug={true} />
+          <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} />
         </div>
       </section>
     )

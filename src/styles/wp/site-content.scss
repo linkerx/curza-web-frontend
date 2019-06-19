@@ -2,4 +2,8 @@
     width: auto;
     order: 2;
     flex-grow: 1;
+    box-sizing: border-box;
+    padding:20px;
 }
+
+@import 'styles/wp/site-post.scss';
