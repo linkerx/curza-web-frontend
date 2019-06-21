@@ -1,11 +1,12 @@
 import React from 'react';
-import WpSiteHeader from './header';
-import WpSiteMenu from './menu';
-import WpSiteContent from './content';
-import WpSiteSidebar from './sidebar';
+import WpSiteHeader from 'wp/site/header';
+import WpSiteMenu from 'wp/site/menu';
+import WpSiteContent from 'wp/site/content';
+import WpSiteSidebar from 'wp/site/sidebar';
+import CurzaCarreras from 'components/curza/carreras';
 import 'styles/wp/site.scss';
 
-class CurzaWpSite extends React.Component {
+class CurzaWpSiteDepartamento extends React.Component {
 
   constructor(props){
     super(props);
@@ -32,6 +33,7 @@ class CurzaWpSite extends React.Component {
         <WpSiteHeader site={this.props.site} openMenu={this.openMenu} data={this.props.site_data} />
         <div className='wp-site-wrapper'>
           <WpSiteMenu site={this.props.site} />
+          <CurzaCarreras departamento={this.props.site} />
           <WpSiteContent {...this.props} template={template} />
           <WpSiteSidebar site={this.props.site} />
         </div>
@@ -40,4 +42,4 @@ class CurzaWpSite extends React.Component {
   }
 }
 
-export default CurzaWpSite;
+export default CurzaWpSiteDepartamento;

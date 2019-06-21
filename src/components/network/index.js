@@ -1,7 +1,7 @@
 import React from 'react';
-import WpApi from 'wp/api';
+import CurzaApi from 'components/utils/curza_api';
 import { Route } from 'react-router-dom';
-import CurzaWpSite from '../utils/curza_router';
+import CurzaWpSiteRouter from '../utils/curza_router';
 
 class CurzaWpNetwork extends React.Component {
   constructor(props){
@@ -33,7 +33,7 @@ class CurzaWpNetwork extends React.Component {
       debug: debugAll
     };
     if (debugAll) { console.log("Check site:",this.props.match.params.slug) }
-    WpApi.getSite(opts_site)
+    CurzaApi.getSite(opts_site)
       .then(function(site){
         if (debugAll) { console.log(this.props.match.params.slug,"is a Site") }
         setTimeout(function(){this.props.show()}.bind(this), 3000);
@@ -49,7 +49,7 @@ class CurzaWpNetwork extends React.Component {
           name: '',
           debug: false
         };
-        WpApi.getSite(opts_site2)
+        CurzaApi.getSite(opts_site2)
           .then(function(main_site){
             setTimeout(function(){this.props.show()}.bind(this), 3000);
             this.setState({
@@ -62,12 +62,20 @@ class CurzaWpNetwork extends React.Component {
   }
 
   render(){
+    console.log("State en Curza-Network:", this.state);
     return (
       <div className='network-wrapper'>
-        {this.state.check &&
-          <CurzaWpSiteRouter site={this.state.site} site_data={this.state.site_data} />
+        { this.state.check &&
+          <div>
+            { this.state.site
+              ?
+                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) { return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+              :
+                <Route path='/:slug1/:slug2?/:slug3?' render={ function(props) { return ( <CurzaWpSiteRouter {...props} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+            }
+          </div>
         }
-      </div>
+     </div>
     )
   }
 }
