@@ -15,17 +15,6 @@
   z-index: 20;
 }
 
-#home-inicio > .fondo-articulo {
-  position: absolute;
-  top: 30vh;
-  left: 0;
-  width:40%;
-  height: 40vh;
-  background-color: #000;
-  opacity: 0.4;
-  z-index: 25;
-}
-
 #home-inicio > article {
   position:absolute;
   top:0;
@@ -54,6 +43,13 @@
   font-size: 3em;
   z-index: 30;
   color: #fff;
+  @media #{$all-narrow} {
+    top: 215px;
+    left: 3vw;
+    right: 3vw;
+    font-size: 2em;
+    text-align: center;
+  }
 }
 
 #home-inicio > article .excerpt {
@@ -65,6 +61,12 @@
   font-size: 1.2em;
   z-index: 30;
   color: #fff;
+  @media #{$all-narrow} {
+    top: 280px;
+    left: 3vw;
+    right: 3vw;
+    text-align: center;
+  }
 }
 
 
@@ -77,6 +79,12 @@
   font-size: 1.2em;
   z-index: 30;
   color: #fff;
+  @media #{$all-narrow} {
+    top: 360px;
+    left: 3vh;
+    right: 3vh;
+    text-align: center;
+  }
 }
 
 #home-inicio > article .content .wp-block-button a{

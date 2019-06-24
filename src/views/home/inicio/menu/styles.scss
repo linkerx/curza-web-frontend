@@ -1,3 +1,5 @@
+@import 'styles/variables/mqueries.scss';
+
 #home-inicio-menu {
   position: absolute;
   bottom: 15vh;
@@ -6,6 +8,20 @@
   height: auto;
   z-index: 30;
   color: #fff;
+  @media #{$all-narrow} {
+    width:auto;
+    top: 58vh;
+    bottom: 15px;
+    left: 2vw;
+    right: 2vw;
+  }
+}
+
+#home-inicio-menu nav.menu > ul {
+  @media #{$all-narrow} {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 #home-inicio-menu nav.menu li {
@@ -14,6 +30,12 @@
   list-style: none;
   text-align: right;
   background: transparent;
+  @media #{$all-narrow} {
+    margin: 20px 1%;
+    padding: 0;
+    width: 48%;
+    text-align:center;
+  }
 }
 
 #home-inicio-menu nav.menu li.submenu-active {

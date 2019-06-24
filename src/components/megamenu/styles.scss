@@ -1,6 +1,10 @@
+@import 'styles/variables/mqueries.scss';
 
 .megamenu.initial {
   left:-60vw;
+  @media #{$all-narrow} {
+    left: -100vw;
+  }
 }
 
 .megamenu.opened {
@@ -9,6 +13,9 @@
 
 .megamenu.closed {
   left:-60vw;
+  @media #{$all-narrow} {
+    left: -100vw;
+  }
 }
 
 .megamenu {
@@ -20,6 +27,11 @@
   z-index: 100;
   overflow: hidden;
   transition: left 1s;
+  @media #{$all-narrow} {
+    top: 175px;
+    left: -100vw;
+    width: 100vw;
+  }
 }
 
 .megamenu .fondo {
@@ -42,21 +54,31 @@
 
 }
 
+.megamenu li {
+  list-style: none;
+  color: #fff;
+}
+
 .megamenu li.nivel-1 {
-  width: auto;
-  height: 100%;
+  width: 80%;
+  margin: 2%;
+  text-align: right;
   flex-grow: 1;
-  text-align:center;
   padding-top: 2vh;
+  @media #{$all-narrow} {
+    width: 96%;
+    text-align:center;
+  }
 }
 
 .megamenu li.nivel-1 > a > span {
   font-weight: bold;
-  color:#333;
+  color:#fff;
+  font-size: 1.5em;
 }
 
 .megamenu li.nivel-1 > a:hover > span{
-  color: #777;
+  color: #aaa;
 }
 
 .megamenu li.nivel-1 > .submenu {
