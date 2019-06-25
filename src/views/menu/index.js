@@ -2,6 +2,7 @@ import React from 'react';
 import WpApi from 'wp/api';
 import MenuItem from 'wp/menu-item';
 import { NavLink } from 'react-router-dom';
+import MenuTrigger from './closeMenuBtn';
 import './styles.scss';
 
 class MainMenu extends React.Component {
@@ -78,6 +79,7 @@ class MainMenu extends React.Component {
           </ul>
         }
         </nav>
+        <MenuTrigger closeMenu={this.props.closeMenu}/>
       </div>
     )
   }

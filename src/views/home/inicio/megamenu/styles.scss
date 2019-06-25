@@ -1,24 +1,24 @@
 @import 'styles/variables/mqueries.scss';
 
-.megamenu.initial {
+#home-megamenu.initial {
   left:-60vw;
   @media #{$all-narrow} {
     left: -100vw;
   }
 }
 
-.megamenu.opened {
+#home-megamenu.opened {
   left: 0 ;
 }
 
-.megamenu.closed {
+#home-megamenu.closed {
   left:-60vw;
   @media #{$all-narrow} {
     left: -100vw;
   }
 }
 
-.megamenu {
+#home-megamenu {
   position: absolute;
   top: 150px;
   left: -60vw;
@@ -34,7 +34,7 @@
   }
 }
 
-.megamenu .fondo {
+#home-megamenu .fondo {
   position: absolute;
   top:0;
   left:0;
@@ -44,7 +44,7 @@
   z-index: 101;
 }
 
-.megamenu .submenu {
+#home-megamenu .submenu {
   position: absolute;
   top:0;
   left:0;
@@ -54,12 +54,12 @@
 
 }
 
-.megamenu li {
+#home-megamenu li {
   list-style: none;
   color: #fff;
 }
 
-.megamenu li.nivel-1 {
+#home-megamenu li.nivel-1 {
   width: 80%;
   margin: 2%;
   text-align: right;
@@ -71,33 +71,33 @@
   }
 }
 
-.megamenu li.nivel-1 > a > span {
+#home-megamenu li.nivel-1 > a > span {
   font-weight: bold;
   color:#fff;
   font-size: 1.5em;
 }
 
-.megamenu li.nivel-1 > a:hover > span{
+#home-megamenu li.nivel-1 > a:hover > span{
   color: #aaa;
 }
 
-.megamenu li.nivel-1 > .submenu {
+#home-megamenu li.nivel-1 > .submenu {
   display: block;
   height: 80%;
   padding: 10% 5%;
   width:90%;
 }
 
-.megamenu li.nivel-2 {
+#home-megamenu li.nivel-2 {
   width: 100%;
   text-align:left;
   height:5vh;
 }
 
-.megamenu li.nivel-2 > a > span {
+#home-megamenu li.nivel-2 > a > span {
   color:#333;
 }
 
-.megamenu li.nivel-2 > a:hover > span{
+#home-megamenu li.nivel-2 > a:hover > span{
   color: #777;
 }

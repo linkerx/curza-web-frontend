@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="app">
           <div id='main-wrapper'>
-            <MainMenu openMenu={this.openMegamenu} opened={this.state.menuOpen} />
+            <MainMenu openMenu={this.openMegamenu} opened={this.state.menuOpen} closeMenu={this.closeMenu} />
             <FixedHeader openMenu={this.openMenu}/>
             <Switch>
               <Route exact path='/' render={ function(props) { return ( <Home {...props} show={this.endLoading} /> ) }.bind(this) } />

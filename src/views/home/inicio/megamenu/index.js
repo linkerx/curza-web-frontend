@@ -53,7 +53,7 @@ class MegaMenu extends React.Component {
     }
 
     return (
-      <div className={'megamenu '+this.state.menuClass}>
+      <div id='home-megamenu' className={'megamenu '+this.state.menuClass}>
       <div className='fondo'></div>
         <CloseMenuBtn closeMenu={this.props.close} />
         { this.state.items &&
