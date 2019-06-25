@@ -6,8 +6,8 @@ function Destacadas(){
 
   var DestQueries = [
     '_embed',
-    'categories=8',
-    'per_page=3'
+    'categories=2',
+    'per_page=5'
   ];
 
   var sliderOptions = {
@@ -17,7 +17,9 @@ function Destacadas(){
       pageCount: 1,
       pageImgSize: 'full',
       time: 5000,
-      containerClass: ''
+      containerClass: '',
+      imageLink: true,
+      showContent: true
   }
 
   return (

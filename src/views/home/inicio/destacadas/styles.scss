@@ -1,141 +1,27 @@
 @import 'styles/variables/mqueries.scss';
 
-section#home-destacadas{
-  z-index: 30;
-  height: 600px;
-  background-color: #000;
-  position: relative;
-
-  @media #{$all-narrow} {
-    height: 730px;
-  }
-}
-
-section#home-destacadas h1{
-  position:absolute;
-  margin: 0;
-  top: 30px;
-  left: 5%;
-  width: 90%;
-  height: auto;
-  z-index: 40;
-  color: #fff;
-  font-size: 1.8em;
-  border: 0;
-}
-
-section#home-destacadas .slider {
+section#home-inicio .slider {
   position: absolute;
-  top: 75px;
-  left: 15%;
-  width: 70%;
-  height: 520px;
-
-  @media #{$square} {
-    width:80%;
-    left: 10%;
-  }
+  top: 150px;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  z-index:20;
 
   @media #{$all-narrow} {
-    width:90%;
-    left: 5%;
-
-    height:300px;
+    top: 180px;
   }
 }
 
-section#home-destacadas .list {
-  position:absolute;
-  top:0;
-  right:0;
-  width:25%;
-  height:100%;
-  z-index:40;
-
-  @media #{$all-narrow} {
-    top:320px;
-    width:100%;
-    height:auto;
-  }
+section#home-inicio .slider .list {
+  display:none;
 }
 
-section#home-destacadas .list article {
-  height:33.33%;
-  width:100%;
-  position:relative;
-
-  @media #{$all-narrow} {
-    height: 100px;
-
-  }
-}
-
-section#home-destacadas .list article h2 {
-  position:absolute;
-  bottom:0;
-  width:94%;
-  height:auto;
-  z-index:50;
-  background-color: rgba(0,0,0,0.5);
-  margin:0;
-  padding: 10px 3%;
-  padding-bottom: 15px;
-  line-height: 0.6em;
-
-  @media #{$all-narrow} {
-    left: 25%;
-    width: 65%;
-    background: transparent;
-    padding: 5px 5%;
-
-    top:0;
-    text-align:left;
-  }
-
-
-}
-
-section#home-destacadas .list article h2 a {
-  color: #fff;
-  font-size: 0.6em;
-  line-height: 0.6em;
-}
-
-section#home-destacadas .list article .excerpt {
-  display: none;
-}
-
-section#home-destacadas .list article .image_container .image {
-  position:absolute;
-  top:0;
-  right:0;
-  width:100%;
-  height:100%;
-  z-index:48;
-
-  background-position: 75% center;
-  background-size: cover;
-
-  @media #{$all-narrow} {
-    left: 0;
-    width: 25%;
-    height: 80px;
-  }
-}
-
-section#home-destacadas .list article:nth-child(1) .image_container .image {
-  border-radius: 0 1vh 0 0;
-}
-
-section#home-destacadas .list article:nth-child(3) .image_container .image {
-  border-radius: 0 0 1vh 0;
-}
-
-section#home-destacadas .page {
+section#home-inicio .slider .page {
   position: absolute;
   top: 0;
   left: 0;
-  width: 75%;
+  width: 100%;
   height: 100%;
 
   @media #{$all-narrow} {
@@ -143,12 +29,12 @@ section#home-destacadas .page {
   }
 }
 
-section#home-destacadas .page article h2 {
+section#home-inicio .slider .page article h2 {
   position:absolute;
   top:0;
   width:94%;
   height:auto;
-  z-index:50;
+  z-index:30;
   background-color: rgba(0,0,0,0.5);
   margin:0;
   padding: 10px 3%;
@@ -156,23 +42,23 @@ section#home-destacadas .page article h2 {
   text-align:center;
 }
 
-section#home-destacadas .page article h2 a {
+section#home-inicio .slider .page article h2 a {
   color: #fff;
   font-size: 1em;
   text-shadow: 0 0 5px #000;
 }
 
 
-section#home-destacadas .page article .image_container .image {
+section#home-inicio .slider .page article .image_container .image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index:48;
+  z-index:25;
   background-position: 75% center;
   background-size: cover;
-
+  opacity: 0.4;
   border-radius: 10px 0 0 10px;
 
   @media #{$all-narrow} {
@@ -180,12 +66,12 @@ section#home-destacadas .page article .image_container .image {
   }
 }
 
-section#home-destacadas .page article .excerpt {
+section#home-inicio .slider .page article .excerpt {
   position: absolute;
   bottom: 0;
   width: 40%;
   right: 20px;
-  z-index: 50;
+  z-index: 30;
   height: auto;
   background-color: rgba(0,0,0,0.5);
   padding: 20px;
@@ -205,12 +91,6 @@ section#home-destacadas .page article .excerpt {
   }
 }
 
-section#home-destacadas .ver-todas {
-  position: absolute;
-  top: 670px;
-  left: 0;
-  width: 90%;
-  margin: 5%;
-  text-align: center;
-  font-size: 1.2em;
+section#home-inicio .slider .ver-todas {
+  display:none;
 }
