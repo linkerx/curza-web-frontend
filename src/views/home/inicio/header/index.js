@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import WpMenu from 'wp/menu';
+import { Link } from 'react-router-dom';
 class HomeHeader extends React.Component {
     render(){
         return(
@@ -8,7 +9,7 @@ class HomeHeader extends React.Component {
                 <div className='fondo'></div>
                 <div className='wrapper-central'>
                     <div className='logo'>
-                        <img src='/images/logo_blanco.png' alt='Logo UNCo' />
+                        <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
                         <div className='logo-text'>
                             <div className='titulo'>C.U.R.Z.A.</div>
                             <div className='descripcion'>Centro Universitario Regional Zona Atlántica</div>

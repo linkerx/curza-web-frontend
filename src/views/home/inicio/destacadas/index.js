@@ -23,7 +23,7 @@ function Destacadas(){
   }
 
   return (
-     <Slider type='posts' queries={DestQueries} list={true} options={sliderOptions} />
+     <Slider type='posts' queries={DestQueries} list={true} options={sliderOptions} template={3} showContent={true} />
   )
 }
 

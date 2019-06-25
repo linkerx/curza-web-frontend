@@ -29,26 +29,6 @@ section#home-inicio .slider .page {
   }
 }
 
-section#home-inicio .slider .page article h2 {
-  position:absolute;
-  top:0;
-  width:94%;
-  height:auto;
-  z-index:30;
-  background-color: rgba(0,0,0,0.5);
-  margin:0;
-  padding: 10px 3%;
-  padding-top: 20px;
-  text-align:center;
-}
-
-section#home-inicio .slider .page article h2 a {
-  color: #fff;
-  font-size: 1em;
-  text-shadow: 0 0 5px #000;
-}
-
-
 section#home-inicio .slider .page article .image_container .image {
   position: absolute;
   top: 0;
@@ -59,38 +39,58 @@ section#home-inicio .slider .page article .image_container .image {
   background-position: 75% center;
   background-size: cover;
   opacity: 0.4;
-  border-radius: 10px 0 0 10px;
+}
+
+section#home-inicio .slider .page article .post_content {
+  position:absolute;
+  top:20vh;
+  left:0;
+  width:40%;
+  height:auto;
+  z-index:30;
+  background-color: rgba(0,0,0,0.5);
+  margin:0;
+  padding: 10px 3%;
+  padding-top: 30px;
+  text-align:center;
 
   @media #{$all-narrow} {
-    border-radius: 10px;
+    top: 0;
+    width:100%;
   }
 }
 
-section#home-inicio .slider .page article .excerpt {
-  position: absolute;
-  bottom: 0;
-  width: 40%;
-  right: 20px;
-  z-index: 30;
-  height: auto;
-  background-color: rgba(0,0,0,0.5);
-  padding: 20px;
+section#home-inicio .slider .page article .post_content h2 a {
   color: #fff;
-  text-align:center;
-  text-shadow: 0 0 5px #000;
+  font-size: 1.5em;
+}
 
-  @media #{$square} {
-    width: 60%;
-    left: 30%;
-  }
+section#home-inicio .slider .page article .post_content .date {
+  display: none;
+}
 
-  @media #{$all-narrow} {
-    width: 90%;
-    padding: 10px 5%;
-    left: 0;
-  }
+section#home-inicio .slider .page article .post_content .content {
+  margin: 30px;
+  color: #fff;
+}
+
+section#home-inicio .slider .page article .post_content .excerpt {
+  margin:20px;
+  color: #ccc;
+  font-size: 1.2em;
+  font-style: italic
 }
 
 section#home-inicio .slider .ver-todas {
   display:none;
+}
+
+
+section#home-inicio .slider .page article .post_content .content .wp-block-button a {
+  display: inline-block;
+  background-color: #008dc2;
+  padding: 10px;
+  margin:10px;
+  border-radius: 8px;
+  color: #fff;
 }

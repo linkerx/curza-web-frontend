@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { openMenu } from 'redux/actions/menu';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 class FixedHeader extends React.Component {
@@ -45,9 +45,7 @@ class FixedHeader extends React.Component {
     return(
       <div id='fixed-header' className={headerClass}>
         <div className='logo'>
-          <NavLink to='/'>
-            <img src='/images/logo.png' alt='Logo UNCo' />
-          </NavLink>
+          <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
         </div>
         <div className='menu-opener'>
             <i onClick={() => this.props.openMenu()} className='fas fa-bars'></i>
