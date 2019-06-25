@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { openMenu } from 'redux/actions/menu';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
@@ -55,10 +52,4 @@ class FixedHeader extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    openMenu,
-  }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(FixedHeader);
+export default FixedHeader;

@@ -19,9 +19,10 @@ class Header extends React.Component {
                       <div className='unco'>Universidad Nacional del Comahue</div>
                   </div>
               </div>
-              <div className='menu-opener'>
-                      <i onClick={() => this.props.openMenu()} className='fas fa-bars'></i>
-                  </div>
+              <div className='menu-opener' onClick={() => this.props.openMenu()}>
+                  <span>Menú</span>
+                  <i className='fas fa-bars'></i>
+              </div>
               <div className='wrapper-servicios'>
                   
                   <div className='redes-sociales'>

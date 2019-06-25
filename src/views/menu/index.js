@@ -1,102 +1,87 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import { bindActionCreators } from 'redux';
-import { closeMenu } from 'redux/actions/menu';
-import WpMenu from 'wp/menu';
 import WpApi from 'wp/api';
+import MenuItem from 'wp/menu-item';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 class MainMenu extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state  = {
-      delegaciones:null
+    this.state = {
+      menu: null,
     }
-    this.getDelegaciones = this.getDelegaciones.bind(this);
+    this.updateItems = this.updateItems.bind(this);
   }
 
   componentDidMount(){
-      this.getDelegaciones();
+      this.updateItems();
   }
 
-  getDelegaciones(){
-    this.setState(function(){
+  updateItems(){
+    this.setState(function () {
       return {
-        delegaciones:null
+        menu: null,
       }
     });
-    WpApi.getSitesList()
-      .then(function(sites){
-        this.setState(function(){
+
+    var opts = {
+      location: 'main-menu-location',
+      debug: false
+    }
+
+    WpApi.getMenuIdByLocation(opts)
+      .then(function(menu) {
+        this.setState(function () {
           return {
-            delegaciones:sites
+            menu: menu,
           }
         });
-      }.bind(this))
+      }.bind(this));
   }
 
-  render(){
-    var menuClass = 'closed';
-    if(this.props.menu_opened){
-      menuClass = 'opened';
+  render() {
+    var mainMenuClass = 'closed';
+    if(typeof(this.props.opened) !== 'undefined'){
+      if(this.props.opened){
+        mainMenuClass = 'opened';
+      } else {
+        mainMenuClass = 'closed';
+      }
     }
-    return(
-      <div id='main-menu' className={menuClass} >
-        <div className='fondo'></div>
-        <div className='menu-delegaciones'>
-        <div className='fondo-menu-delegaciones'></div>
-          <div className='menu-logo'>
-            <img src='/images/logo_blanco.png' alt='Logo UPCN' />
-          </div>
-          <div className='delegaciones'>
-            <header>Delegaciones</header>
-            {!this.state.delegaciones
-              ?
-              <div>Cargando...</div>
-              :
-              <ul className='list' >
-                {
-                  this.state.delegaciones.map(function(item,index){
-                    return (
-                      <li key={item.blog_id}>
-                        <NavLink to={item.path} onClick={() => this.props.closeMenu()}>
-                          {item.blog_name}
-                        </NavLink>
-                      </li>
-                    )
-                  })
+
+    return (
+      <div id='main-menu' className={mainMenuClass}>
+        <nav className='menu'>
+        {!this.state.menu
+          ?
+            this.props.children
+          :
+          <ul className='menu'>
+          {
+            this.state.menu.items.map(function (menuItem, index) {
+                var active = false;
+                if(this.props.activeSubmenuItem === menuItem.id){
+                  active = true;
                 }
-              </ul>
-            }
-          </div>
-        </div>
-        <div className='menu-principal'>
-          <div className='fondo-menu-principal'></div>
-          <div className='menu-closer'>
-            <div className='frame'>
-              <i onClick={() => this.props.closeMenu()} className='fas fa-times'></i>
-            </div>
-          </div>
-          <WpMenu location='main-menu-location' action={() => this.props.closeMenu()}/>
-        </div>
+                return (<MenuItem key={index} showSubmenu={false} item={menuItem} path={this.props.path} action={() => {this.props.openMenu(menuItem) }} activeSubmenu={active} activeSubmenuClass='submenu-active' />)
+            }.bind(this))
+          }
+          {
+            this.props.extraItems &&
+              this.props.extraItems.map(function (item, index) {
+                return (
+                  <li key={100+index}>
+                    <NavLink exact to={item.url} activeClassName="active" >{item.title}</NavLink>
+                  </li>)
+            })
+          }
+          </ul>
+        }
+        </nav>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    menu_opened: state.menu_opened,
-  }
-}
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    closeMenu,
-  }, dispatch);
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainMenu));
+export default MainMenu;

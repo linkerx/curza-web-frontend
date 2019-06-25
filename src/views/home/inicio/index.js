@@ -5,7 +5,7 @@ import { openMenu } from 'redux/actions/menu';
 import HomeDestacadas from './destacadas';
 import HomeHeader from './header';
 import HomeInicioMenu from './menu';
-import Megamenu from 'components/megamenu';
+import Megamenu from './megamenu';
 import './styles.scss';
 
 class HomeInicio extends React.Component {

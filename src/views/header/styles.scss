@@ -7,7 +7,7 @@
     height:150px;
 
     @media #{$all-narrow} {
-        height: 250px;
+        height: 220px;
     }
     
     & > .fondo {
@@ -51,7 +51,6 @@
 
     & .logo .logo-text {
         color: #fff;
-        margin-top: 5px;
     }
 
     & .logo .logo-text .titulo{
@@ -130,16 +129,37 @@
         margin-right: 5px;
     }
     & .menu-opener {
-        position: absolute;
-        right: 15px;
-        top: 15px;
+        float: right;
+        margin-top: 62px;
+        margin-left: 20px;
         cursor: pointer;
+        @media #{$all-narrow} {
+            float:none;
+            position:absolute;
+            margin:0;
+            top:175px;
+            width:100%;
+        }
+    }
+
+    & .menu-opener span {
+        display:none;
+        @media #{$all-narrow} {
+            display: inline;
+            margin-top: -10px;
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #fff;
+        }
     }
       
     & .menu-opener i {
         margin:auto;
         font-size: 30px;
         color: #fff;
+        @media #{$all-narrow} {
+            font-size: 1.2em;
+        }
     }
       
 }
