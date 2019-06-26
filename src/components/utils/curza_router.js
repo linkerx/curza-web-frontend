@@ -74,17 +74,17 @@ componentDidMount(){
       template = this.props.template;
     }
 
-    console.log("Props Curza-Router",this.props);
-    console.log("Site Curza-Router",this.state.site);
+    //console.log("Props Curza-Router",this.props);
+    //console.log("Site Curza-Router",this.state.site);
 
     return(
       <section id='curza-wp-site'>
         {this.state.check &&
           <div>
             { (this.state.home && this.props.site_data.tipo_pagina === 'departamento') ? 
-                <CurzaWpSiteDepartamento {...this.props} />
+                <CurzaWpSiteDepartamento {...this.props} template={template}/>
               :
-                <WpSite {...this.props} />
+                <WpSite {...this.props} template={template}/>
             }
           </div>
         }

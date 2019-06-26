@@ -1,5 +1,5 @@
 import React from 'react';
-import CurzaApi from 'components/utils/curza_api';
+import { getSite } from 'components/utils/curza_api';
 import { Route } from 'react-router-dom';
 import CurzaWpSiteRouter from '../utils/curza_router';
 
@@ -21,7 +21,7 @@ class CurzaWpNetwork extends React.Component {
   }
 
   checkSite(){
-    var debugAll = true;
+    var debugAll = false;
     this.setState({
       check: false,
       site: null,
@@ -33,7 +33,7 @@ class CurzaWpNetwork extends React.Component {
       debug: debugAll
     };
     if (debugAll) { console.log("Check site:",this.props.match.params.slug) }
-    CurzaApi.getSite(opts_site)
+    getSite(opts_site)
       .then(function(site){
         if (debugAll) { console.log(this.props.match.params.slug,"is a Site") }
         setTimeout(function(){this.props.show()}.bind(this), 3000);
@@ -49,7 +49,7 @@ class CurzaWpNetwork extends React.Component {
           name: '',
           debug: false
         };
-        CurzaApi.getSite(opts_site2)
+        getSite(opts_site2)
           .then(function(main_site){
             setTimeout(function(){this.props.show()}.bind(this), 3000);
             this.setState({
@@ -62,7 +62,7 @@ class CurzaWpNetwork extends React.Component {
   }
 
   render(){
-    console.log("State en Curza-Network:", this.state);
+    //console.log("State en Curza-Network:", this.state);
     return (
       <div className='network-wrapper'>
         { this.state.check &&
