@@ -1,7 +1,7 @@
 import React from 'react';
-import { getSite } from 'components/utils/curza_api';
+import { getSite } from 'components/curza/api';
 import { Route } from 'react-router-dom';
-import CurzaWpSiteRouter from '../utils/curza_router';
+import CurzaWpSiteRouter from 'components/curza/router';
 
 class CurzaWpNetwork extends React.Component {
   constructor(props){

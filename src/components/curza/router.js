@@ -1,6 +1,10 @@
 import React from 'react';
-import CurzaWpSiteDepartamento from 'components/site/departamento';
+import CurzaDepartamento from 'components/curza/departamento';
+import CurzaCarreras from 'components/curza/departamento/carreras';
+import CurzaCarrera from 'components/curza/carrera';
+import WpSiteContent from 'wp/site/content';
 import WpSite from 'wp/site';
+import { Switch, Route } from 'react-router-dom';
 
 class CurzaWpSiteRouter extends React.Component {
 
@@ -81,8 +85,20 @@ componentDidMount(){
       <section id='curza-wp-site'>
         {this.state.check &&
           <div>
-            { (this.state.home && this.props.site_data.tipo_pagina === 'departamento') ? 
-                <CurzaWpSiteDepartamento {...this.props} template={template}/>
+            { this.props.site_data.tipo_pagina === 'departamento' ?
+              <CurzaDepartamento {...this.props} template={template} >
+                { this.state.home ?
+                  <WpSiteContent {...this.props} template={template} >
+                    <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} />
+                  </WpSiteContent>
+                :
+                    <Switch>
+                      <Route exact path={'/'+this.state.site+'/carreras/'} render={ function(props) { return ( <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} /> ) }.bind(this) } />
+                      <Route exact path={'/'+this.state.site+'/carreras/:slug_carrera'} render={ function(props) { return ( <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} /> ) }.bind(this) } />
+                      <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) { return ( <WpSite {...props} template={template} /> ) }} />
+                    </Switch>
+                } 
+                </CurzaDepartamento>
               :
                 <WpSite {...this.props} template={template}/>
             }
