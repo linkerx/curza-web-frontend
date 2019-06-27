@@ -1,9 +1,11 @@
 #wp-site-menu {
     width:250px;
-    border-right: 2px solid #10396d;
+    background-color: #9ee5ff;
+    color: #333;
     box-sizing: border-box;
     padding:10px;
     order: 1;
+    flex-shrink: 0;
 }
 
 #wp-site-menu nav.menu ul {}
@@ -15,5 +17,6 @@
 
 #wp-site-menu nav.menu li a {
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1em;
+    color: #333;
 }

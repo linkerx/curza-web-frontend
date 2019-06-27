@@ -36,7 +36,7 @@ class CurzaWpSiteDepartamento extends React.Component {
         <WpSiteHeader site={this.props.site} openMenu={this.openMenu} data={this.props.site_data} />
         <div className='wp-site-wrapper'>
           <WpSiteMenu site={this.props.site} />
-          <div id='wp-site-content'>
+          <div id='curza-site-content'>
             {this.props.children}
           </div>
           <WpSiteSidebar site={this.props.site} />

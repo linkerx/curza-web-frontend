@@ -21,7 +21,7 @@ class CurzaWpNetwork extends React.Component {
   }
 
   checkSite(){
-    var debugAll = false;
+    var debugAll = true;
     this.setState({
       check: false,
       site: null,
@@ -47,15 +47,16 @@ class CurzaWpNetwork extends React.Component {
         if (debugAll) { console.log(this.props.match.params.slug,"is NOT a Site") }
         var opts_site2 = {
           name: '',
-          debug: false
+          debug: true
         };
         getSite(opts_site2)
           .then(function(main_site){
+            if (debugAll) { console.log("Sitio Principal:",main_site) }
             setTimeout(function(){this.props.show()}.bind(this), 3000);
             this.setState({
                 check: true,
                 site: "",
-                site_data: main_site[0 ]
+                site_data: main_site
             });
           }.bind(this));
       }.bind(this));
@@ -67,7 +68,7 @@ class CurzaWpNetwork extends React.Component {
       <div className='network-wrapper'>
         { this.state.check &&
           <div>
-            { this.state.site
+            { this.state.site !== ""
               ?
                 <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) { return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
               :

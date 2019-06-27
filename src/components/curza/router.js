@@ -101,12 +101,14 @@ componentDidMount(){
                           <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} />
                       )}.bind(this)}/>
                       <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                        <WpSite {...props} template={template} />
+                        <WpSiteContent {...props} template={template} />
                       )}}/>
                   </Switch>
                 </CurzaDepartamento>
               :
-                <WpSite {...this.props} template={template}/>
+                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
+                  <WpSite {...props} template={template} />
+                )}}/>
             }
           </div>
         }

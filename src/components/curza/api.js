@@ -28,7 +28,7 @@ export function getSite(options){
 
 // Carreras del Departamento
 export function getCarrerasDpto(options){
-    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carreras/dpto?id=' + options.departamento
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carrera/departamento?id=' + options.departamento
     if(options.debug){
         console.log(options,url);
     }

@@ -44,6 +44,7 @@ class CurzaCarreras extends React.Component {
         var urlBase = '/'+this.props.departamento+'/carreras/';
         return (
             <section id='carreras-departamento' className={this.props.departamento} >
+                <h2>Carreras del Departamento</h2>
                 <ul>
                 { this.state.carreras !== null &&
                     this.state.carreras.map(function(item, index){

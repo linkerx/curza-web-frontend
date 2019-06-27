@@ -1,7 +1,9 @@
 #wp-site-sidebar {
     width:250px;
-    border-left: 2px solid #10396d;
+    background-color: #9ee5ff;
+    color: #333;
     box-sizing: border-box;
     padding:10px;
     order: 3;
+    flex-shrink: 0;
 }
