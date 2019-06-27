@@ -4,19 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import ReduxPromise from 'redux-promise';
-import reducers from './redux/reducers';
-
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
-
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
 , document.getElementById('main'));
 
 // If you want your app to work offline and load faster, you can change

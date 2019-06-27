@@ -1,8 +1,5 @@
 import React from 'react';
 import './styles.scss';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { openMenu } from 'redux/actions/menu';
 import WpMenu from 'wp/menu';
 import { Link } from 'react-router-dom';
 class Header extends React.Component {
@@ -24,13 +21,12 @@ class Header extends React.Component {
                   <i className='fas fa-bars'></i>
               </div>
               <div className='wrapper-servicios'>
-                  
                   <div className='redes-sociales'>
                       <WpMenu location='redes-sociales-menu-location' />
                   </div>
                   <div className='telefonos'>
-                          <i className='fas fa-phone'></i>
-                          <span>+54 - 2920 - 422921/423772</span>
+                      <i className='fas fa-phone'></i>
+                      <span>+54 - 2920 - 422921/423772</span>
                   </div>
               </div>
           </div>
@@ -38,11 +34,5 @@ class Header extends React.Component {
     )
   }
 }
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    openMenu,
-  }, dispatch);
-}
 
-
-export default  connect(null, mapDispatchToProps)(Header);
+export default  Header;

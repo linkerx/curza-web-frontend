@@ -10,13 +10,10 @@
     "react": "*",
     "react-dom": "*",
     "react-paginate": "*",
-    "react-redux": "*",
     "react-render-html": "*",
     "react-router-dom": "*",
     "react-scripts": "*",
-    "react-share": "*",
-    "redux": "*",
-    "redux-promise": "*"
+    "react-share": "*"
   },
   "scripts": {
     "start": "react-scripts start",

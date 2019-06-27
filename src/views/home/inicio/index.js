@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { openMenu } from 'redux/actions/menu';
 import HomeDestacadas from './destacadas';
 import HomeHeader from './header';
 import HomeInicioMenu from './menu';
@@ -45,7 +42,7 @@ class HomeInicio extends React.Component {
     return(
       <section id='home-inicio'>
         <div className='fondo'></div>
-        <HomeHeader />
+        <HomeHeader openMenu={this.openMenu} />
         <HomeDestacadas />
         <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>
@@ -56,16 +53,4 @@ class HomeInicio extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    menu_opened: state.menu_opened,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    openMenu,
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeInicio);
+export default HomeInicio;

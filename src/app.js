@@ -77,7 +77,7 @@ class App extends Component {
               <Route exact path='/' render={ function(props) { return ( <Home {...props} show={this.endLoading} /> ) }.bind(this) } />
               <Route path='/:slug' render={ function(props) { return (
                 <div className='wrapper'>
-                  <Header />
+                  <Header openMenu={this.openMenu} />
                   <Switch>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) } } />

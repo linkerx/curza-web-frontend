@@ -87,17 +87,23 @@ componentDidMount(){
           <div>
             { this.props.site_data.tipo_pagina === 'departamento' ?
               <CurzaDepartamento {...this.props} template={template} >
-                { this.state.home ?
-                  <WpSiteContent {...this.props} template={template} >
-                    <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} />
-                  </WpSiteContent>
-                :
-                    <Switch>
-                      <Route exact path={'/'+this.state.site+'/carreras/'} render={ function(props) { return ( <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} /> ) }.bind(this) } />
-                      <Route exact path={'/'+this.state.site+'/carreras/:slug_carrera'} render={ function(props) { return ( <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} /> ) }.bind(this) } />
-                      <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) { return ( <WpSite {...props} template={template} /> ) }} />
-                    </Switch>
-                } 
+                  <Switch>                
+                      <Route exact path={'/'+this.state.site} render={function(props){return(
+                        <div>
+                          <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} />
+                          <WpSiteContent {...this.props} template={template} />
+                        </div>
+                      )}.bind(this)}/>
+                      <Route exact path={'/'+this.state.site+'/carreras/'} render={function(props){return( 
+                          <CurzaCarreras departamento={this.state.site} id_departamento={this.props.site_data.id_departamento} />
+                      )}.bind(this)}/>
+                      <Route exact path={'/'+this.state.site+'/carreras/:slug_carrera'} render={function(props){return(
+                          <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} />
+                      )}.bind(this)}/>
+                      <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
+                        <WpSite {...props} template={template} />
+                      )}}/>
+                  </Switch>
                 </CurzaDepartamento>
               :
                 <WpSite {...this.props} template={template}/>
