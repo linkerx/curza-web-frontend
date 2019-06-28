@@ -1,4 +1,5 @@
-#curza-site-content {
+#curza-site-content,
+#wp-site-content {
     width: auto;
     order: 2;
     flex-grow: 1;
@@ -6,7 +7,8 @@
     padding:20px;
 }
 
-#curza-site-content h2 {
+#curza-site-content h2,
+#wp-site-content h2 {
     font-size: 1.5em;
     color: #333;
     border-bottom: 2px solid #333;

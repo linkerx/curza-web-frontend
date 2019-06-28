@@ -11,13 +11,14 @@ class CurzaWpSiteRouter extends React.Component {
   constructor(props){
     super(props);
 
-    var site = "";
-    if(props.site){
-      site = props.site;
+    var debug = false;
+    if(typeof(props.debug) !== 'undefined'){
+      debug = props.debug;
     }
 
     this.state = {
-      site: site,
+      debug: true,//debug,
+      site: "",
       check: false,
       departamento: false,
       home: false,
@@ -47,7 +48,6 @@ componentDidMount(){
   }
 
   checkCurzaURL(){
-
     this.setState(function(){
       return {
         site: this.state.site,
@@ -55,21 +55,31 @@ componentDidMount(){
         home: false,
       }
     });
+    var site = "";
+    var home = false;
+    var departamento = false;
 
-    // si es home me importa seguir aca, sino que vaya al site comun
-    if(typeof(this.props.match.params.slug1) === 'undefined') {
-      this.setState({
-        site: this.state.site,
-        check:true,
-        home:true,
-      });
-    } else {
-      this.setState({
-        site: this.state.site,
-        check: true,
-        home: false,
-      });
+    if(typeof(this.props.site) !== 'undefined'){
+      site = this.props.site;
     }
+    if(typeof(this.props.match.params.slug1) === 'undefined') {
+      home = true;
+      if(this.state.debug){
+        console.log("Es Home");
+      }
+    }
+    if(this.props.site_data.tipo_pagina === 'departamento') {
+      departamento = true;
+      if(this.state.debug){
+        console.log("Es Departamento");
+      }
+    }
+    this.setState({
+      site: site,
+      check: true,
+      home: home,
+      departamento: departamento
+    });
   }
 
   render() {
@@ -78,14 +88,14 @@ componentDidMount(){
       template = this.props.template;
     }
 
-    //console.log("Props Curza-Router",this.props);
-    //console.log("Site Curza-Router",this.state.site);
+    console.log("Props Curza-Router",this.props);
+    console.log("State Curza-Router",this.state);
 
     return(
       <section id='curza-wp-site'>
         {this.state.check &&
           <div>
-            { this.props.site_data.tipo_pagina === 'departamento' ?
+            { this.state.departamento ?
               <CurzaDepartamento {...this.props} template={template} >
                   <Switch>                
                       <Route exact path={'/'+this.state.site} render={function(props){return(
@@ -101,14 +111,22 @@ componentDidMount(){
                           <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} />
                       )}.bind(this)}/>
                       <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                        <WpSiteContent {...props} template={template} />
-                      )}}/>
+                        <WpSiteContent {...props} site={this.state.site} template={template} />
+                      )}.bind(this)}/>
                   </Switch>
                 </CurzaDepartamento>
               :
-                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                  <WpSite {...props} template={template} />
-                )}}/>
+                <div>
+                  { this.state.site !== '' ?
+                    <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
+                      <WpSite {...props} template={template} site_data={this.props.site_data} debug={true} />
+                    )}.bind(this)}/>
+                  :
+                    <Route path={'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
+                      <WpSite {...props} template={template} site_data={this.props.site_data} debug={true} />
+                    )}.bind(this)}/>
+                  }
+                </div>
             }
           </div>
         }

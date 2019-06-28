@@ -63,7 +63,7 @@ class CurzaWpNetwork extends React.Component {
   }
 
   render(){
-    //console.log("State en Curza-Network:", this.state);
+    console.log("State en Curza-Network:", this.state);
     return (
       <div className='network-wrapper'>
         { this.state.check &&
