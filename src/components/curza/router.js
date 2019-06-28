@@ -17,7 +17,7 @@ class CurzaWpSiteRouter extends React.Component {
     }
 
     this.state = {
-      debug: true,//debug,
+      debug: debug,
       site: "",
       check: false,
       departamento: false,
@@ -88,8 +88,8 @@ componentDidMount(){
       template = this.props.template;
     }
 
-    console.log("Props Curza-Router",this.props);
-    console.log("State Curza-Router",this.state);
+    //console.log("Props Curza-Router",this.props);
+    //console.log("State Curza-Router",this.state);
 
     return(
       <section id='curza-wp-site'>

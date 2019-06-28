@@ -28,7 +28,35 @@ export function getSite(options){
 
 // Carreras del Departamento
 export function getCarrerasDpto(options){
-    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carrera/departamento?id=' + options.departamento
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carrera/departamento?id=' + options.departamento;
+    if(options.debug){
+        console.log(options,url);
+    }
+    return axios.get(url).then(function(response){
+        if(options.debug){
+            console.log(response.data);
+        }
+        return response.data;
+    });
+}
+
+// Carrera por ID
+export function getCarreraPorId(options){
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carrera/' + options.carrera;
+    if(options.debug){
+        console.log(options,url);
+    }
+    return axios.get(url).then(function(response){
+        if(options.debug){
+            console.log(response.data);
+        }
+        return response.data;
+    });
+}
+
+// AsignaturasDelPlan
+export function getAsignaturasPlan(options){
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/asignatura/plan?id=' + options.plan;
     if(options.debug){
         console.log(options,url);
     }

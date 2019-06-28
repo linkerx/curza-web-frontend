@@ -1,0 +1,23 @@
+#curza-carrera {
+    position: relative;
+}
+
+#curza-carrera .planes {
+    float: right;
+}
+
+#curza-carrera .planes span {
+    float: left;
+}
+
+#curza-carrera .planes ul {
+    float:left;
+    display:flex;
+    flex-wrap: nowrap;
+}
+
+#curza-carrera .planes ul li {
+    margin-left: 15px;
+    list-style: none;
+    cursor: pointer;
+}
