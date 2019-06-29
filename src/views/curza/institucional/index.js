@@ -11,6 +11,25 @@ class Institucional extends React.Component {
     return(
       <section id='institucional'>
         <div className="wrapper-central">
+        <Tabs 
+            initial="consejo_directivo" >
+              <Tab name="consejo_directivo" title="Consejo Directivo" subtitle="">
+                <div>
+                 
+                  <div className="inst-fila">
+                    <div className="inst-card">
+                      <h3>Departamento Docente</h3>
+                      <p>Juan Martinez</p>
+                    </div>
+                    <div className="inst-card">
+                      <h3>Departamento Alumnos</h3>
+                      <p>Romina Hernandez</p>
+                    </div>
+                  </div>
+                </div>
+              </Tab>
+        
+          </Tabs>
           <Tabs 
             initial="pepe" >
               <Tab name="pepe" title="Secretaría Académica" subtitle="Lic. Viviana Bolletta">

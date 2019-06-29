@@ -3,12 +3,15 @@
 #institucional{
     margin: 20px 0;
     & .inst-fila{
-        display: flex;
+        display: inline-flex;
         flex-wrap: wrap;
         flex: 1 20%;
         align-items: auto;
         margin: auto;
         align-content: center;
+        @media #{$all-narrow} {
+            display: inherit;
+        }
     }
     & .inst-card{
         //background-color: $background-1;

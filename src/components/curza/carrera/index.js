@@ -102,7 +102,7 @@ class CurzaCarrera extends React.Component {
                         <div className='plan-estudio'>
                             <ul>
                             { this.state.asignaturas !== null &&
-                                this.state.asignaturas.asignaturas.map(function(item,index){
+                                this.state.asignaturas.map(function(item,index){
                                     return (
                                         <li key='index'>{item.nombre}</li>
                                     );
