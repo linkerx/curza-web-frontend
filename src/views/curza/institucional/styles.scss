@@ -12,6 +12,18 @@
         @media #{$all-narrow} {
             display: inherit;
         }
+        &.unica {
+            display: flex !important;
+            justify-content: center;
+            color:white;
+            text-align: center;
+            & h3{
+                margin-bottom: 10px;
+            }
+            & p {
+                margin-bottom: 10px;
+            }
+        }
     }
     & .inst-card{
         //background-color: $background-1;

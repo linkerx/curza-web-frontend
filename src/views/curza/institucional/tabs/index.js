@@ -5,14 +5,21 @@ export class Tabs extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      active: this.props.initial
+      active: this.props.initial,
+      close: this.props.close
     }
   }
 
   handleClick(bKey) {
-    this.setState(
-      state => ({active: bKey})
-    )
+    if (!this.props.initial && this.state.active){
+      this.setState(
+        state => ({active: null})
+      )
+    }else{
+      this.setState(
+        state => ({active: bKey})
+      )
+    }
   }
 
   render(){
@@ -33,13 +40,19 @@ export class Tabs extends React.Component {
                     onClick={() => this.handleClick(child.props.name)}>
                       <div className="title">{child.props.title}</div>
                       <div className="subtitle">{child.props.subtitle}</div>
+                      { liClass == "active" ?
+                        <span class="fas fa-chevron-down down"></span>
+                        :
+                        <span class="fas fa-chevron-down up"></span>
+                      }
                   </li>
                )
               })
             }
           </ul>
         </div>
-        <div className="tabContent">
+        { this.state.active ?
+          <div className="tabContent">
           {
             React.Children.map(this.props.children, child => {
               if (child.props.name === this.state.active) {
@@ -47,7 +60,19 @@ export class Tabs extends React.Component {
               }
             })
           }
-        </div>
+          </div>
+          :
+          <div className={"tabContent hide"} >
+          {
+            
+            React.Children.map(this.props.children, child => {
+              if (child.props.name === this.state.active) {
+                return child
+              }
+            })
+          }
+          </div>
+        }
         
       </div>
     )
