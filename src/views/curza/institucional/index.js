@@ -6,8 +6,6 @@ class Institucional extends React.Component {
 
 
   render() {
-
-
     return (
       <section id='institucional'>
         <div className="wrapper-central">
