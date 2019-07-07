@@ -40,7 +40,7 @@ export class Tabs extends React.Component {
                     onClick={() => this.handleClick(child.props.name)}>
                       <div className="title">{child.props.title}</div>
                       <div className="subtitle">{child.props.subtitle}</div>
-                      { liClass == "active" ?
+                      { liClass === "active" ?
                         <span class="fas fa-chevron-down down"></span>
                         :
                         <span class="fas fa-chevron-down up"></span>
