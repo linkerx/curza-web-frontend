@@ -9,7 +9,7 @@ class HomeDepartamentos extends React.Component {
       <section id='home-departamentos'>
         <div className='wrapper-central'>
           <h1>Departamentos</h1>
-          <WpMenu location='deptos-menu-location' />
+          <WpMenu location='departamentos-menu-location' />
         </div>
       </section>
     )
