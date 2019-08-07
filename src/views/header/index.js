@@ -9,13 +9,18 @@ class Header extends React.Component {
           <div className='fondo'></div>
           <div className='wrapper-central'>
               <div className='logo'>
-                  <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
-                  <div className='logo-text'>
-                      <div className='titulo'>C.U.R.Z.A.</div>
-                      <div className='descripcion'>Centro Universitario Regional Zona Atlántica</div>
-                      <div className='unco'>Universidad Nacional del Comahue</div>
-                  </div>
-              </div>
+                        <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
+                        <div className='logo-text'>
+                            <Link to='/'>
+                                <div className='titulo'>C.U.R.Z.A.</div>
+                                <div className='descripcion'>Centro Universitario Regional Zona Atlántica</div>
+                            </Link>
+                            <a href='https://www.uncoma.edu.ar/'>
+                               <div className='unco'>Universidad Nacional del Comahue</div>
+                            </a>
+                            
+                        </div>
+                    </div>
               <div className='menu-opener' onClick={() => this.props.openMenu()}>
                   <span>Menú</span>
                   <i className='fas fa-bars'></i>
