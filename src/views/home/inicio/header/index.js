@@ -29,9 +29,6 @@ class HomeHeader extends React.Component {
                                 <i className='fas fa-phone'></i>
                                 <span>+54 - 2920 - 422921/423772</span>
                         </div>
-                        <div>
-                            <WpSearch></WpSearch>
-                        </div>
                     </div>
                 </div>
             </div>
