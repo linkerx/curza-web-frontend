@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 import WpMenu from 'wp/menu';
 import { Link } from 'react-router-dom';
-import WpSearch from 'wp/search'
 class HomeHeader extends React.Component {
     render(){
         return(
