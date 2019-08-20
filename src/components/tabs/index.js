@@ -30,22 +30,24 @@ export class Tabs extends React.Component {
             {
               React.Children.map(this.props.children, child => {
                 var liClass=""
-                if (child.props.name === this.state.active) {
+                if (child && child.props.name === this.state.active) {
                   liClass="active"
                 }
+                
                 return (
+                  child ? 
                   <li 
-                    key={child.props.name} 
+                    key={ child ? child.props.name : null} 
                     className={liClass}
                     onClick={() => this.handleClick(child.props.name)}>
                       <div className="title">{child.props.title}</div>
                       <div className="subtitle">{child.props.subtitle}</div>
                       { liClass === "active" ?
-                        <span class="fas fa-chevron-down down"></span>
+                        <span className="fas fa-chevron-down down"></span>
                         :
-                        <span class="fas fa-chevron-down up"></span>
+                        <span className="fas fa-chevron-down up"></span>
                       }
-                  </li>
+                  </li> : null
                )
               })
             }
@@ -55,7 +57,7 @@ export class Tabs extends React.Component {
           <div className="tabContent">
           {
             React.Children.map(this.props.children, child => {
-              if (child.props.name === this.state.active) {
+              if (child && child.props.name === this.state.active) {
                 return child
               }
             })
@@ -66,7 +68,7 @@ export class Tabs extends React.Component {
           {
             
             React.Children.map(this.props.children, child => {
-              if (child.props.name === this.state.active) {
+              if (child && child.props.name === this.state.active) {
                 return child
               }
             })

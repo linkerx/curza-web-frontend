@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 import WpMenu from 'wp/menu';
 import { Link } from 'react-router-dom';
-import WpSearch from 'wp/search'
 class HomeHeader extends React.Component {
     render(){
         return(
@@ -28,9 +27,6 @@ class HomeHeader extends React.Component {
                         <div className='telefonos'>
                                 <i className='fas fa-phone'></i>
                                 <span>+54 - 2920 - 422921/423772</span>
-                        </div>
-                        <div>
-                            <WpSearch></WpSearch>
                         </div>
                     </div>
                 </div>

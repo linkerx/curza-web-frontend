@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab } from 'views/curza/institucional/tabs'
+import { Tabs, Tab } from 'components/tabs'
 import './styles.scss';
 
 class Institucional extends React.Component {
