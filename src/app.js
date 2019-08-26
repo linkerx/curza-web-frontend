@@ -80,7 +80,7 @@ class App extends Component {
                   <Header openMenu={this.openMenu} />
                   <Switch>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
-                    <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) } } />
+                    <Route exact path='/autoridades' render={ function() { return ( <Institucional  /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
