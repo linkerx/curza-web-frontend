@@ -128,7 +128,6 @@ handleScroll() {
                   <Header openMenu={this.openMenu} />
                   <Switch location={location}>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
-                    <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) } } />
                     <Route exact path='/oferta-academica' render={ function() { return ( <OfertaAcademica  /> ) } } />
                     <Route exact path='/autoridades' render={ function() { return ( <Institucional  /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
