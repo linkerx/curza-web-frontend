@@ -20,7 +20,6 @@
 
 #main-megamenu {
   position: fixed;
-  top: 60px;
   left: -60vw;
   width: 60vw;
   bottom:0;
@@ -33,6 +32,16 @@
     width: 100vw;
   }
 }
+
+
+#main-megamenu.arriba {
+  top: 60px;
+}
+
+#main-megamenu.abajo {
+  top: 150px;
+}
+
 
 #main-megamenu .fondo {
   position: absolute;

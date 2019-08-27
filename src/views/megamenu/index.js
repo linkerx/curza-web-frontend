@@ -43,6 +43,10 @@ class MegaMenu extends React.Component {
       }
     });
   }
+  closeAll(){
+    this.props.close();
+    this.props.closeMenu();
+  }
 
   render(){
 
@@ -52,12 +56,21 @@ class MegaMenu extends React.Component {
       debug = true;
     }
 
+    var megamenuClass= 'megamenu '+this.state.menuClass;
+
+    if (this.props.showHeader) {
+      megamenuClass+= ' arriba';
+    } else {
+      megamenuClass+= ' abajo';
+    }
+
+
     return (
-      <div id='main-megamenu' className={'megamenu '+this.state.menuClass}>
+      <div id='main-megamenu' className={megamenuClass}>
       <div className='fondo'></div>
         <CloseMenuBtn closeMenu={this.props.close} />
         { this.state.items &&
-          <Submenu items={this.state.items} action={this.props.close} path='/' nivel={1} debug={debug} />
+          <Submenu items={this.state.items} action={this.closeAll} path='/' nivel={1} debug={debug} />
         }
       </div>
     )

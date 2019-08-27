@@ -4,38 +4,10 @@ import './styles.scss';
 
 class FixedHeader extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      showHeader: false
-    }
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-  
-  componentDidMount(){
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);  
-  }
-
-  handleScroll() {
-    if(window.scrollY > 100){
-      this.setState({
-        showHeader: true
-      });    
-    } else {
-      this.setState({
-        showHeader: false
-      })
-    }
-  }
-
   render(){
 
     let headerClass = 'hidden';
-    if(this.state.showHeader){
+    if(this.props.showHeader){
       headerClass = 'visible';
     }
 

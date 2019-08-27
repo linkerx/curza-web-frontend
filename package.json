@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "*",
+    "axios": "^0.19.0",
     "form-serialize": "*",
     "moment": "*",
     "node-sass": "*",
@@ -13,7 +13,8 @@
     "react-render-html": "*",
     "react-router-dom": "*",
     "react-scripts": "*",
-    "react-share": "*"
+    "react-share": "*",
+    "react-transition-group": "^4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
