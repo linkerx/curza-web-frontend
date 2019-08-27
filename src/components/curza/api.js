@@ -26,6 +26,19 @@ export function getSite(options){
     });
 };
 
+export function getQueryProgramas(options){
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute+ '/' + options.name;
+    if(options.debug){
+        console.log(options,url);
+    }
+    return axios.get(url).then(function(response){
+        if(options.debug){
+            console.log(response.data);
+        }
+        return response.data;
+    });
+};
+
 // Carreras del Departamento
 export function getCarrerasDpto(options){
     var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/carrera/departamento?id=' + options.departamento;

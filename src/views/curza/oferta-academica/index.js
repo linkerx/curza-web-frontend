@@ -1,6 +1,6 @@
 import React from 'react'
 import Card  from 'components/card'
-import { getSite, getCarrerasDpto } from 'components/curza/api';
+import { getQueryProgramas, getCarrerasDpto } from 'components/curza/api';
 import './styles.scss';
 
 class OfertaAcademica extends React.Component {
@@ -27,7 +27,7 @@ class OfertaAcademica extends React.Component {
       name:  "departamento",
       debug:this.state.debug
     }
-    getSite(options).then(function (departamentos) {
+    getQueryProgramas(options).then(function (departamentos) {
       if (this.state.debug)
         console.log("Cant. Departamentos",Object.keys(departamentos).length)  
       for (let index = 1; index <= Object.keys(departamentos).length; index++) {
