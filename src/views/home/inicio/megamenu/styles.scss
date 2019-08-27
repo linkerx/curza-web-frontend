@@ -24,7 +24,7 @@
   left: -60vw;
   width: 60vw;
   bottom:0;
-  z-index: 100;
+  z-index: 32;
   overflow: hidden;
   transition: left 1s;
   @media #{$all-narrow} {

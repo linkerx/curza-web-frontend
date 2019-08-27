@@ -21,7 +21,7 @@ class CurzaWpNetwork extends React.Component {
   }
 
   checkSite(){
-    var debugAll = true;
+    var debugAll = false;
     this.setState({
       check: false,
       site: null,
@@ -70,9 +70,9 @@ class CurzaWpNetwork extends React.Component {
           <div>
             { this.state.site !== ""
               ?
-                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) { return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) {console.log("CON!"); return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
               :
-                <Route path='/:slug1/:slug2?/:slug3?' render={ function(props) { return ( <CurzaWpSiteRouter {...props} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+                <Route path='/:slug1/:slug2?/:slug3?' render={ function(props) {console.log("SIN!"); return ( <CurzaWpSiteRouter {...props} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
             }
           </div>
         }

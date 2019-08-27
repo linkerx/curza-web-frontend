@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
+import { Transition, TransitionGroup } from "react-transition-group";
 import MainMenu from "views/menu";
 import FixedHeader from "views/fixed-header";
 import Header from "views/header";
@@ -11,6 +12,7 @@ import Home from "views/home";
 import CurzaWpNetwork from "components/network";
 import Megamenu from 'views/megamenu';
 import 'styles/main.scss';
+import 'styles/transition.scss';
 
 class App extends Component {
 
@@ -18,10 +20,12 @@ class App extends Component {
    super(props);
    this.state = {
      loading: true,
+     showHeader: false,
      menuOpen: false,
      megamenuOpen: false,
      megamenuData: null,
-     menuSelected: null
+     menuSelected: null,
+     transClass: "inicial"
    }
 
    this.endLoading = this.endLoading.bind(this);
@@ -29,8 +33,28 @@ class App extends Component {
    this.closeMenu = this.closeMenu.bind(this);
    this.openMegamenu = this.openMegamenu.bind(this);
    this.closeMegamenu = this.closeMegamenu.bind(this);
-  }
+   this.handleScroll = this.handleScroll.bind(this);
+}
 
+componentDidMount(){
+  window.addEventListener('scroll', this.handleScroll);
+}
+
+componentWillUnmount() {
+  window.removeEventListener('scroll', this.handleScroll);  
+}
+
+handleScroll() {
+  if(window.scrollY > 100){
+    this.setState({
+      showHeader: true
+    });    
+  } else {
+    this.setState({
+      showHeader: false
+    })
+  }
+}
   openMenu(){
     this.setState({
       menuOpen: true
@@ -68,21 +92,45 @@ class App extends Component {
     })
   }
 
+  transOnExit(){
+    this.setState({transClass: "trans-exit"});
+  }
+
+  transOnExited(){
+    this.setState({transClass: "trans-exited"});
+  }
+
   render() {
     return (
-      <div className="app">
-          <div id='main-wrapper'>
-            <MainMenu openMenu={this.openMegamenu} opened={this.state.menuOpen} closeMenu={this.closeMenu} />
-            <FixedHeader openMenu={this.openMenu}/>
-            <Switch>
+      <Route render={({ location }) => {
+  const { key } = location
+
+  return (
+    <div className="app">
+    <div id='main-wrapper' >
+  <TransitionGroup component={null}>
+  <Transition
+    key={key}
+    appear={true}
+    onExit={() => this.transOnExit()}
+    onExited={() => this.transOnExited()}
+    timeout={{appear: 2000, enter:2500, exit: 1500}}
+  >
+    {state =>(
+      <div id='transition' className={this.state.transClass}>
+          <div id='fondo-transition'></div>
+            <MainMenu openMenu={this.openMegamenu} opened={this.state.menuOpen} closeMenu={this.closeMenu} showHeader={this.state.showHeader} />
+            <FixedHeader openMenu={this.openMenu} showHeader={this.state.showHeader} />
+            <Switch location={location}>
               <Route exact path='/' render={ function(props) { return ( <Home {...props} show={this.endLoading} /> ) }.bind(this) } />
               <Route path='/:slug' render={ function(props) { return (
                 <div className='wrapper'>
                   <Header openMenu={this.openMenu} />
-                  <Switch>
+                  <Switch location={location}>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) } } />
                     <Route exact path='/oferta-academica' render={ function() { return ( <OfertaAcademica  /> ) } } />
+                    <Route exact path='/autoridades' render={ function() { return ( <Institucional  /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
@@ -91,10 +139,17 @@ class App extends Component {
             </Switch>
             <Footer />
             <div id='main-megamenu'>
-              <Megamenu open={this.state.megamenuOpen} close={this.closeMegamenu} items={this.state.megamenuData} />
+              <Megamenu open={this.state.megamenuOpen} close={this.closeMegamenu} closeMenu={this.closeMenu} items={this.state.megamenuData} showHeader={this.state.showHeader} />
             </div>
+            </div>
+    )}
+            </Transition>
+    </TransitionGroup>
           </div>
       </div>
+  )
+}}/>
+
     );
   }
 }

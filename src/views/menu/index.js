@@ -50,6 +50,13 @@ class MainMenu extends React.Component {
       }
     }
 
+    if (this.props.showHeader) {
+      mainMenuClass+= ' arriba';
+    } else {
+      mainMenuClass+= ' abajo';
+    }
+
+
     return (
       <div id='main-menu' className={mainMenuClass}>
         <nav className='menu'>
