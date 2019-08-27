@@ -6,6 +6,7 @@ import Header from "views/header";
 import Footer from "views/footer";
 import Novedades from "views/curza/novedades";
 import Institucional from "views/curza/institucional";
+import OfertaAcademica from "views/curza/oferta-academica";
 import Home from "views/home";
 import CurzaWpNetwork from "components/network";
 import Megamenu from 'views/megamenu';
@@ -81,6 +82,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/institucional' render={ function() { return ( <Institucional  /> ) } } />
+                    <Route exact path='/oferta-academica' render={ function() { return ( <OfertaAcademica  /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>

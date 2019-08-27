@@ -1,3 +1,5 @@
+@import 'styles/variables/mqueries.scss';
+
 #wp-site-sidebar {
     width:250px;
     background-color: #9ee5ff;
@@ -6,4 +8,13 @@
     padding:10px;
     order: 3;
     flex-shrink: 0;
+    
+    &.close {
+        transition: margin .8s;
+        margin-right:-250px;
+    }
+    &.open{
+        transition: margin .8s;
+        margin-right:0px;
+    }
 }

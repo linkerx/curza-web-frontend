@@ -6,9 +6,18 @@
     padding:10px;
     order: 1;
     flex-shrink: 0;
+    &.close {
+        transition: margin .8s;
+        margin-left:-250px;
+    }
+    &.open{
+        transition: margin .8s;
+        margin-left:0px;
+    }
+    
 }
 
-#wp-site-menu nav.menu ul {}
+//#wp-site-menu nav.menu ul {}
 
 #wp-site-menu nav.menu li {
     list-style: none;

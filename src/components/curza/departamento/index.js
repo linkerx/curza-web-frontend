@@ -9,7 +9,9 @@ class CurzaWpSiteDepartamento extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      menu_opened: false
+      menu_opened: false,
+      siteMenu: true,
+      siteSidebarMenu: true
     }
     this.openMenu = this.openMenu.bind(this);
   }
@@ -17,6 +19,16 @@ class CurzaWpSiteDepartamento extends React.Component {
   openMenu(){
     this.setState({
       menu_opened: true
+    })
+  }
+  actionMenu(){
+    this.setState({
+      siteMenu: !this.state.siteMenu 
+    })
+  }
+  actionSidebarMenu(){
+    this.setState({
+      siteSidebarMenu: !this.state.siteSidebarMenu 
     })
   }
 
@@ -32,14 +44,23 @@ class CurzaWpSiteDepartamento extends React.Component {
     }
 
     return(
+      
       <section id='wp-site'>
-        <WpSiteHeader site={this.props.site} openMenu={this.openMenu} data={this.props.site_data} />
+          <div className={this.state.siteMenu ? "button-site-menu active-site-menu" : "button-site-menu site-menu"}  onClick={() => this.actionMenu()}>
+            <span>Menú</span>
+            <i className={this.state.siteMenu ? "fas fa-times-circle" : "fas fa-bars" }></i>
+          </div>
+          <div className={this.state.siteSidebarMenu ? "button-sidebar-menu active-sidebar-menu" : "button-sidebar-menu sidebar-menu"}  onClick={() => this.actionSidebarMenu()}>
+            <span>Menú</span>
+                  <i className={this.state.siteSidebarMenu ? "fas fa-times-circle" : "fas fa-bars" }></i>
+          </div>
+        <WpSiteHeader site={this.props.site} openMenu={this.openMenu} debug={false} data={this.props.site_data} />
         <div className='wp-site-wrapper'>
-          <WpSiteMenu site={this.props.site} />
+          <WpSiteMenu site={this.props.site} openMenu={this.state.siteMenu} />
           <div id='curza-site-content'>
             {this.props.children}
           </div>
-          <WpSiteSidebar site={this.props.site} />
+          <WpSiteSidebar site={this.props.site} openMenu={this.state.siteSidebarMenu} debug={false}/>
         </div>
       </section>
     )

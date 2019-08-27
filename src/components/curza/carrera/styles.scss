@@ -23,6 +23,21 @@
             }
         }
     }
+    & .info-carrera{
+        display: inline-block;
+        text-align: justify;
+        margin: 10px;
+        & p {
+            margin: 10px;
+            & span {
+                font-weight: bold;
+                
+            }
+            & .modalidad {
+                margin-left: 20px;
+            }
+        }
+    }
     & .content-tabs {
         font-size: .7em;
         margin: 15px 15px;
@@ -48,34 +63,39 @@
     }
 
     .flex-table {
-    display: flex;
-    flex-flow: row wrap;
-    border-left: solid 1px $table-border;
-    transition: 0.5s;
-    &:first-of-type {
-        border-top: solid 1px $table-header-border;
-        border-left: solid 1px $table-header-border;
-    }
-    &:first-of-type .flex-row {
-        background: $table-header;
-        color: white;
-        border-color: $table-header-border;
-    }
-    &.row:nth-child(odd) .flex-row {
-        background: $row-bg;
-    }
-    &:hover {
-        background: #F5F5F5;
-        transition: 500ms;
-    }
+        display: flex;
+        flex-flow: row wrap;
+        border-left: solid 1px $table-border;
+        transition: 0.5s;
+        &:first-of-type {
+            border-top: solid 1px $table-header-border;
+            border-left: solid 1px $table-header-border;
+        }
+        &:first-of-type .flex-row {
+            background: $table-header;
+            color: white;
+            border-color: $table-header-border;
+        }
+        &.row { 
+            &.fin-ano {
+                border-bottom: 2px solid black;
+            }
+        }
+        &.row:nth-child(odd) .flex-row {
+            background: $row-bg;
+        }
+        &:hover {
+            background: #F5F5F5;
+            transition: 500ms;
+        }
     }
 
     .flex-row {
-    width: calc(100% / 5);
-    text-align: center;
-    padding: 0.5em 0.5em;
-    border-right: solid 1px $table-border;
-    border-bottom: solid 1px $table-border;
+        width: calc(100% / 5);
+        text-align: center;
+        padding: 0.5em 0.5em;
+        border-right: solid 1px $table-border;
+        border-bottom: solid 1px $table-border;
     
     }
 
@@ -111,9 +131,9 @@
         padding: 0.5em 0.5em;
         border-right: solid 1px $table-border;
         //flex: 1 1 33.3%;
-        &:last-child {
+        //&:last-child {
             // border-right: 0;
-        }
+        //}
     }
 
     @media all and (max-width: 767px) {
@@ -136,6 +156,7 @@
         .flex-row {
         border-bottom: 0;
         }
+        
         .flex-row:last-of-type {
         border-bottom: solid 1px $table-border;
         }

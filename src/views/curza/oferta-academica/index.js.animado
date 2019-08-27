@@ -1,0 +1,172 @@
+import React from 'react'
+import Card  from 'components/card'
+import { getSite, getCarrerasDpto } from 'components/curza/api';
+import './styles.scss';
+
+class OfertaAcademica extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      carreras: [],
+      debug: true,
+      departamentoTmp: null,
+    }
+    this.refCard2 = React.createRef();
+    this.getCarreras = this.getCarreras.bind(this)
+  }
+ 
+  
+  handleAnimation = () => {       
+    //pixeles del scroll > 50
+    if (this.state.debug)
+      console.log("scroll-debug",document.documentElement.scrollTop);      
+    if (document.documentElement.scrollTop >= 10 && document.documentElement.scrollTop < 210) {     
+      this.setState({ card1: 'shows' }) 
+    } else if (document.documentElement.scrollTop >= 210 && document.documentElement.scrollTop < 450){
+      this.setState({ card1: 'hidden' }) 
+      this.setState({ card2: 'shows' }) 
+      
+    } else if (document.documentElement.scrollTop >= 450){
+      this.setState({ card2: 'hidden' }) 
+    }
+  }
+  handleFirsts = () => {
+    this.setState({ card1: 'shows' }) 
+    this.setState({ card2: 'shows' }) 
+  }
+  
+  componentDidMount() { 
+    this.getCarreras()
+    if (this.state.debug)
+      console.log("Carreras",this.state.carreras)   
+    window.onpageshow = () => this.handleFirsts();
+    window.onscroll = () => this.handleAnimation();  
+    
+  }
+
+  getCarreras(){
+    let options = {
+      name:  "departamento",
+      debug:this.state.debug
+    }
+    getSite(options).then(function (departamentos) {
+      if (this.state.debug)
+        console.log("Cant. Departamentos",Object.keys(departamentos).length)  
+        for (let index = 0; index < Object.keys(departamentos).length; index++) {
+          options = {
+            departamento:  index,
+            debug:this.state.debug
+          }
+          getCarrerasDpto(options).then(function (carreras) {
+           
+            this.setState(prevState => ({
+                carreras: [...prevState.carreras,carreras]
+            }))
+            console.log("CARERRA",this.state.carreras)
+          }.bind(this))
+          
+        }
+    }.bind(this))
+    
+    
+    
+  }
+  render() {
+    return (
+      <section id='oferta-academica'>
+        {this.state.carreras ?
+        <div className="wrapper-central">
+
+          <h2>Oferta de grado</h2>
+          <h3>Departamento A</h3>
+          
+          
+          
+            {
+              this.state.carreras.map((carreraxDpto, index) => {
+                return (
+                <div className="flex-ofertas" >
+                 {carreraxDpto.map((child,index) => {
+                  return (
+                    <Card key={index} 
+                          classCard={this.state.card1}
+                          title={child.nombre} 
+                          icons={child.modalidaddes ? child.modalidades.array.map( (element) => {
+                              return  element ? element.nombre : null
+                          }): null }
+                          readMore="#" >
+                          {child.duracion_total_anos < 0 ? null :"Duración total: "+  child.duracion_total_anos+" años"}
+                    </Card>    
+                  )
+                })}
+                </div>)
+            }) }
+            <div className="flex-ofertas" >
+            <Card classCard={this.state.card1} 
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+            </Card>
+            <Card classCard={this.state.card1} 
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+              asdasdasd
+            </Card>
+            <Card classCard={this.state.card1}
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+              asdasdasd
+            </Card>
+            <Card classCard={this.state.card1}  
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+              asdasdasd
+            </Card>
+            <Card classCard={this.state.card1}  
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+              asdasdasd
+            </Card>
+          </div>
+          <h3>Departamento B</h3>
+
+          <div className="flex-ofertas" >
+            <Card classCard={this.state.card2}  
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+            </Card>
+            <Card classCard={this.state.card2} 
+              title='Hola pedro' 
+              readMore="/tecnologia"
+              icons={["semi","presen"]}
+            >
+              4 añños
+              asdasdasd
+            </Card>
+          </div>
+        </div>
+        : null }
+      </section>
+    )
+  }
+}
+
+export default OfertaAcademica;

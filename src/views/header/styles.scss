@@ -148,7 +148,6 @@
             width:100%;
         }
     }
-
     & .menu-opener span {
         display:none;
         @media #{$all-narrow} {
@@ -159,7 +158,6 @@
             color: #fff;
         }
     }
-      
     & .menu-opener i {
         margin:auto;
         font-size: 30px;
@@ -168,5 +166,4 @@
             font-size: 1.2em;
         }
     }
-      
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { getCarreraPorId, getAsignaturasPlan } from 'components/curza/api';
 import './styles.scss';
-import { Tabs, Tab } from 'components/tabs'
 
 class CurzaCarrera extends React.Component {
     constructor(props) {
@@ -44,10 +43,18 @@ class CurzaCarrera extends React.Component {
         }
         getCarreraPorId(options_carrera).then(function (info_carrera) {
             var selectPlan = null;
-            if (info_carrera.plan_vigente !== null) {
+            // verificar si hay plan vigente y si el mismo está activo
+            // sino elige el primer plan que esté vigente
+            if (info_carrera.plan_vigente !== null && info_carrera.plan_vigente.activo ) {
                 selectPlan = info_carrera.plan_vigente.id;
             } else {
-                selectPlan = info_carrera.planes[0].id;
+                info_carrera.planes.forEach(plan => {
+                    if(plan.activo ) {
+                        selectPlan = plan.id;
+                        return;
+                    }
+                });
+
             }
             var options_asignatura = {
                 plan: selectPlan
@@ -87,7 +94,7 @@ class CurzaCarrera extends React.Component {
                                 {
                                     this.state.carrera.planes.map((item, index) => {
                                         return (
-                                            <li key={index} className={this.state.selectedPlan === item.id ? "active" : null } onClick={() =>this.selectPlan.call(this,item.id)}>{item.ord}</li>
+                                            <li key={index} className={this.state.selectedPlan === item.id ? "active" : null } onClick={() =>this.selectPlan.call(this,item.id)}>{item.ordenanza}</li>
                                         )
                                     })
 
@@ -95,66 +102,83 @@ class CurzaCarrera extends React.Component {
                             </ul>
                         </div>
                         <div className='info-carrera'>
-                            <Tabs >
-                                {
-                                    this.state.carrera.perfil !== null && this.state.carrera.perfil !== "" ?
-                                    <Tab name="perfil" title="Perfil" subtitle="">
-                                        <div className="content-tabs" >{this.state.carrera.perfil}</div>
-                                    </Tab> : null
-                                }
-                                {
-                                    this.state.carrera.modalidades !== null ? 
-                                    <Tab name="modalidad" title="Modalidades" subtitle="">
-                                        <div className="content-tabs" >
-                                            {this.state.carrera.modalidades.map(function(modalidad,index){
-                                                return  (<div key={index}>{modalidad.nombre}</div> )
-                                            })}
-                                        </div>
-                                    </Tab> : null
-                                }
-                                {
-                                    this.state.carrera.alcance !== null && this.state.carrera.alcance !== "" ? 
-                                    <Tab name="alcance" title="Alcance" subtitle="">
-                                        <div className="content-tabs" >{this.state.carrera.alcance}</div>
-                                    </Tab> : null
-                                }
-                            </Tabs>
+                            <p><span>Perfil:</span> {this.state.carrera.perfil}</p>
+                            <p><span>Alcance: </span>{this.state.carrera.alcance}</p>
+                            <p ><span>Modalidad:</span> 
+                                <ul> 
+                                    {
+                                        this.state.carrera.modalidades !== null && 
+                                        this.state.carrera.modalidades.map(
+                                            function(modalidad,index){
+                                                return  (
+                                                    <li className="modalidad" 
+                                                        key={index}>{modalidad.nombre}
+                                                    </li>
+                                                )
+                                        })
+                                    }
+                                </ul>
+                            </p>
+                            
                         </div>
-                        <div className='plan-estudio'>
-                            <div className="table-container" role="table" aria-label="Destinations">
-                                <div className="flex-table header" role="rowgroup">
-                                    <div className="flex-row first" role="columnheader">Orden</div>
-                                    <div className="flex-row" role="columnheader">Asignatura</div>
-                                    <div className="flex-row" role="columnheader">Cuatrimestre</div>
-                                    <div className="flex-row" role="columnheader">Carga horaria</div>
-                                    <div className="flex-row" role="columnheader">Correlativa</div>
-                                </div>
-                                {   this.state.asignaturas !== null &&
-                                    this.state.asignaturas.sort(function(a,b) { if (a.orden > b.orden ) return 1; else return -1})
-                                    .map(function (item, index) {
-                                        return (
-                                            <div className="flex-table row" role="rowgroup" key={index}>
-                                                <div className="flex-row first" role="cell"><span className="flag-icon flag-icon-gb"></span>{item.orden}</div>
-                                                <div className="column">
-                                                    <div className="flex-row" >
-                                                        <div className="flex-cell">{item.nombre}</div>
-                                                        <div className="flex-cell">{item.cuatrimestre}</div>
-                                                        <div className="flex-cell">{item.carga_total}</div>
-                                                        <div className="flex-cell">
-                                                            {
-                                                                item.correlativas.map(function(correlativa,index){
-                                                                    return <div key={index}>{correlativa.orden}</div>;
-                                                                })
-                                                            }
+                        { this.state.asignaturas !== null && this.state.asignaturas.length > 0 ?
+                            <div className='plan-estudio'>
+                                <div className="table-container" role="table" aria-label="Destinations">
+                                    <div className="flex-table header" role="rowgroup">
+                                        <div className="flex-row first" role="columnheader">Orden</div>
+                                        <div className="flex-row" role="columnheader">Asignatura</div>
+                                        <div className="flex-row" role="columnheader">Cuatrimestre</div>
+                                        <div className="flex-row" role="columnheader">Carga horaria</div>
+                                        <div className="flex-row" role="columnheader">Correlativa</div>
+                                    </div>
+                                    {  // primero ordena por numero de orden y luego recorre
+                                        this.state.asignaturas.sort(function(a,b) { if (a.orden > b.orden ) return 1; else return -1})
+                                        .map(function (item, index,array) {
+                                            let cursado = ""
+                                            switch (item.cuatrimestre) {
+                                                case 0:
+                                                    cursado = "Anual"
+                                                    break;
+                                                case 1:
+                                                    cursado = "Primero"
+                                                    break;
+                                                case 2:
+                                                    cursado = "Segundo"
+                                                    break;
+                                            }
+                                            
+                                            return (
+                                                
+                                                <div className={
+                                                    // si la materia siguiente es de otro año entonces clase: fin-ano
+                                                        (array[index+1] !== undefined 
+                                                        && item.ano_dictado < array[index+1].ano_dictado) ?  
+                                                        "flex-table row fin-ano" : "flex-table row"
+                                                    } role="rowgroup" key={index}>
+                                                    <div className="flex-row first" role="cell"><span className="flag-icon flag-icon-gb"></span>{item.orden}</div>
+                                                    <div className="column">
+                                                        <div className="flex-row" >
+                                                            <div className="flex-cell">{item.nombre}</div>
+                                                            <div className="flex-cell">{cursado}</div>
+                                                            <div className="flex-cell">{item.carga_total}</div>
+                                                            <div className="flex-cell">
+                                                                {
+                                                                    item.correlativas.map(function(correlativa,index){
+                                                                        return <div key={index}>{correlativa.orden}</div>;
+                                                                    })
+                                                                }
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    })
-                                }
-                            </div>
-                        </div>
+                                            );
+                                        })
+                                    }
+                                </div>
+                            </div> 
+                            : 
+                            null 
+                        }
                     </div>
                 }
                 

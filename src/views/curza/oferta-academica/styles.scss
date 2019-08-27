@@ -1,0 +1,18 @@
+@import "styles/variables/colors.scss";
+@import "styles/variables/mqueries.scss";
+#oferta-academica{
+    margin: 20px 0;
+    & .flex-ofertas{
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex: 1 20%;
+        align-items: auto;
+        margin: auto;
+        align-content: center;
+        @media #{$all-narrow} {
+            display: inherit;
+        }
+        
+    }
+    
+}
