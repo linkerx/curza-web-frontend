@@ -61,6 +61,7 @@ componentDidMount(){
 
     if(typeof(this.props.site) !== 'undefined'){
       site = this.props.site;
+      console.log("Es el sitio: ",site);
     }
     if(typeof(this.props.match.params.slug1) === 'undefined') {
       home = true;
@@ -88,8 +89,8 @@ componentDidMount(){
       template = this.props.template;
     }
 
-    //console.log("Props Curza-Router",this.props);
-    //console.log("State Curza-Router",this.state);
+    console.log("Props Curza-Router",this.props);
+    console.log("State Curza-Router",this.state);
 
     return(
       <section id='curza-wp-site'>
@@ -110,7 +111,7 @@ componentDidMount(){
                       <Route exact path={'/'+this.state.site+'/carreras/:slug_carrera'} render={function(props){return(
                           <CurzaCarrera {...props} id_departamento={this.props.site_data.id_departamento} />
                       )}.bind(this)}/>
-                      <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
+                      <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){console.log("pos aca"); return(
                         <WpSiteContent {...props} site={this.state.site} template={template} />
                       )}.bind(this)}/>
                   </Switch>
@@ -119,7 +120,7 @@ componentDidMount(){
                 <div>
                   { this.state.site !== '' ?
                     <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                      <WpSite {...props} template={template} site_data={this.props.site_data} debug={true} />
+                      <WpSite {...props} template={template} site={this.state.site} site_data={this.props.site_data} debug={true} />
                     )}.bind(this)}/>
                   :
                     <Route path={'/:slug1?/:slug2?/:slug3?'} render={function(props){return(

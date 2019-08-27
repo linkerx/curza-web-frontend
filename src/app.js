@@ -44,7 +44,6 @@ componentWillUnmount() {
 }
 
 handleScroll() {
-  console.log(window.scrollY);
   if(window.scrollY > 100){
     this.setState({
       showHeader: true
