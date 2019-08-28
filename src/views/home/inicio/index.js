@@ -12,6 +12,7 @@ class HomeInicio extends React.Component {
 
     this.state = {
       megamenuOpen: false,
+      megamenuPadre: null,
       megamenuData: null,
       menuSelected: null
     }
@@ -25,6 +26,7 @@ class HomeInicio extends React.Component {
       return {
         megamenuOpen: true,
         menuSelected: item.id,
+        megamenuPadre: item,
         megamenuData: item.children
       }
     });
@@ -33,6 +35,7 @@ class HomeInicio extends React.Component {
   closeMenu(){
     this.setState({
       megamenuOpen: false,
+      megamenuPadre: null,
       megamenuData: null,
       menuSelected: null
     })
@@ -46,7 +49,7 @@ class HomeInicio extends React.Component {
         <HomeDestacadas />
         <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>
-          <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} />
+          <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} padre={this.state.megamenuPadre} />
         </div>
       </section>
     )

@@ -7,9 +7,7 @@ class Novedades extends React.Component {
     return(
       <section id='novedades'>
         <h1>Novedades</h1>
-        <div className='wrapper-central'>
-          <WpNetworkList count='12' layout='image-first' />
-        </div>
+          <WpNetworkList count='12' layout='image-first' imageRender='img' template={2} />
       </section>
     )
   }

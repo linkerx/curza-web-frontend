@@ -9,6 +9,7 @@ class MegaMenu extends React.Component {
 
       this.state = {
         menuClass: 'initial',
+        padre: null,
         items: null
       }
       this.closeMenu = this.closeMenu.bind(this);
@@ -16,20 +17,22 @@ class MegaMenu extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if(nextProps.open){
-      this.openMenu(nextProps.items);
+      this.openMenu(nextProps.padre,nextProps.items);
     } else if(this.props.open === true){
       this.closeMenu();
     }
   }
 
-  openMenu(items){
+  openMenu(itemPadre,items){
     if(typeof(this.props.debug) != undefined && this.props.debug) {
       console.log("Items:",this.state.items);
     }      
       this.setState(function(){
         return {
           menuClass: 'opened',
+          padre: itemPadre,
           items: items
         }
       });
@@ -39,6 +42,7 @@ class MegaMenu extends React.Component {
     this.setState(function(){
       return {
         menuClass: 'closed',
+        padre: null,
         items: null
       }
     });
@@ -56,6 +60,9 @@ class MegaMenu extends React.Component {
       <div id='home-megamenu' className={'megamenu '+this.state.menuClass}>
       <div className='fondo'></div>
         <CloseMenuBtn closeMenu={this.props.close} />
+        { this.state.padre && 
+          <div className='img_fondo'><img src={this.state.padre.thumbnail_url} /></div>
+        }
         { this.state.items &&
           <Submenu items={this.state.items} action={this.props.close} path='/' nivel={1} debug={debug} />
         }

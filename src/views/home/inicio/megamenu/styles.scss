@@ -44,9 +44,23 @@
   z-index: 101;
 }
 
+#home-megamenu .img_fondo {
+  position: absolute;
+  z-index: 102;
+  top: 30%;
+  height: 30%;
+  width: auto;
+  left: 80px;
+  opacity: 0.4;
+}
+
+#home-megamenu .img_fondo img {
+  height: 100%;
+}
+
 #home-megamenu .submenu {
   position: absolute;
-  top:0;
+  top:50px;
   left:0;
   width:100%;
   height:100%;
