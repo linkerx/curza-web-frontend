@@ -3,7 +3,7 @@
 #oferta-academica{
     margin: 20px 0;
     & .flex-ofertas{
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
         flex: 1 20%;
         align-items: auto;

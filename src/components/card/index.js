@@ -7,7 +7,7 @@ const Card = props => (
     { //imagen 
     
       props.img ? 
-      <img src={props.img}></img> 
+      <img src={props.img} />
       : 
       null 
     }
@@ -36,7 +36,11 @@ const Card = props => (
       <div className="icons">
         {props.icons.map((icon,index) => {
               return (
-                 <p key={index}>{icon}</p>
+                 <i className={icon.i} key={index}>
+                    <div className="popover__content">
+                     <p className="popover__message">{icon.text}</p>
+                    </div>
+                 </i>
               )
         })}
       </div>

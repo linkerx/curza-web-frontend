@@ -1,8 +1,10 @@
+@import "styles/variables/colors.scss";
+@import "styles/variables/mqueries.scss";
 .card {
-  margin: 20px;
+  margin: 20px auto;
   box-sizing: border-box;
-  width:200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(183, 183, 183, 0.2),5px 2px 4px 0 rgba(1, 82, 138,0.3); /* this adds the "card" effect */
   padding: 16px;
   background-color: #f1f1f1;
   
@@ -11,82 +13,118 @@
   }
   & .descripcion {
       margin-top:20px;
+      margin-bottom: 20px;
   }
   & .readMore{
-      font-size: 1.3em;
-      margin-top:20px;
+      font-size: 1.2em;
+      justify-content: center;
+      flex-direction: column;
+      display: inline-flex;
+      text-align: left;
       font-weight: bold;
-      float:left;
+      margin-top: 20px;
+      background-color: $background-1;
+      border-radius: 5%;
       & a {
-        color: #333;
+        
+        padding:10px;
+        color: #fff;
         text-decoration: none;
+        transition: box-shadow .2s;
+        &:hover{
+          box-shadow: 0 4px 8px 0 rgba(183, 183, 183, 0.8); /* this adds the "card" effect */  
+        }
       }
   }
   & .icons {
       margin-top:20px;
       float:right;
-      display: flex;
+      display: inline-flex;
+      &.popover__message {
+        text-align: center;
+       font-weight: 0;
+      }
+      
       & i{
-        font-size: 1.3em;
+        color:#333;
+        cursor: help;
+        //background-color: $background-1;
+        justify-content: center;
+        text-align: center;
+        display: inline-flex;
+        flex-direction: column;
+        font-size: 1em;
         padding: 4px;
-        border: 1px solid black;
+        border: 2px solid $background-1;
         margin: 2px;
-        border-radius: 5px;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        & .popover__content {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          left: 0px;
+          max-width: 120px;
+          transform: translate(-300px, 0px);
+          background-color: #bfbfbf;
+          padding: 1.5rem;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+          width: auto;
+        }
+
+        &:hover{
+          & .popover__content {
+            z-index: 10;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-30%, -0px);
+            transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            @media #{$all-narrow} {
+                  z-index: 10;
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translate(-5%, -0px);
+                  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            }
+            @media #{$square} {
+              z-index: 10;
+              opacity: 1;
+              visibility: visible;
+              transform: translate(-5%, -0px);
+              transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            }
+          }
+        }
+
+       
+
+   
+       
+        &:not(:hover){
+          animation-name: card-animation-hidden;
+          //tiempo de duracion
+          animation-duration: .5s;
+          // velocidad lineal, reproduce a la misma velocidad
+          animation-timing-function: linear;
+          // quedarse en el ultimo estilo del fotograma
+          animation-fill-mode: forwards;
+        }
+
       }
   }
-  $separate-top: 50;
-  @for $i from 1 through 100 {
-    .c#{$i} {
-      top: $separate-top;
-    }
-    $separate-top: $separate-top + 50;
-  }
-  &.hidden {
-    opacity: 0;
-    // animacion
-    animation-name: card-animation-hidden;
-    //tiempo de duracion
-    animation-duration: 1s;
-    // velocidad lineal, reproduce a la misma velocidad
-    animation-timing-function: linear;
-    // quedarse en el ultimo estilo del fotograma
-    animation-fill-mode: forwards;
-    
-  }
-  &.shows {
-     // animacion
-    animation-name: card-animation;
-    //tiempo de duracion
-    animation-duration: 1s;
-    // velocidad lineal, reproduce a la misma velocidad
-    animation-timing-function: linear;
-    // quedarse en el ultimo estilo del fotograma
-    animation-fill-mode: forwards;
-  }
+
 }
 
-@keyframes card-animation {
-  0% { //al inicio
-    opacity: 0.5;
-  }
-  50% { // mitad de tramo
-    opacity: 0.7;
-  }
-  100% { //fin de tramo
-    opacity: 1;
-    transform: translateX(30px);
-  }
-}
 @keyframes card-animation-hidden {
   0% { //al inicio
-    opacity: 1;
+    opacity: 0;
   }
   50% { // mitad de tramo
     opacity: 0.7;
   }
   100% { //fin de tramo
-    opacity: 0;
-    transform: translateX(-30px);
-   
+    opacity: 1;
+    transform: rotate(-360deg);
   }
-}
+} 
