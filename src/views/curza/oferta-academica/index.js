@@ -1,9 +1,7 @@
 import React from 'react'
 
 import './styles.scss';
-import Filter from 'components/filter'
 import Card  from 'components/card'
-
 
 class OfertaAcademica extends React.Component {
 
@@ -13,19 +11,19 @@ class OfertaAcademica extends React.Component {
       carreras: this.props.carreras,
       debug: true,
     }
-    
   }
   
   render() {
-
+    let noResult = false;
     return (
       <section id='oferta-academica'>
-        <Filter onChange={this.props.onChange} />
+        
         {this.props.carreras ?
         <div className="wrapper-central">
           <h2>Oferta de grado</h2>
-          {
+          { 
             this.props.carreras.map((carreraxDpto, index) => {
+              noResult = carreraxDpto.length > 0 || noResult ;
               return (
                 <div key={index}>
                   <h3>{carreraxDpto.length > 0 ? carreraxDpto[0].departamento.nombre : null }</h3>
@@ -43,6 +41,7 @@ class OfertaAcademica extends React.Component {
                                   else 
                                     return ("fas fa-chalkboard")
                                 }
+                                return null;
                                
                             }): null }
                             readMore={ child.departamento ? 
@@ -71,8 +70,7 @@ class OfertaAcademica extends React.Component {
               )
             }) 
           }
-            
-          
+          { noResult ? null : <h2 className="no-result">No se encontraron resultados con: <span>{document.getElementById('filter') ? document.getElementById('filter').value : null }</span></h2>}
         </div>
         : null }
       </section>

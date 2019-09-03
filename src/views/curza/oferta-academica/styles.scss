@@ -6,7 +6,6 @@
         display: flex;
         flex-wrap: wrap;
         flex: 1 20%;
-        align-items: auto;
         margin: auto;
         align-content: center;
         @media #{$all-narrow} {
@@ -14,5 +13,14 @@
         }
         
     }
+    & .no-result{
+        color: $font-1;
+        & span {
+            color: #333;
+        }
+    }
     
+}
+#mostrar-oferta{
+    margin-top: 20px;
 }

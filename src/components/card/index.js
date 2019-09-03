@@ -7,7 +7,7 @@ const Card = props => (
     { //imagen 
     
       props.img ? 
-      <img src={props.img} />
+      <img src={props.img} alt="imagen de carrera" />
       : 
       null 
     }
