@@ -4,6 +4,7 @@ import HomeAccesos from './accesos';
 import BuscarCarreras from './buscar-carreras';
 import HomeNovedades from './novedades';
 import HomeDepartamentos from './departamentos';
+import HomeAgenda from './agenda';
 import HomeServicios from './servicios';
 
 class Home extends React.Component {
@@ -14,7 +15,7 @@ class Home extends React.Component {
         <HomeAccesos />
         <HomeDepartamentos />
         <BuscarCarreras />
-        <HomeServicios />
+        <HomeAgenda />
         <HomeNovedades />
       </section>
     )

@@ -1,20 +1,20 @@
 @import 'styles/variables/colors.scss';
 @import 'styles/variables/mqueries.scss';
 
-#home-novedades {
+#home-agenda {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: #6194af;
 }
 
-#home-novedades h1 {
+#home-agenda h1 {
   margin-top: 50px;
   width:100%;
   text-align: center;
   font-size: 2em;
 }
 
-#home-novedades .list {
+#home-agenda .list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   padding-bottom: 60px;
 }
 
-#home-novedades .list article {
+#home-agenda .list article {
   width: 280px;
   margin: 10px;
   overflow: hidden;
@@ -32,16 +32,16 @@
   }
 }
 
-#home-novedades .list article .fecha {
+#home-agenda .list article .fecha {
   width: 80px;
   float: left;
 }
 
-#home-novedades .list article header {
+#home-agenda .list article header {
   height: 30px;
 }
 
-#home-novedades .list article .area {
+#home-agenda .list article .area {
   width: 180px;
   float: right;
   text-align: right;
@@ -53,56 +53,56 @@
   font-size: 0.9em;
 }
 
-#home-novedades .list article .area a {
+#home-agenda .list article .area a {
   color: #fff;
   text-decoration: none;
 }
 
-#home-novedades .list article .area a:hover {
+#home-agenda .list article .area a:hover {
     color: #aaa;
 }
 
-#home-novedades .list article .image_container {
+#home-agenda .list article .image_container {
   margin: 10px auto;
 }
 
-#home-novedades .list article .image_container .image_wrapper {
+#home-agenda .list article .image_container .image_wrapper {
   width: 100%;
   height: auto;
 }
 
-#home-novedades .list article .image_container img {
+#home-agenda .list article .image_container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-#home-novedades .list article .titulo {
+#home-agenda .list article .titulo {
   clear: both;
   margin-bottom: 10px;
 }
 
-#home-novedades .list article .titulo a {
+#home-agenda .list article .titulo a {
   text-decoration: none;
-  color: #6194af;
+  color: #fff;
   font-size: 1.1em;
   text-align: left;
   font-weight: bold;
 }
 
-#home-novedades .link-todas {
+#home-agenda .link-todas {
   position:absolute;
   bottom: 20px;
   width: 100%;
   text-align: center;
 }
 
-#home-novedades .link-todas a {
+#home-agenda .link-todas a {
   color: #aaa;
   font-size: 1.2em;
   text-decoration: none;
 }
 
-#home-novedades .link-todas a:hover {
+#home-agenda .link-todas a:hover {
   color: #777;
 }
