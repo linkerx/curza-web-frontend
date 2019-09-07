@@ -1,7 +1,7 @@
 import React from 'react'
-
 import './styles.scss';
 import Card  from 'components/card'
+import WpApi from 'wp/api';
 
 class OfertaAcademica extends React.Component {
 
@@ -10,11 +10,61 @@ class OfertaAcademica extends React.Component {
     this.state = {
       carreras: this.props.carreras,
       debug: true,
+      listUrlDptos: null
     }
+    this.updateURLs = this.updateURLs.bind(this);
+
   }
   
+  componentDidMount(){
+    this.updateURLs();
+  }
+  /**
+   * Obtiene los sitios de cada departamento
+   * modifica el estado listUrlDptos con un arreglo de dptos
+   * utiliza WPApi 
+   */
+  updateURLs(){
+    this.setState(function () {
+      return {
+        listUrlDptos: null
+      }
+    });
+    var opts = {
+      location: 'departamentos-menu-location' ,
+    }
+
+    WpApi.getMenuIdByLocation(opts)
+      .then(function(dptos) {
+        this.setState({
+            listUrlDptos: dptos ? dptos.items : null
+        });
+      }.bind(this));
+  }
+  /**
+   * Relaciona los sitios de WP de cada dpto con la carrera
+   * esto sirve para crear la URL hacia la información de la misma
+   * @param {child} c  información de la carrera
+   * @return {String}
+   */
+  urlDpto = (c) => {
+    let nombreDpto = c.departamento.nombre.toLowerCase()
+    if (this.state.listUrlDptos) 
+    { 
+      
+      this.state.listUrlDptos.forEach(departamentoWP => {
+        if(nombreDpto.indexOf(departamentoWP.title.toLowerCase()) !== -1){
+          nombreDpto = departamentoWP.url+"/carreras/"+c.id 
+        }
+      }) ;
+    } else {
+      nombreDpto = "#"
+    }
+    return nombreDpto  
+  }
   render() {
     let noResult = false;
+
     return (
       <section id='oferta-academica'>
         
@@ -44,23 +94,10 @@ class OfertaAcademica extends React.Component {
                                 return null;
                                
                             }): null }
-                            readMore={ child.departamento ? 
-                             ( child.departamento.nombre === "Psicopedagogía" ? 
-                                "psicopedagogia/carreras/"+child.id : 
-                              child.departamento.nombre === "Enfermería" ?
-                                "enfermeria/carreras/"+child.id :
-                              child.departamento.nombre === "Gestión Agropecuaria" ?
-                                "agropecuaria/carreras/"+child.id :
-                              child.departamento.nombre === "Estudios Políticos" ?
-                                "politicos/carreras/"+child.id :
-                              child.departamento.nombre === "Lengua, Literatura y Comunicación" ?
-                               "lengua-comunicacion/carreras/"+child.id :
-                              child.departamento.nombre === "Ciencia y Tecnología" ?
-                                "tecnologia/carreras/"+child.id :
-                              child.departamento.nombre === "Administración Pública" ?
-                                "administracion/carreras/"+child.id :null )
-                              : null
-                            } >
+                            
+                            readMore={this.urlDpto(child)}
+                        >
+                               
                             {child.duracion_total_anos < 0 ? null :"Duración total: "+  child.duracion_total_anos+" años"}
                         </Card>    
                       )
