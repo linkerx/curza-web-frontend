@@ -26,6 +26,7 @@ const Card = props => (
       }
     </div>
     { //boton de leer más
+    
       props.readMore ? 
       <div className="readMore"><a href={props.readMore}>Leer más</a></div> 
       : 

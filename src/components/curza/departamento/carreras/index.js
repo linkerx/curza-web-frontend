@@ -48,10 +48,12 @@ class CurzaCarreras extends React.Component {
                 <ul>
                 { this.state.carreras !== null &&
                     this.state.carreras.map(function(item, index){
-                        var url = urlBase + item.id;
-                        return (
-                            <li key={index} ><Link to={url}>{item.nombre}</Link></li>
-                        )
+                        if(!item.es_titulo_intermedio){
+                            var url = urlBase + item.id;
+                            return (
+                                <li key={index} ><Link to={url}>{item.nombre}</Link></li>
+                            )
+                        } else { return null; }
                     })
                 }
                 </ul>
