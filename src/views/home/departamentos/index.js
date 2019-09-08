@@ -7,6 +7,7 @@ class HomeDepartamentos extends React.Component {
    render(){
     return(
       <section id='home-departamentos'>
+        <div className='fondo'></div>
         <div className='wrapper-central'>
           <h1>Departamentos</h1>
           <WpMenu location='departamentos-menu-location' />
