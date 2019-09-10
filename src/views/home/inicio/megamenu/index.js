@@ -17,7 +17,6 @@ class MegaMenu extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if(nextProps.open){
       this.openMenu(nextProps.padre,nextProps.items);
     } else if(this.props.open === true){
