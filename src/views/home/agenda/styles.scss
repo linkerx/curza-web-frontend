@@ -4,14 +4,18 @@
 #home-agenda {
   position: relative;
   width: 100%;
+  padding: 40px 0;
   background-color: #6194af;
 }
 
 #home-agenda h1 {
-  margin-top: 50px;
-  width:100%;
-  text-align: center;
-  font-size: 2em;
+  font-size:2.5em;
+  color: #333;
+  font-weight: normal;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  border-top:1px solid #333;
+  text-align: left;
 }
 
 #home-agenda .list {
@@ -23,10 +27,11 @@
 }
 
 #home-agenda .list article {
-  width: 280px;
-  margin: 10px;
+  position:relative;
+  width: 450px;
+  margin: 20px;
   overflow: hidden;
-  @media #{$all-narrow} {
+  @media #{$all-narrow-sq} {
     margin: 5%;
     width: 90%;
   }
@@ -35,6 +40,9 @@
 #home-agenda .list article .fecha {
   width: 80px;
   float: left;
+  color: #333;
+  font-weight: bold;
+  padding-top:3px;
 }
 
 #home-agenda .list article header {
@@ -42,33 +50,35 @@
 }
 
 #home-agenda .list article .area {
-  width: 180px;
+  width: 350px;
   float: right;
   text-align: right;
   box-sizing: border-box;
   padding-right: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  background-color: #193f69;
   font-size: 0.9em;
 }
 
 #home-agenda .list article .area a {
-  color: #fff;
+  color: #193f69;
   text-decoration: none;
+  font-weight: bold;
 }
 
 #home-agenda .list article .area a:hover {
-    color: #aaa;
+    color: #333;
 }
 
 #home-agenda .list article .image_container {
-  margin: 10px auto;
+  width: 160px;
+  height: 84px;
 }
 
 #home-agenda .list article .image_container .image_wrapper {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 #home-agenda .list article .image_container img {
@@ -78,6 +88,9 @@
 }
 
 #home-agenda .list article .titulo {
+  position: absolute;
+  top: 25px;
+  left: 180px;
   clear: both;
   margin-bottom: 10px;
 }
@@ -85,7 +98,7 @@
 #home-agenda .list article .titulo a {
   text-decoration: none;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 0.75em;
   text-align: left;
   font-weight: bold;
 }

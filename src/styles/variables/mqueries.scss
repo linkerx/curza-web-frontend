@@ -9,3 +9,5 @@ $super-narrow: "only screen and (max-width: 400px)";
 $all-wide: $wide+", "+$super-wide;
 $all-wide-sq: $square+", "+$wide+", "+$super-wide;
 $all-narrow: $narrow+", "+$super-narrow;
+$all-narrow-sq: $square+", "+$narrow+", "+$super-narrow;
+
