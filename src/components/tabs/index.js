@@ -10,6 +10,18 @@ export class Tabs extends React.Component {
     }
   }
 
+  componentDidUpdate(){
+    if (this.state.active === 'first'){
+      this.props.children[0] ? 
+        this.setState({
+          active: this.props.children[0].props.name
+        })
+      : this.setState({
+        active: null
+      })
+    }
+  }
+
   handleClick(bKey) {
     if (!this.props.initial && this.state.active){
       this.setState(
@@ -36,19 +48,20 @@ export class Tabs extends React.Component {
                 
                 return (
                   child ? 
-                  <li 
-                    key={ child ? child.props.name : null} 
-                    className={liClass}
-                    onClick={() => this.handleClick(child.props.name)}>
-                      <div className="title">{child.props.title}</div>
-                      <div className="subtitle">{child.props.subtitle}</div>
-                      { liClass === "active" ?
-                        <span className="fas fa-chevron-down down"></span>
-                        :
-                        <span className="fas fa-chevron-down up"></span>
-                      }
-                  </li> : null
-               )
+                    <li 
+                      key={ child ? child.props.name : null} 
+                      className={liClass}
+                      onClick={() => this.handleClick(child.props.name)}>
+                        <div className="title">{child.props.title}</div>
+                        <div className="subtitle">{child.props.subtitle}</div>
+                        { liClass === "active" ?
+                          <span className="fas fa-chevron-down down"></span>
+                          :
+                          <span className="fas fa-chevron-down up"></span>
+                        }
+                    </li> 
+                  : null
+                )
               })
             }
           </ul>

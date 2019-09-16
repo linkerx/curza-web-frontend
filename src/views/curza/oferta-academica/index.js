@@ -9,7 +9,7 @@ class OfertaAcademica extends React.Component {
     super(props)
     this.state = {
       carreras: this.props.carreras,
-      debug: true,
+      debug: false,
       listUrlDptos: null
     }
     this.updateURLs = this.updateURLs.bind(this);

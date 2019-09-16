@@ -6,7 +6,7 @@ import FixedHeader from "views/fixed-header";
 import Header from "views/header";
 import Footer from "views/footer";
 import Novedades from "views/curza/novedades";
-import Institucional from "views/curza/institucional";
+import Autoridades from "views/curza/autoridades";
 import MostrarOferta from "views/curza/oferta-academica/mostrarOferta";
 import Home from "views/home";
 import CurzaWpNetwork from "components/network";
@@ -130,7 +130,7 @@ handleScroll() {
                   <Switch location={location}>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/oferta-academica' render={ function(props) { return ( <MostrarOferta {...props}  /> ) } } />
-                    <Route exact path='/autoridades' render={ function() { return ( <Institucional  /> ) } } />
+                    <Route exact path='/autoridades' render={ function() { return ( <Autoridades  /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
