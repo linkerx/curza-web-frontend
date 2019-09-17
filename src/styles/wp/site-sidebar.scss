@@ -1,20 +1,21 @@
 @import 'styles/variables/mqueries.scss';
 
 #wp-site-sidebar {
-    width:250px;
+    width:15vw;
     background-color: #9ee5ff;
     color: #333;
     box-sizing: border-box;
-    padding:10px;
     order: 3;
     flex-shrink: 0;
-    
+    padding:10px 20px 20px 10px;
     &.close {
-        transition: margin .8s;
-        margin-right:-250px;
+        transition: .8s;
+        width:0px;
+        padding:0px;
+        overflow: hidden;
     }
     &.open{
-        transition: margin .8s;
-        margin-right:0px;
+        transition: .8s;
+        width:15vw;
     }
 }

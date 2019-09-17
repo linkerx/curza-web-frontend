@@ -3,6 +3,11 @@ import './styles.scss';
 import WpMenu from 'wp/menu';
 
 class Footer extends React.Component {
+
+  top = () => {
+    window.scrollTo(0, 0)
+  }
+  
   render(){
     return(
       <div id='footer'>
@@ -29,7 +34,7 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-        <a href="#main" className="subir"><span className="fas fa-arrow-up"></span></a>
+        <a href={null} onClick={() => this.top()} className="subir"><span className="fas fa-arrow-up"></span></a>
       </div>
     )
   }

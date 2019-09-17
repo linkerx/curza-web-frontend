@@ -32,6 +32,16 @@ class CurzaWpSiteDepartamento extends React.Component {
     })
   }
 
+  componentDidMount(){
+    if(window.innerWidth < 1000){
+      this.setState({
+        siteMenu: false,
+        siteSidebarMenu:false,
+      })
+    }
+  }
+
+
   render() {
     var template = 1;
     if(this.props.template){
