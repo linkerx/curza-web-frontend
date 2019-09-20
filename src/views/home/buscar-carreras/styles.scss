@@ -17,31 +17,30 @@
         text-align: left;
     }    
     & input {
-        background-color: rgb(235, 235, 235);
+        background-color: #eee;
         font-size: 1.2em;
         line-height: 10px;
-        border: 2px solid rgb(158, 158, 158);
+        border: 2px solid #008dc2;
         border-radius: 10px;
         justify-content: center;
-        margin: 25px;
+        margin: 10px;
         width: 30vw;
-        transition: border-radius .8s;
-        padding:12px;
-        &:focus{
-            border-radius: 0px;
-            & ~ .button{
-                border-radius: 20px;
-            }
-        }
+        padding: 12px;
+        color: #555;
+
         @media #{$all-narrow} {
             width: 50vw;
         }
     }
     & .button {
-        background-color: #333;
-        padding:15px 30px ;
+        background-color: #10396d;
+        padding: 8px 8px;
         color: #fff;
-        transition:border-radius .8s;
+        display: block;
+        width: 80px;
+        margin: auto;
+        border-radius: 10px;
+        margin: 20px auto;
         
     }
 }

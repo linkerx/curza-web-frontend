@@ -7,6 +7,10 @@
   box-shadow: 0 4px 8px 0 rgba(183, 183, 183, 0.2),5px 2px 4px 0 rgba(1, 82, 138,0.3); /* this adds the "card" effect */
   padding: 16px;
   background-color: #f1f1f1;
+
+  @media #{$all-narrow} {
+    width: 80%;
+  }
   
   & h2{
       text-align: left;
