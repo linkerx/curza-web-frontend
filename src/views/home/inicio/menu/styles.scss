@@ -10,7 +10,7 @@
   color: #fff;
   @media #{$all-narrow} {
     width:auto;
-    top: 58vh;
+    top: 65vh;
     bottom: 15px;
     left: 2vw;
     right: 2vw;
@@ -31,10 +31,11 @@
   text-align: right;
   background: transparent;
   @media #{$all-narrow} {
-    margin: 20px 1%;
+    margin: 15px 1%;
     padding: 0;
     width: 48%;
     text-align:center;
+    box-sizing: border-box;
   }
 }
 
@@ -51,6 +52,10 @@
   text-decoration: none;
   font-size: 1.5em;
   font-weight:bold;
+
+  @media #{$all-narrow} {
+    font-size: 1.2em;
+  }
 }
 
 #home-inicio-menu nav.menu li a:hover {

@@ -9,7 +9,7 @@ section#home-inicio .slider {
   z-index:20;
 
   @media #{$all-narrow} {
-    top: 180px;
+    top: 165px;
   }
 }
 
@@ -51,18 +51,21 @@ section#home-inicio .slider .page article .post_content {
   background-color: rgba(0,0,0,0.5);
   margin:0;
   padding: 10px 3%;
-  padding-top: 30px;
+  padding-top: 20px;
   text-align:center;
+  box-sizing: border-box;
 
   @media #{$all-narrow} {
-    top: 0;
+    top: 10px;
     width:100%;
+    max-height: 40vh;
+    overflow: hidden;
   }
 }
 
 section#home-inicio .slider .page article .post_content h2 a {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 section#home-inicio .slider .page article .post_content .date {
@@ -70,14 +73,14 @@ section#home-inicio .slider .page article .post_content .date {
 }
 
 section#home-inicio .slider .page article .post_content .content {
-  margin: 30px;
+  margin: 20px;
   color: #fff;
 }
 
 section#home-inicio .slider .page article .post_content .excerpt {
   margin:20px;
   color: #ccc;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-style: italic
 }
 
