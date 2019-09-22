@@ -1,3 +1,5 @@
+@import "styles/variables/colors.scss";
+@import "styles/variables/mqueries.scss";
 #curza-carrera {
     position: relative;
     & .planes {
@@ -134,23 +136,49 @@
         //&:last-child {
             // border-right: 0;
         //}
+        & .clickPopover {
+            color: #1976D2;
+            font-size: 1.5em;
+        }
+        & .popover__content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 0px;
+            max-width: 500px;
+            transform: translate(-300px, 0px);
+            background-color: #bfbfbf;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            width: auto;
+          }
+          &:hover{
+            & .popover__content {
+              z-index: 10;
+              opacity: 1;
+              visibility: visible;
+              transform: translate(-30%, -0px);
+              transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+              @media #{$all-narrow} {
+                    z-index: 10;
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-5%, -0px);
+                    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+              }
+              @media #{$square} {
+                z-index: 10;
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-5%, -0px);
+                transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+              }
+            }
+          }
     }
 
+    
     @media all and (max-width: 767px) {
-    .flex-row {
-        width: calc(100% / 3); //1px = border right
-        
-    &.first {
-        width: 100%;
-    }
-    }
-
-    .column {
-        width: 100%;
-    }
-    }
-
-    @media all and (max-width: 430px) {
     
     .flex-table {
         .flex-row {
