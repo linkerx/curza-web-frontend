@@ -102,8 +102,21 @@ class CurzaCarrera extends React.Component {
                             </ul>
                         </div>
                         <div className='info-carrera'>
-                            <p><span>Perfil:</span> {this.state.carrera.perfil}</p>
-                            <p><span>Alcance: </span>{this.state.carrera.alcance}</p>
+                            {this.state.carrera.fundamentacion ? 
+                                <p><span>Fundamentación:</span> <div dangerouslySetInnerHTML={{__html: this.state.carrera.fundamentación}}></div></p>
+                                :
+                                null
+                            }
+                            {this.state.carrera.perfil ? 
+                                <p><span>Perfil:</span> <div dangerouslySetInnerHTML={{__html: this.state.carrera.perfil}}></div></p>
+                                :
+                                null
+                            }
+                            {this.state.carrera.alcance ? 
+                                <p><span>Alcance: </span><p dangerouslySetInnerHTML={{__html: this.state.carrera.alcance}}></p></p>
+                                :
+                                null
+                            }
                             <p ><span>Modalidad:</span> 
                                 <ul> 
                                     {
@@ -129,7 +142,7 @@ class CurzaCarrera extends React.Component {
                                         <div className="flex-row" role="columnheader">Asignatura</div>
                                         <div className="flex-row" role="columnheader">Cuatrimestre</div>
                                         <div className="flex-row" role="columnheader">Carga horaria</div>
-                                        <div className="flex-row" role="columnheader">Correlativa</div>
+                                        <div className="flex-row" role="columnheader">Correlativa/s</div>
                                     </div>
                                     {  // primero ordena por numero de orden y luego recorre
                                         this.state.asignaturas.sort(function(a,b) { if (a.orden > b.orden ) return 1; else return -1})
@@ -146,7 +159,6 @@ class CurzaCarrera extends React.Component {
                                                     cursado = "Segundo"
                                                     break;
                                             }
-                                            
                                             return (
                                                 
                                                 <div className={
@@ -164,9 +176,28 @@ class CurzaCarrera extends React.Component {
                                                             <div className="flex-cell">
                                                                 {
                                                                     item.correlativas.map(function(correlativa,index){
-                                                                        return <div key={index}>{correlativa.orden}</div>;
+                                                                        return <div key={index}>
+                                                                            {correlativa.orden} 
+                                                                            
+                                                                        </div>;
                                                                     })
+                                                                    
                                                                 }
+                                                                {
+                                                                    item.requisitos  ? 
+                                                                        item.requisitos.length <= 60 ?
+                                                                        <div dangerouslySetInnerHTML={{__html: item.requisitos}}></div> 
+                                                                        :
+                                                                        <div>
+                                                                        <i className="clickPopover fas fa-info-circle" ></i> 
+                                                                        <div  className="popover__content">
+                                                                            <div  className="popover__message" dangerouslySetInnerHTML={{__html: item.requisitos}}></div> 
+                                                                        </div>
+                                                                        </div>
+                                                                    :
+                                                                        null
+                                                                }
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
