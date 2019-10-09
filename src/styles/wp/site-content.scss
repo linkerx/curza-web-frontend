@@ -8,15 +8,26 @@
     background-color: #fff;
 }
 
+#curza-site-content #wp-site-content {
+    padding: 0;
+}
+
 #curza-site-content h2,
 #wp-site-content h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: #333;
     border-bottom: 2px solid #333;
     width:100%;
     padding-bottom: 8px;
     margin: 20px 0;
     clear:both;
+}
+
+#curza-site-content h3,
+#wp-site-content h3 {
+    color: #008dc2;
+    margin: 20px 0;
+    font-size: 1.5em;    
 }
   
 @import 'styles/wp/site-post.scss';

@@ -3,12 +3,16 @@
 #wp-site-header {
     width:100%;
     position:relative;
-    height: 60px;
+    height: 180px;
     background-color: #008dc2;
 }
 
-#wp-site-header h1{
-   padding-top:18px;
-   text-align: center;
+#wp-site-header h1 {
+   position: absolute;
+   top: 33%;
+   left: 80px;
    color: #fff;
+   font-size: 3.5em;
+   font-weight: 300;
+
 }
