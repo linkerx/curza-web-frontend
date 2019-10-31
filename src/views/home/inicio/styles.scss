@@ -6,3 +6,18 @@
   height: 100vh;
   background-color: #10396d;
 }
+
+#home-inicio #scroll-proposal {
+  z-index: 90;
+  position:absolute;
+  bottom: 10px;
+  width: 100%;
+  height:40px;
+  text-align: center;
+}
+
+#home-inicio #scroll-proposal i{
+  color: #fff;
+  font-size: 40px;
+  margin:auto;
+}

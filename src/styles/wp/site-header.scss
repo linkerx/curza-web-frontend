@@ -1,4 +1,5 @@
 @import "styles/variables/colors.scss";
+@import 'styles/variables/mqueries.scss';
 
 #wp-site-header {
     width:100%;
@@ -7,12 +8,57 @@
     background-color: #008dc2;
 }
 
+#wp-site-header .fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/fondo_header_site.png"), url("/images/fondos/fondo4_fino.jpg");
+    background-size: cover;
+    background-position: center 25%;
+}
+
 #wp-site-header h1 {
    position: absolute;
-   top: 33%;
-   left: 80px;
+   top: 70px;
+   left: 120px;
    color: #fff;
-   font-size: 3.5em;
    font-weight: 300;
+   text-transform: uppercase;
+   font-size: 40px;
+   line-height: 40px;
+   text-shadow: 0 0 20px #008dc2,0 0 20px #008dc2 ;
 
+   @media #{$all-narrow} {
+        width:80%;
+        margin: 10%;
+        font-size: 30px;
+        text-align: center;
+        top: 0;
+        left:0;
+    }
+}
+
+#wp-site-header .button-site {
+    position:absolute;
+    bottom: 10px;
+}
+
+#wp-site-header .button-site i {
+        font-size: 24px;
+        line-height: 24px;
+        color: #fff;
+}
+
+#wp-site-header .button-site span {
+    display: none;
+}
+
+#wp-site-header .button-menu {
+    left: 20px;
+}
+
+#wp-site-header .button-sidebar {
+    right: 20px;
 }

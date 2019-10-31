@@ -14,12 +14,35 @@ class HomeInicio extends React.Component {
       megamenuOpen: false,
       megamenuPadre: null,
       megamenuData: null,
-      menuSelected: null
+      menuSelected: null,
+      showScrollProp: true
     }
 
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
+
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);  
+  }
+  
+  handleScroll() {
+    if(window.scrollY > 200){
+      this.setState({
+        showScrollProp: false
+      });    
+    } else {
+      this.setState({
+        showScrollProp: true
+      })
+    }
+  }
+  
 
   openMenu(item){
     this.setState(function(){
@@ -50,6 +73,11 @@ class HomeInicio extends React.Component {
         <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>
           <Megamenu open={this.state.megamenuOpen} close={this.closeMenu} items={this.state.megamenuData} padre={this.state.megamenuPadre} />
+        </div>
+        <div id='scroll-proposal'>
+          { this.state.showScrollProp &&
+            <i className="fas fa-chevron-down" onClick={() => {window.scrollTo({ top: 200, behavior: 'smooth'})}}></i>
+          }
         </div>
       </section>
     )

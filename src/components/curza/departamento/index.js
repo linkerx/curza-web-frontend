@@ -10,37 +10,23 @@ class CurzaWpSiteDepartamento extends React.Component {
     super(props);
     this.state = {
       menu_opened: false,
-      siteMenu: true,
-      siteSidebarMenu: true
+      sidebar_opened: false
     }
-    this.openMenu = this.openMenu.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
-  openMenu(){
+  toggleMenu(){
     this.setState({
-      menu_opened: true
-    })
-  }
-  actionMenu(){
-    this.setState({
-      siteMenu: !this.state.siteMenu 
-    })
-  }
-  actionSidebarMenu(){
-    this.setState({
-      siteSidebarMenu: !this.state.siteSidebarMenu 
+      menu_opened: !this.state.menu_opened
     })
   }
 
-  componentDidMount(){
-    if(window.innerWidth < 1000){
-      this.setState({
-        siteMenu: false,
-        siteSidebarMenu:false,
-      })
-    }
+  toggleSidebar(){
+    this.setState({
+      sidebar_opened: !this.state.sidebar_opened
+    })
   }
-
 
   render() {
     var template = 1;
@@ -56,21 +42,21 @@ class CurzaWpSiteDepartamento extends React.Component {
     return(
       
       <section id='wp-site'>
-          <div className={this.state.siteMenu ? "button-site-menu active-site-menu" : "button-site-menu site-menu"}  onClick={() => this.actionMenu()}>
-            <span>Menú</span>
-            <i className={this.state.siteMenu ? "fas fa-times-circle" : "fas fa-bars" }></i>
-          </div>
-          <div className={this.state.siteSidebarMenu ? "button-sidebar-menu active-sidebar-menu" : "button-sidebar-menu sidebar-menu"}  onClick={() => this.actionSidebarMenu()}>
-            <span>Menú</span>
-                  <i className={this.state.siteSidebarMenu ? "fas fa-times-circle" : "fas fa-bars" }></i>
-          </div>
-        <WpSiteHeader site={this.props.site} openMenu={this.openMenu} debug={false} data={this.props.site_data} />
+        <WpSiteHeader 
+          site={this.props.site} 
+          toggleMenu={this.toggleMenu} 
+          toggleSidebar={this.toggleSidebar} 
+          menuOpened={this.state.menu_opened} 
+          sidebarOpened={this.state.sidebar_opened} 
+          debug={false} 
+          data={this.props.site_data} 
+        />
         <div className='wp-site-wrapper'>
-          <WpSiteMenu site={this.props.site} openMenu={this.state.siteMenu} />
+          <WpSiteMenu site={this.props.site} toggleMenu={this.toggleMenu} opened={this.state.menu_opened} />
           <div id='curza-site-content'>
             {this.props.children}
           </div>
-          <WpSiteSidebar site={this.props.site} openMenu={this.state.siteSidebarMenu} debug={false}/>
+          <WpSiteSidebar site={this.props.site} toggleSidebar={this.toggleSidebar} opened={this.state.sidebar_opened} debug={false}/>
         </div>
       </section>
     )
