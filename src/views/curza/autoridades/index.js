@@ -139,6 +139,12 @@ class Autoridades extends React.Component {
       {
         descripcion: 'Secreataría de Ciencia y Técnica',
         a_cargo: 'Mgter. Dora Bonardo',
+        list: [
+          {
+            descripcion: "Departamento de Investigación",
+            a_cargo: "Lic. Lidia Peña"
+          },
+        ]
       },
 
       {
@@ -146,7 +152,13 @@ class Autoridades extends React.Component {
       },
       {
         descripcion: 'Secretaría de Extensión Universitaria',
-        a_cargo: 'Mgter. Gabriela Aschkar'
+        a_cargo: 'Lic. Gabriela Aschkar',
+        list: [
+          {
+            descripcion: "Departamento de Extensión",
+            a_cargo: "Marcos Tabares"
+          },
+        ]
       }
 
     ]
