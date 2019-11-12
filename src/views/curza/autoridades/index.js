@@ -152,9 +152,6 @@ class Autoridades extends React.Component {
       },
       {
         descripcion: 'Secretaría de Extensión Universitaria',
-<<<<<<< HEAD
-        a_cargo: 'Lic. Gabriela Aschkar'
-=======
         a_cargo: 'Lic. Gabriela Aschkar',
         list: [
           {
@@ -162,7 +159,6 @@ class Autoridades extends React.Component {
             a_cargo: "Marcos Tabares"
           },
         ]
->>>>>>> d105ad15ac8f60a7b2d085a18fa58674fc4bd06d
       }
 
     ]
