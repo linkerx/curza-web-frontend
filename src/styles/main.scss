@@ -52,6 +52,11 @@ body {
   }
 }
 
-a, a:hover {
+a {
     text-decoration: none;
+    color: #008dc2;
+}
+
+a:hover {
+    color: #10396d;
 }

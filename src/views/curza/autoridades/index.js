@@ -58,7 +58,7 @@ class Autoridades extends React.Component {
             a_cargo: 
               <ul>
                 <li>Fernández, Fabián Nelson</li>
-                <li>Martínez, Juan Osca</li>
+                <li>Martínez, Juan Oscar</li>
                 <li>Hernández, Romina Soledad</li>
               </ul>
           },
@@ -128,7 +128,7 @@ class Autoridades extends React.Component {
           },
           {
             descripcion: "Departamento Docente",
-            a_cargo: "Juan Martinez"
+            a_cargo: "Tec. Juan Martinez"
           },
           {
             descripcion: "Departamento de Alumnos",
@@ -146,7 +146,7 @@ class Autoridades extends React.Component {
       },
       {
         descripcion: 'Secretaría de Extensión Universitaria',
-        a_cargo: 'Mgter. Gabriela Aschkar'
+        a_cargo: 'Lic. Gabriela Aschkar'
       }
 
     ]
