@@ -5,13 +5,49 @@
   position: relative;
   width: 100%;
   background-color: #fff;
-}
+  & > header {
+    width: 100%;
+    position: relative;
+    height: 180px;
+    background-color: #008dc2;
+    z-index: 30;
+    
+    & .fondo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/images/fondo_header_site.png"), url("/images/fondos/fondo4_fino.jpg");
+        background-size: cover;
+        background-position: center 25%;
+        z-index: 31;
+    }
 
-#novedades h1 {
-  margin-top: 50px;
-  width:100%;
-  text-align: center;
-  font-size: 2em;
+    & h1 {
+        position: absolute;
+        top: 70px;
+        left: 120px;
+        color:
+        #fff;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 40px;
+        line-height: 40px;
+        text-shadow: 0 0 20px
+        #008dc2,0 0 20px #008dc2;
+        z-index: 32;
+
+        @media #{$all-narrow} {
+            width: 80%;
+            margin: 10%;
+            font-size: 30px;
+            text-align: center;
+            top: 0;
+            left: 0;
+        }
+    }
+  }
 }
 
 #novedades .list {

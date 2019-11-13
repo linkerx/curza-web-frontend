@@ -63,20 +63,14 @@ class OfertaAcademica extends React.Component {
     return nombreDpto  
   }
   render() {
-    let noResult = false;
-
     return (
       <section id='oferta-academica'>
-        
-        {this.props.carreras ?
-        <div className="wrapper-central">
-          <h2>Oferta de grado</h2>
-          { 
+         <div className="wrapper-central">
+          { this.props.carreras ?
             this.props.carreras.map((carreraxDpto, index) => {
-              noResult = carreraxDpto.length > 0 || noResult ;
               return (
                 <div key={index}>
-                  <h3>{carreraxDpto.length > 0 ? carreraxDpto[0].departamento.nombre : null }</h3>
+                  {carreraxDpto.length > 0 ? <h2> {carreraxDpto[0].departamento.nombre}</h2> : null }
                   <div className="flex-ofertas" >
                     {carreraxDpto ? carreraxDpto.map((child,index) => {
                       return (
@@ -85,9 +79,9 @@ class OfertaAcademica extends React.Component {
                             icons={child.modalidades ? child.modalidades.map( (element) => {
                                 if(element) {
                                   if (element.nombre === "Presencial") 
-                                  return {'i': "fas fa-child" , 'text':'Posee modalidad presencial'}
+                                  return {'i': "fas fa-chalkboard-teacher" , 'text':'Modalidad presencial'}
                                   else if( element.nombre === "Semipresencial") 
-                                    return {'i': "fas fa-broadcast-tower" , 'text': 'Posee modalidad semipresencial'}
+                                    return {'i': "fas fa-laptop" , 'text': 'Modalidad semipresencial'}
                                   else 
                                     return ("fas fa-chalkboard")
                                 }
@@ -106,10 +100,12 @@ class OfertaAcademica extends React.Component {
                 </div>
               )
             }) 
+            : 
+            <h2 className="no-result">No se encontraron resultados con: 
+              <span>{document.getElementById('filter') ? document.getElementById('filter').value : null }</span>
+            </h2> 
           }
-          { noResult ? null : <h2 className="no-result">No se encontraron resultados con: <span>{document.getElementById('filter') ? document.getElementById('filter').value : null }</span></h2>}
         </div>
-        : null }
       </section>
     )
   }

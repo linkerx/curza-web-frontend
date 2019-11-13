@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCarrerasDpto } from 'components/curza/api';
+import Card from 'components/card';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
@@ -51,8 +52,29 @@ class CurzaCarreras extends React.Component {
                         if(!item.es_titulo_intermedio){
                             var url = urlBase + item.id;
                             return (
-                                <li key={index} ><Link to={url}>{item.nombre}</Link></li>
-                            )
+
+                                <Card key={index} 
+                            title={item.nombre} 
+                            icons={item.modalidades ? item.modalidades.map( (element) => {
+                                if(element) {
+                                  if (element.nombre === "Presencial") 
+                                  return {'i': "fas fa-chalkboard-teacher" , 'text':'Modalidad presencial'}
+                                  else if( element.nombre === "Semipresencial") 
+                                    return {'i': "fas fa-laptop" , 'text': 'Modalidad semipresencial'}
+                                  else 
+                                    return ("fas fa-chalkboard")
+                                }
+                                return null;
+                               
+                            }): null }
+                            
+                            readMore={url}
+                        >
+                               
+                            {item.duracion_total_anos < 0 ? null :"Duración total: "+  item.duracion_total_anos+" años"}
+                        </Card>
+
+                          )
                         } else { return null; }
                     })
                 }

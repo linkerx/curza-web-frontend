@@ -160,9 +160,7 @@ class Autoridades extends React.Component {
           },
         ]
       }
-
     ]
-
 
     this.setState({
       secretarias: array_secretarias,
