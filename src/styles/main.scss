@@ -60,3 +60,21 @@ a {
 a:hover {
     color: #10396d;
 }
+
+table.inPost_table{
+	width:90%;
+	margin:auto;
+	margin-top:10px;
+    margin-bottom:10px;
+    border-collapse: collapse;
+}
+
+table.inPost_table td{
+	border:1px solid #999;
+    padding:10px; 
+}
+
+table.inPost_table th {
+    color: #008dc2;
+    font-size: 1.2em;
+}
