@@ -170,6 +170,10 @@ class Autoridades extends React.Component {
   render() {
     return (
       <section id='institucional'>
+        <header>
+          <div className='fondo'></div>
+          <h1>Autoridades</h1>
+        </header>
         <div className="wrapper-central">
           {
             this.state.consejo_directivo ?
