@@ -109,7 +109,7 @@ handleScroll() {
 
   return (
     <div className="app">
-    <Route path='/cms' render={ function(props) { return ( <RouterCurzaCms  {...props} show={this.endLoading} /> ) } } />      
+    <Route path='/cms' render={ function(props) { return ( <RouterCurzaCms  {...props} /> ) } } />      
     <div id='main-wrapper' >
   <TransitionGroup component={null}>
   <Transition
