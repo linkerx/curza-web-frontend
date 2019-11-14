@@ -5,8 +5,8 @@ class RouterCurzaCms extends React.Component {
     render(){
         return(
             <Switch>
-                <Route exact='/cms' render={ () => (<Redirect to='/' />) } />
-                <Route exact='/cms/departamentos/ciencia-y-tecnologia' render={ () => (<Redirect to='/tecnologia' />) } />
+                <Route exact path='/cms' render={ () => (<Redirect to='/' />) } />
+                <Route exact path='/cms/departamentos/ciencia-y-tecnologia' render={ () => (<Redirect to='/tecnologia' />) } />
             </Switch>
         )
     }
