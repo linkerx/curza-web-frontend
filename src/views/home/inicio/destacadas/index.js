@@ -4,7 +4,7 @@ require('./styles.scss');
 
 function Destacadas(){
   return (
-     <Slider template={3} />
+     <Slider template={3} showContent='true'/>
   )
 }
 

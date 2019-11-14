@@ -9,7 +9,7 @@ class HomeNovedades extends React.Component {
       <section id='home-novedades'>
         <h1>Últimas Publicaciones</h1>
         <div className='wrapper-central'>
-          <WpNetworkList count='3' layout='image-first' imageRender='img' template={2} />
+          <WpNetworkList count='3' layout='image-first' imageSize='thumbnail' imageRender='img' template={2} />
         </div>
         <div className='link-todas'>
           <NavLink to='/novedades'>Ver todas las novedades</NavLink>

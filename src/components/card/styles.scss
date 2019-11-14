@@ -4,53 +4,55 @@
   margin: 20px auto;
   box-sizing: border-box;
   width: 350px;
-  box-shadow: 0 4px 8px 0 rgba(183, 183, 183, 0.2),5px 2px 4px 0 rgba(1, 82, 138,0.3); /* this adds the "card" effect */
-  padding: 16px;
-  background-color: #f1f1f1;
+  min-height: 180px;
+  padding: 15px;
+  background-color: #10396d;
+  border-radius: 10px;
+  position: relative;
 
   @media #{$all-narrow} {
     width: 80%;
   }
   
-  & h2{
+  & h3{
       text-align: left;
+      color: #fff !important;
+      margin: 0 !important;
+      font-size: 1.2em !important;
   }
   & .descripcion {
       margin-top:20px;
       margin-bottom: 20px;
+      color: #ddd;
   }
-  & .readMore{
-      font-size: 1.2em;
-      justify-content: center;
-      flex-direction: column;
-      display: inline-flex;
-      text-align: left;
-      font-weight: bold;
-      margin-top: 20px;
+  & .readMore {
       background-color: $background-1;
-      border-radius: 5%;
+      border-radius: 8px;
+      width: 80px;
+      position:absolute;
+      bottom: 15px;
+      left:15px;
+      padding:8px;
+      text-align: center;
       & a {
-        
-        padding:10px;
         color: #fff;
-        text-decoration: none;
-        transition: box-shadow .2s;
-        &:hover{
-          box-shadow: 0 4px 8px 0 rgba(183, 183, 183, 0.8); /* this adds the "card" effect */  
-        }
       }
   }
+  & .readMore:hover {
+    background-color: #0079a6;
+  }
   & .icons {
-      margin-top:20px;
-      float:right;
-      display: inline-flex;
+    position: absolute;
+    display: flex;
+    bottom: 10px;
+    right: 12px;
       &.popover__message {
         text-align: center;
        font-weight: 0;
       }
       
       & i{
-        color:#333;
+        color:#ccc;
         cursor: help;
         //background-color: $background-1;
         justify-content: center;
@@ -68,13 +70,18 @@
           opacity: 0;
           visibility: hidden;
           position: absolute;
+          bottom: -30px;
           left: 0px;
-          max-width: 120px;
+          color: #333;
           transform: translate(-300px, 0px);
           background-color: #bfbfbf;
-          padding: 1.5rem;
+          padding: 3px;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
           width: auto;
+
+          & p {
+            width: 300px;
+          }
         }
 
         &:hover{
@@ -82,14 +89,14 @@
             z-index: 10;
             opacity: 1;
             visibility: visible;
-            transform: translate(-30%, -0px);
-            transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            transform: translate(-200px, 0);
+            transition: all 0.5s;
             @media #{$all-narrow} {
                   z-index: 10;
                   opacity: 1;
                   visibility: visible;
                   transform: translate(-5%, -0px);
-                  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+                  transition: all 0.5s;
             }
             @media #{$square} {
               z-index: 10;

@@ -58,7 +58,7 @@ class Autoridades extends React.Component {
             a_cargo: 
               <ul>
                 <li>Fernández, Fabián Nelson</li>
-                <li>Martínez, Juan Osca</li>
+                <li>Martínez, Juan Oscar</li>
                 <li>Hernández, Romina Soledad</li>
               </ul>
           },
@@ -128,7 +128,7 @@ class Autoridades extends React.Component {
           },
           {
             descripcion: "Departamento Docente",
-            a_cargo: "Juan Martinez"
+            a_cargo: "Tec. Juan Martinez"
           },
           {
             descripcion: "Departamento de Alumnos",
@@ -160,9 +160,7 @@ class Autoridades extends React.Component {
           },
         ]
       }
-
     ]
-
 
     this.setState({
       secretarias: array_secretarias,
@@ -172,6 +170,10 @@ class Autoridades extends React.Component {
   render() {
     return (
       <section id='institucional'>
+        <header>
+          <div className='fondo'></div>
+          <h1>Autoridades</h1>
+        </header>
         <div className="wrapper-central">
           {
             this.state.consejo_directivo ?

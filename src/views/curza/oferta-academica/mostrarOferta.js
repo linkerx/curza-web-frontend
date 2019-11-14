@@ -88,7 +88,11 @@ class MostrarOferta extends Component {
   render() {
     return (
       <div id="mostrar-oferta">
-        <Filter onChange={this.filtrarOfertas} text={this.state.text} />
+        <header>
+          <div className='fondo'></div>
+          <h1>Oferta de grado</h1>
+          <Filter onChange={this.filtrarOfertas} text={this.state.text} />
+        </header>
         <OfertaAcademica
           carreras={this.state.ofertasFiltrada}
           match={this.props.match}
