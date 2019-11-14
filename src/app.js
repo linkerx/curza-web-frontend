@@ -109,6 +109,7 @@ handleScroll() {
 
   return (
     <div className="app">
+    <Route path='/cms' render={ function(props) { return ( <RouterCurzaCms  {...props} show={this.endLoading} /> ) } } />      
     <div id='main-wrapper' >
   <TransitionGroup component={null}>
   <Transition
@@ -132,7 +133,6 @@ handleScroll() {
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/oferta-academica' render={ function(props) { return ( <MostrarOferta {...props}  /> ) } } />
                     <Route exact path='/autoridades' render={ function() { return ( <Autoridades  /> ) } } />
-                    <Route path='/cms' render={ function(props) { return ( <RouterCurzaCms  {...props} /> ) } } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
