@@ -10,6 +10,7 @@ import Autoridades from "views/curza/autoridades";
 import MostrarOferta from "views/curza/oferta-academica/mostrarOferta";
 import Home from "views/home";
 import CurzaWpNetwork from "components/network";
+import RouterCurzaCms from "components/curza/routerCms"
 import Megamenu from 'views/megamenu';
 import 'styles/main.scss';
 import 'styles/transition.scss';
@@ -108,6 +109,7 @@ handleScroll() {
 
   return (
     <div className="app">
+    <Route path='/cms' render={ function(props) { return ( <RouterCurzaCms  {...props} /> ) } } />      
     <div id='main-wrapper' >
   <TransitionGroup component={null}>
   <Transition
