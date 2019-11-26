@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+AddEncoding gzip .gz
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}\.gz -s
+RewriteRule bundle.js bundle.js.gz [QSA,L]
+
+<Files *.js.gz>
+ForceType application/javascript
+</Files>
