@@ -38,7 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
       mysqli_set_charset($conn, 'utf-8');
       $acentos = $conn->query("SET NAMES 'utf8'");
 
-      $actual_link = "https://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
+      $actual_link = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
       if(substr($actual_link, -1) == '/'){
           $actual_link = substr($actual_link, 0, -1);
@@ -71,11 +71,11 @@ header('Content-Type: text/html; charset=UTF-8');
           $image = $metadata['image'];
 
       } else {
-          $url ="https://web.legisrn.gov.ar";
+          $url = getenv('FRONTEND_URL');
           $type = "website";
-          $title = "Legislatura de Río Negro";
-          $description = "Sitio de la Legislatura del Pueblo de la Provincia de Río Negro";
-          $image = "https://webadmin.legisrn.gov.ar/assets/images/legisrn.jpg";
+          $title = "CURZA - UNCo";
+          $description = "Sitio de la sede atlántica de la Universidad Nacional del Comahue";
+          $image = getenv('DEFAULT_IMG_URL');
       }
 
       /* facebook */
