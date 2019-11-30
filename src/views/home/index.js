@@ -19,6 +19,7 @@ class Home extends React.Component {
         <HomeAgenda />
         <HomeNovedades />
         <HomeSeparador />
+        <div></div>
       </section>
     )
   }
