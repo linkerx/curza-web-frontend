@@ -142,7 +142,7 @@ class Autoridades extends React.Component {
         list: [
           {
             descripcion: "Departamento de Investigación",
-            a_cargo: "Lic. Lidia Peña"
+            a_cargo: "Lic. Marina Favalli"
           },
         ]
       },

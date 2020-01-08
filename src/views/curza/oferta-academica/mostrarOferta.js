@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getQueryProgramas, getCarrerasDpto } from 'components/curza/api';
-import OfertaAcademica from './'
-import Filter from 'components/filter'
+import OfertaAcademica from './';
+import Filter from 'components/filter';
+import NavLink from 'react-router-dom';
 class MostrarOferta extends Component {
   constructor(props) {
     super(props)
@@ -97,6 +98,7 @@ class MostrarOferta extends Component {
           carreras={this.state.ofertasFiltrada}
           match={this.props.match}
         />
+       <NavLink to='/posgrado'>Oferta de Posgrado</NavLink>
       </div>
     )
   }
