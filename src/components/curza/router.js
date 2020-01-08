@@ -120,11 +120,11 @@ componentDidMount(){
                 <div>
                   { this.state.site !== '' ?
                     <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                      <WpSite {...props} template={template} site={this.state.site} site_data={this.props.site_data} debug={true} />
+                      <WpSite {...props} template={template} site={this.state.site} site_data={this.props.site_data} />
                     )}.bind(this)}/>
                   :
                     <Route path={'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
-                      <WpSite {...props} template={template} site_data={this.props.site_data} debug={true} />
+                      <WpSite {...props} template={template} site_data={this.props.site_data} />
                     )}.bind(this)}/>
                   }
                 </div>
