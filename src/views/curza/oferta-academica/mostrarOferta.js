@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getQueryProgramas, getCarrerasDpto } from 'components/curza/api';
 import OfertaAcademica from './';
 import Filter from 'components/filter';
-import NavLink from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 class MostrarOferta extends Component {
   constructor(props) {
     super(props)
