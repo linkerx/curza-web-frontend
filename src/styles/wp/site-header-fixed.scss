@@ -6,7 +6,7 @@
     position: fixed;
     top: 60px;
     height: 60px;
-    z-index: 80;
+    z-index: 45;
     background-color: #008dc2;
 }
 
@@ -50,9 +50,10 @@
 }
 
 #wp-site-header-fixed .button-site i {
-        font-size: 20px;
-        line-height: 20px;
-        color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    cursor: pointer;
 }
 
 #wp-site-header-fixed .button-site span {
