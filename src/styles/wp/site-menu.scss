@@ -1,10 +1,9 @@
 @import 'styles/variables/mqueries.scss';
 
 #wp-site-menu {
-    background-color: #9ee5ff;
-    color: #333;
+    background-color: #555;
+    color: #ddd;
     box-sizing: border-box;
-    padding:10px 20px;
     order: 1;
     flex-shrink: 0;
     transition: margin-left 1s;
@@ -46,19 +45,37 @@
 #wp-site-menu nav.menu li {
     list-style: none;
     position:relative;
-    margin: 10px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #777;
 }
 
 #wp-site-menu nav.menu li a {
+    display:block;
     text-decoration: none;
     font-size: 1em;
-    color: #10396d;
+    color: #ddd;
+    margin: 20px;
 }
 
+#wp-site-menu nav.menu li > ul {
+    background-color: #777;
+}
 
-#wp-site-menu nav.menu li a:hover {
-    color: #008dc2;
+#wp-site-menu nav.menu li > ul li {
+    border: 0;
+}
+
+#wp-site-menu nav.menu li > ul a {
+    margin: 0;
+    padding: 15px;
+    font-size: 0.9em;
+    margin-left: 40px;
+}
+
+#wp-site-menu nav.menu li:hover {
+}
+
+#wp-site-menu nav.menu li:hover a {
+    color: #fff;
 }
 
 #wp-site-menu nav.menu li .image_container {

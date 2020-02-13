@@ -29,7 +29,7 @@ class Footer extends React.Component {
             <div className="vertical-line"></div>
             <div className="columna">
               <div className="main-menu">
-                <WpMenu location='main-menu-location' />
+                <WpMenu location='main-menu-location' showSubmenu={false}/>
               </div>
             </div>
           </div>
