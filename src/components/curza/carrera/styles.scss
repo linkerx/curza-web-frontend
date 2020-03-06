@@ -4,16 +4,19 @@
     position: relative;
     & .planes {
         float: right;
+        
         & span {
             float: left;
             padding:5px;
         }
         & ul {
+            & div {
+                margin-left:15px;
+            }
             float:left;
             display:flex;
             flex-wrap: nowrap;
             & li{
-                margin-left: 15px;
                 list-style: none;
                 cursor: pointer;
                 padding:5px;
@@ -23,6 +26,19 @@
                     border-radius: 5px;
                 }
             }
+        }
+        & .plan-item {
+            text-align: center;
+        }
+        & .display-plan {
+         
+            display:block;
+            text-align: center;
+            font-size:1.3em;
+            padding-top:5px;
+        }
+        & .no-display-plan {
+            display:none;
         }
     }
     & .info-carrera{

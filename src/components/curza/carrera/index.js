@@ -94,7 +94,20 @@ class CurzaCarrera extends React.Component {
                                 {
                                     this.state.carrera.planes.map((item, index) => {
                                         return (
-                                            <li key={index} className={this.state.selectedPlan === item.id ? "active" : null } onClick={() =>this.selectPlan.call(this,item.id)}>{item.ordenanza}</li>
+                                            <div>
+                                                <li key={index} 
+                                                    className={this.state.selectedPlan === item.id ? "active plan-item" : "plan-item" } 
+                                                    onClick={() =>this.selectPlan.call(this,item.id)}>{item.ordenanza}
+                                                </li>
+                                                <p className={this.state.selectedPlan === item.id ? "display-plan" : "no-display-plan"}>
+                                                    { item.archivo === "" ? 
+                                                        <i title="Plan no disponible" className="far fa-file"></i> : 
+                                                        <a href={item.archivo} title="Descargar plan">
+                                                            <i className="fas fa-file-download"></i> 
+                                                        </a>
+                                                    }
+                                                </p>
+                                            </div>
                                         )
                                     })
 
