@@ -133,10 +133,10 @@ handleScroll() {
                   <Header openMenu={this.openMenu} />
                   <Switch location={location}>
                     <Route exact path='/novedades' render={ function(props) { return ( <Novedades {...props} show={this.endLoading} /> ) }.bind(this) } />
-                    <Route exact path='/oferta-academica' render={ function(props) { return ( <MostrarOferta {...props}  /> ) } } />
-                    <Route exact path='/autoridades' render={ function() { return ( <Autoridades  /> ) } } />
-                    <Route exact path='/publicaciones/libros' render={ function() { return ( <Libros  /> ) } } />
-                    <Route exact path='/publicaciones/actas' render={ function() { return ( <Actas  /> ) } } />
+                    <Route exact path='/oferta-academica' render={ function(props) { return ( <MostrarOferta {...props} show={this.endLoading}  /> ) }.bind(this) } />
+                    <Route exact path='/autoridades' render={ function() { return ( <Autoridades  {...props} show={this.endLoading} /> ) }.bind(this) } />
+                    <Route exact path='/publicaciones/libros' render={ function() { return ( <Libros {...props} show={this.endLoading}  /> ) }.bind(this) } />
+                    <Route exact path='/publicaciones/actas' render={ function() { return ( <Actas  {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>

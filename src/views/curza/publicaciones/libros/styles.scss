@@ -1,3 +1,18 @@
 @import 'styles/variables/colors.scss';
 @import 'styles/variables/mqueries.scss';
 
+section#libros ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+section#libros li {
+    list-style: none;
+    width: 200px;
+    margin: 20px;
+}
+
+section#libros li img {
+    width: 100%;
+}
