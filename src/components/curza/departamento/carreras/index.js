@@ -1,7 +1,6 @@
 import React from 'react';
 import { getCarrerasDpto } from 'components/curza/api';
 import Card from 'components/card';
-import { Link } from 'react-router-dom';
 import './styles.scss';
 
 class CurzaCarreras extends React.Component {

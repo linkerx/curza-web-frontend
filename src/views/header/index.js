@@ -15,7 +15,7 @@ class Header extends React.Component {
                                 <div className='titulo'>C.U.R.Z.A.</div>
                                 <div className='descripcion'>Centro Universitario Regional Zona Atlántica</div>
                             </Link>
-                            <a href='https://www.uncoma.edu.ar/' target='_blank'>
+                            <a href='https://www.uncoma.edu.ar/' target='_blank' rel="noopener noreferrer">
                                <div className='unco'>Universidad Nacional del Comahue</div>
                             </a>
                             

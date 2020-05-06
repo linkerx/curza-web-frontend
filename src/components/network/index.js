@@ -63,16 +63,16 @@ class CurzaWpNetwork extends React.Component {
   }
 
   render(){
-    console.log("State en Curza-Network:", this.state);
+    //console.log("State en Curza-Network:", this.state);
     return (
       <div className='network-wrapper'>
         { this.state.check &&
           <div>
             { this.state.site !== ""
               ?
-                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) {console.log("CON!"); return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+                <Route path={'/'+this.state.site+'/:slug1?/:slug2?/:slug3?'} render={ function(props) {return ( <CurzaWpSiteRouter {...props} site={this.state.site} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
               :
-                <Route path='/:slug1/:slug2?/:slug3?' render={ function(props) {console.log("SIN!"); return ( <CurzaWpSiteRouter {...props} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
+                <Route path='/:slug1/:slug2?/:slug3?' render={ function(props) {return ( <CurzaWpSiteRouter {...props} site_data={this.state.site_data} template={2} /> ) }.bind(this) } />
             }
           </div>
         }

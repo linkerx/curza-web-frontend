@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.scss'
-import { Route, Switch ,Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 class BuscarCarreras extends React.Component {
     constructor() {
         super()

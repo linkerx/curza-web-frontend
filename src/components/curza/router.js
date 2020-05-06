@@ -89,8 +89,8 @@ componentDidMount(){
       template = this.props.template;
     }
 
-    console.log("Props Curza-Router",this.props);
-    console.log("State Curza-Router",this.state);
+    //console.log("Props Curza-Router",this.props);
+    //console.log("State Curza-Router",this.state);
 
     return(
       <section id='curza-wp-site'>

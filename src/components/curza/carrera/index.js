@@ -171,6 +171,9 @@ class CurzaCarrera extends React.Component {
                                                 case 2:
                                                     cursado = "Segundo"
                                                     break;
+                                                default:
+                                                    cursado = ""
+                                                    break;
                                             }
                                             return (
                                                 
