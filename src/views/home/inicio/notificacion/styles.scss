@@ -1,0 +1,34 @@
+@import 'styles/variables/mqueries.scss';
+
+#home-inicio .notificacion {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    width: 500px;;
+    margin:auto;
+    text-align: center;
+    background-color: #aa0000;
+    z-index:30;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    transition: 0.5s all;
+    display:none;
+
+    @media #{$all-narrow} {
+        width: 100%;
+        border-radius: 0;
+        padding: 5px;
+        top: 160px;
+      }
+}
+
+#home-inicio .notificacion:hover {
+    background-color: #cc0000;
+}
+
+
+#home-inicio .notificacion a {
+    color: #fff;
+}

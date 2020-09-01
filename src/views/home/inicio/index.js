@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeDestacadas from './destacadas';
 import HomeHeader from './header';
+import Notificacion from './notificacion';
 import HomeInicioMenu from './menu';
 import Megamenu from './megamenu';
 import './styles.scss';
@@ -69,6 +70,7 @@ class HomeInicio extends React.Component {
       <section id='home-inicio'>
         <div className='fondo'></div>
         <HomeHeader openMenu={this.openMenu} />
+        <Notificacion />
         <HomeDestacadas />
         <HomeInicioMenu openMenu={this.openMenu} activeSubmenuItem={this.state.menuSelected} />
         <div id='home-inicio-megamenu'>

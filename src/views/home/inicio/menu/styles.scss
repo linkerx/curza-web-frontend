@@ -2,15 +2,15 @@
 
 #home-inicio-menu {
   position: absolute;
-  bottom: 15vh;
-  right: 15%;
-  width: 25%;
+  bottom: 10vh;
+  right: 10%;
+  width: 30%;
   height: auto;
   z-index: 30;
   color: #fff;
   @media #{$all-narrow} {
     width:auto;
-    top: 65vh;
+    top: 60vh;
     bottom: 15px;
     left: 2vw;
     right: 2vw;
@@ -30,6 +30,11 @@
   list-style: none;
   text-align: right;
   background: transparent;
+  transition: 0.5s all;
+
+  @media #{$all-wide-sq} {
+    padding: 1.2vh;
+  }
   @media #{$all-narrow} {
     margin: 15px 1%;
     padding: 0;
@@ -52,6 +57,10 @@
   text-decoration: none;
   font-size: 1.5em;
   font-weight:bold;
+
+  @media #{$wide}, #{$square} {
+    font-size: 2.5vh;
+  }
 
   @media #{$all-narrow} {
     font-size: 1.2em;
