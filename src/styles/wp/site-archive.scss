@@ -4,15 +4,38 @@
   min-height: 78vh;
   position: relative;
   padding-bottom: 20px;
-  padding-top: 60px;
 }
 
 #site-archive h1 {
-  left:5%;
-  width:90%;
-  margin:auto;
-  margin-bottom: 10px;
-  clear:both;
+  font-size: 1.8em;
+  color: #333;
+  border-bottom: 2px solid #333;
+  width: 100%;
+  padding-bottom: 8px;
+  margin: 20px 0;
+  clear: both;
+}
+
+#site-archive .list-pagination {
+  float: right;
+}
+
+#site-archive .list-pagination ul {
+  display: flex;
+}
+
+#site-archive .list-pagination ul li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+#site-archive .list-pagination ul li a {
+  cursor: pointer;
+}
+
+#site-archive .list-pagination ul li.disabled a {
+  color: #777;
+  cursor: not-allowed;
 }
 
 #site-archive .list {
@@ -26,20 +49,10 @@
 }
 
 #site-archive .list article {
-  padding-top:20px;
-  width: 21%;
-
-  @media #{$wide} {
-    width: 30%;
-  }
-
-  @media #{$square} {
-    width: 42%;
-  }
-
-  @media #{$all-narrow} {
-    width: 90%;
-  }
+  width: 320px;
+  margin: 30px;
+  max-height: 550px;
+  overflow: hidden;
 }
 
 #site-archive .list article h2 {
@@ -47,12 +60,12 @@
 }
 
 #site-archive .list article .image_container{
-  height: 250px;
+  height: 160px;
   margin-bottom:10px;
 }
 
 #site-archive .list article .image_container .image {
-  height: 250px;
+  height: 160px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
