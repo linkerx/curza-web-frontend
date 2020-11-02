@@ -1,3 +1,5 @@
+@import 'styles/variables/mqueries.scss';
+
 #site-post {
     position: relative;
 }
@@ -6,3 +8,29 @@
   margin: auto;
 }
 
+#site-post article {
+  margin: 30px auto;
+  line-height: 1.2;
+  font-size: 1.1em;
+  @media #{$super-wide} {
+    max-width:800px;
+  }
+
+  @media #{$wide} {
+      max-width:700px;
+  }
+
+  @media #{$square} {
+      max-width:600px;
+  }
+
+  @media #{$all-narrow} {
+      width:95%;
+  }
+}
+
+#site-post article .content,
+#site-post article .excerpt {
+  font-size: 1.1em;
+  line-height: 1.3;
+}

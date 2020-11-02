@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   background-color: #fff;
+  line-height: 1.4;
   & > header {
     width: 100%;
     position: relative;
@@ -100,7 +101,7 @@
 
 #novedades .list article .image_container img {
   width: 100%;
-  height: 100%;
+  height: 164px;
   object-fit: cover;
 }
 

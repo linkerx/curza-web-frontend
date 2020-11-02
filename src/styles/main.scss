@@ -1,6 +1,7 @@
 @import 'styles/variables/mqueries.scss';
 @import 'styles/variables/colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import 'gutemberg.scss';
 
 * {
   margin:0;
@@ -11,6 +12,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: $text;
   overflow-x: hidden;
+  line-height: 1.5;
 
   @media #{$super-wide} {
       font-size:14px;
@@ -28,6 +30,10 @@ body {
       font-size:12px;
   }
 
+}
+
+h1,h2,h3 {
+    line-height: 1.2;
 }
 
 .wrapper-central {
