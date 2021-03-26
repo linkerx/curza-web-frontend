@@ -109,7 +109,7 @@
     }
 
     .flex-row {
-        width: calc(100% / 5);
+        width: calc(100% / 6);
         text-align: center;
         padding: 0.5em 0.5em;
         border-right: solid 1px $table-border;
@@ -127,7 +127,7 @@
     .column {
     display: flex;
     flex-flow: column wrap;
-    width: 80%;
+    width: 83%;
     padding: 0;
     .flex-row {
         display: flex;
@@ -144,7 +144,7 @@
     }
 
     .flex-cell {
-        width: calc(100% / 4); //1px = border right
+        width: calc(100% / 5); //1px = border right
         text-align: center;
         padding: 0.5em 0.5em;
         border-right: solid 1px $table-border;

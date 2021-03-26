@@ -116,7 +116,7 @@ class CurzaCarrera extends React.Component {
                         </div>
                         <div className='info-carrera'>
                             {this.state.carrera.fundamentacion ? 
-                                <p><span>Fundamentación:</span> <div dangerouslySetInnerHTML={{__html: this.state.carrera.fundamentación}}></div></p>
+                                <div><span>Fundamentación:</span> <div dangerouslySetInnerHTML={{__html: this.state.carrera.fundamentación}}></div></div>
                                 :
                                 null
                             }
@@ -156,6 +156,7 @@ class CurzaCarrera extends React.Component {
                                         <div className="flex-row" role="columnheader">Cuatrimestre</div>
                                         <div className="flex-row" role="columnheader">Carga horaria</div>
                                         <div className="flex-row" role="columnheader">Correlativa/s</div>
+                                        <div className="flex-row" role="columnheader">Programa/s</div>
                                     </div>
                                     {  // primero ordena por numero de orden y luego recorre
                                         this.state.asignaturas.sort(function(a,b) { if (a.orden > b.orden ) return 1; else return -1})
@@ -214,6 +215,18 @@ class CurzaCarrera extends React.Component {
                                                                         null
                                                                 }
                                                                 
+                                                            </div>
+                                                            <div className="flex-cell">
+                                                                {
+                                                                    item._links.exports &&
+                                                                        Object.entries(item._links.exports).map(([key, value]) => {
+                                                                            return(
+                                                                                <div><a href={value.href}>{key}</a></div>
+                                                                            )
+                                                                        })
+                                                                }
+                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>

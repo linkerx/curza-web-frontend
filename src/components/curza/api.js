@@ -69,7 +69,7 @@ export function getCarreraPorId(options){
 
 // AsignaturasDelPlan
 export function getAsignaturasPlan(options){
-    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/asignatura/plan?id=' + options.plan;
+    var url = ProgramasUrl +'/'+ ProgramasPrefix +'/'+ ProgramasRoute + '/asignatura/plan?id=' + options.plan + '&withExport=1';
     if(options.debug){
         console.log(options,url);
     }

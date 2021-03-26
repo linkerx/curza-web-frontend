@@ -71,7 +71,7 @@ class CurzaWpSiteDepartamento extends React.Component {
   }
 
   checkHeader() {
-    if(window.scrollY > 120){
+    if(window.scrollY > 150){
       this.setState({
         header_fixed: true
       });    
