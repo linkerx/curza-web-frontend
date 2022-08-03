@@ -25,27 +25,28 @@ class Autoridades extends React.Component {
             descripcion: 'Titulares',
             a_cargo: 
               <ul>
-                <li>Goicochea, Adriana</li>
-                <li>Silvia, Miguel Ángel</li>
-                <li>Ocampo, María Emilia</li>
-                <li>Mazella, Nicolás Bernardo</li>
-                <li>Sanchez, María Daniela</li>
-                <li>Pellejero, Irma Graciela</li>
-                <li>Pose, Hernán Daniel</li>
+                <li>Soledad Vercellino</li>
+                <li>Marina La Vecchia</li>
+                <li>Mónica Amado</li>
+                <li>Pedro Dall' Armellina </li>
+                <li>Maria Alasio</li>
+                <li>Luis Albrecht </li>
+                <li>Carlos Comolay</li>
+                <li>Juan José Gallego</li>
               </ul>
           },
           {
             descripcion: 'Suplentes',
             a_cargo: 
             <ul>
-              <li>Vilca, Hugo Víctor</li>
-              <li>Bonardo, Dora Armonía</li>
-              <li>Bolletta, Viviana Noemí</li>
-              <li>Rouseot, Bibiana Raquel</li>
-              <li>Avils, Lucrecia María</li>
-              <li>Vercellino, Soledad</li>
-              <li>Bohuier, Rodolfo Abel</li>
-              <li>Rosbaco, Nicolas Gustavo</li>
+              <li>Natalia Puertas</li>
+              <li>Emiliano Sacchi</li>
+              <li>Carolina Borrazas</li> 
+              <li>aría Teresa Sánchez</li> 
+              <li>Mirta Ferrero</li>
+              <li>Gabriela Aschkar </li>
+              <li>Graciela Valdebenito </li>
+              <li>Deborat Maureira</li>
             </ul>
           },
         ]
@@ -57,18 +58,18 @@ class Autoridades extends React.Component {
             descripcion: 'Titulares',
             a_cargo: 
               <ul>
-                <li>Fernández, Fabián Nelson</li>
-                <li>Martínez, Juan Oscar</li>
-                <li>Hernández, Romina Soledad</li>
+                <li>Juan Martínez</li>
+                <li>Romina Hernández</li>
+                <li>Karina Monticelli</li>
               </ul>
           },
           {
             descripcion: 'Suplentes',
             a_cargo: 
             <ul>
-              <li>Bozal, Alejandra Noemí</li>
-              <li>Ercilape, Fabián Edgardo</li>
-              <li>Caso, Francisco José</li>
+              <li>Marina Favalli</li>
+              <li>Fabian Fernández</li>
+              <li>Karina Awe Luca</li>
             </ul>
           },
         ]
@@ -80,18 +81,20 @@ class Autoridades extends React.Component {
             descripcion: 'Titulares',
             a_cargo: 
               <ul>
-                <li>Paz, Matías German</li>
-                <li>Grazioli, Facundo Iván</li>
-                <li>Marian, Pavlin Tomas</li>
+                <li>Quillen Luna</li>
+                <li>Ain Luna</li>
+                <li>Tamara Lefiu</li>
+                <li>Yamila Flores</li>
               </ul>
           },
           {
             descripcion: 'Suplentes',
             a_cargo: 
             <ul>
-              <li>Navarro, Milton Daniel</li>
-              <li>Miranda, Gonzalo Javier</li>
-              <li>Bonino, Agustín</li>
+              <li>Mariana Herrero</li>
+              <li>Rocío Aguayo</li>
+              <li>Trissil Sura</li>
+              <li>Antonio Cariman</li>
             </ul>
           },
           
@@ -104,14 +107,14 @@ class Autoridades extends React.Component {
             descripcion: 'Titulares',
             a_cargo: 
               <ul>
-                <li>Juarez, Elvira Mercedes</li>
+                <li>Estrella Salamida</li>
               </ul>
           },
           {
             descripcion: 'Suplentes',
             a_cargo: 
             <ul>
-              <li>Madariaga, Chacon Lisa Lorena</li>
+              <li>Javier Correa</li>
             </ul>
           },
         ]
@@ -120,46 +123,30 @@ class Autoridades extends React.Component {
     let array_secretarias = [
       {
         descripcion: 'Secreataría Académica',
-        a_cargo: 'Lic. Viviana Bolletta',
+        a_cargo: 'Dra. Soledad Vercellino',
         list: [
           {
-            descripcion: "Dirección Académica",
-            a_cargo: "Lic. Irma Guerra"
-          },
-          {
-            descripcion: "Departamento Docente",
-            a_cargo: "Tec. Juan Martinez"
-          },
-          {
-            descripcion: "Departamento de Alumnos",
-            a_cargo: "Romina Hernandez"
+            descripcion: "Dirección de Posgrado",
+            a_cargo: "Mg. Viviana Svensson"
           }
         ]
       },
       {
         descripcion: 'Secreataría de Ciencia y Técnica',
-        a_cargo: 'Mgter. Dora Bonardo',
-        list: [
-          {
-            descripcion: "Departamento de Investigación",
-            a_cargo: "Lic. Marina Favalli"
-          },
-        ]
+        a_cargo: 'Esp. Lucrecia Avilés',
+        list: []
       },
 
       {
-        descripcion: 'Secreataría General'
+        descripcion: 'Secretaría de Extensión y Bienestar Estudiantil',
+        a_cargo: 'Esp. Juan Manuel Chironi',
+        list: []
       },
       {
-        descripcion: 'Secretaría de Extensión Universitaria',
-        a_cargo: 'Lic. Gabriela Aschkar',
-        list: [
-          {
-            descripcion: "Departamento de Extensión",
-            a_cargo: "Marcos Tabares"
-          },
-        ]
-      }
+        descripcion: 'Dirección de Getión Administrativa',
+        a_cargo: 'Mg. Fabián Fernandez',
+        list: []
+      },
     ]
 
     this.setState({
@@ -209,9 +196,8 @@ class Autoridades extends React.Component {
               <div className="inst-fila unica">
                 <div className="inst-card">
                   <h3>DECANATO</h3>
-                  <p>DECANO:<br /><span>Mgter. Claudio Mennecozzi</span></p>
-                  <p>VICEDECANA:<br /><span>Lic. Gabriela Aschkar</span></p>
-
+                  <p>DECANA:<br /><span>Dra. Adriana Goicochea</span></p>
+                  <p>VICEDECANA:<br /><span>Mg. Cecilia Camera</span></p>
                 </div>
               </div>
             </div>
