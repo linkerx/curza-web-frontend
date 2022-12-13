@@ -143,7 +143,7 @@ class Autoridades extends React.Component {
         list: []
       },
       {
-        descripcion: 'Dirección de Getión Administrativa',
+        descripcion: 'Dirección de Gestión Administrativa',
         a_cargo: 'Mg. Fabián Fernandez',
         list: []
       },
