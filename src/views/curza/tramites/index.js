@@ -47,7 +47,6 @@ class Tramites extends React.Component {
 
   verTramite(index)
   {
-    console.log(document.getElementById('tramite-content-'+index));
     const modal = document.getElementById('tramite-content-'+index);
     const closeBtn = document.getElementById('close-'+index);
     modal.style.display = 'block';
@@ -69,16 +68,18 @@ class Tramites extends React.Component {
         <section id='tramites'>
           <header>
             <div className='fondo'></div>
-            <h2>Trámites</h2>
+            <h2>Guía de Trámites</h2>
           </header>
           <ul id='lista-tramites'>
             { this.state.items && this.state.items.map((item,index)=>{
+              /*
                 var item_image = "";
                 var item_image_alt = item.title.rendered;
                 if(item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0].media_details){
                   var item_image = item._embedded['wp:featuredmedia'][0].source_url;
                   var item_image_alt = item._embedded['wp:featuredmedia'][0].alt_text;
                 }
+                */
                 return (
                   <div key={index}>
                     <li>
