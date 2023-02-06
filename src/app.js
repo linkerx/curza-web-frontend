@@ -10,6 +10,7 @@ import Autoridades from "views/curza/autoridades";
 import MostrarOferta from "views/curza/oferta-academica/mostrarOferta";
 import Libros from "views/curza/publicaciones/libros";
 import Actas from "views/curza/publicaciones/actas";
+import Tramites from 'views/curza/tramites';
 import Home from "views/home";
 import CurzaWpNetwork from "components/network";
 import RouterCurzaCms from "components/curza/routerCms"
@@ -137,6 +138,7 @@ handleScroll() {
                     <Route exact path='/autoridades' render={ function() { return ( <Autoridades  {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/publicaciones/libros' render={ function() { return ( <Libros {...props} show={this.endLoading}  /> ) }.bind(this) } />
                     <Route exact path='/publicaciones/actas' render={ function() { return ( <Actas  {...props} show={this.endLoading} /> ) }.bind(this) } />
+                    <Route exact path='/academica/tramites' render={ function() { return ( <Tramites  {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
