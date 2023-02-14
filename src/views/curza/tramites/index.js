@@ -70,7 +70,7 @@ class Tramites extends React.Component {
             <div className='fondo'></div>
             <h2>Guía de Trámites</h2>
           </header>
-          <ul id='lista-tramites'>
+          <ul className='box-list' id='lista-tramites'>
             { this.state.items && this.state.items.map((item,index)=>{
               /*
                 var item_image = "";
@@ -82,7 +82,7 @@ class Tramites extends React.Component {
                 */
                 return (
                   <div key={index}>
-                    <li>
+                    <li className='box'>
                       <h3>{item.title.rendered}</h3>
                       <button className='btn' onClick={() => {this.verTramite(index)}}>Más Información</button>
                     </li>
