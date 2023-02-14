@@ -8,6 +8,8 @@
   height: auto;
   z-index: 30;
   color: #fff;
+  font-size: 1.3em;
+  background: rgba(0,0,0,0.4);
   @media #{$all-narrow} {
     width:auto;
     top: 60vh;

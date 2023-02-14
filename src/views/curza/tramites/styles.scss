@@ -5,13 +5,13 @@
     min-height: 500px;
 }
 
-section#tramites ul {
+section#tramites .box-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
 }
 
-section#tramites li {
+section#tramites .box {
     list-style: none;
     text-align: center;
     padding: 1em;
@@ -101,7 +101,18 @@ section#tramites li img {
   color: white;
 }
 
-.modal-body {padding: 1.5em;}
+.modal-body {
+  padding: 1.5em;
+  font-size: 1.3em;
+}
+
+.modal-body ul {
+  margin: 2em;
+}
+
+.modal-body p {
+  margin-top: 1em;
+}
 
 .modal-footer {
   padding: 2px 16px;
