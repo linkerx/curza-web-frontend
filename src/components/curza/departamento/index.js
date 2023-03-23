@@ -45,12 +45,12 @@ class CurzaWpSiteDepartamento extends React.Component {
   }
 
   checkSidebars(){
-    var menuOpened = true;
-    var sidebarOpened = true;
-    if(this.props.site_data.barra_izq === 1) {
+    var menuOpened = false;
+    var sidebarOpened = false;
+    if(this.props.site_data.barra_izq === '1') {
       menuOpened = true;
     }
-    if(this.props.site_data.barra_der === 1) {
+    if(this.props.site_data.barra_der === '1') {
       sidebarOpened = true;
     }
     
