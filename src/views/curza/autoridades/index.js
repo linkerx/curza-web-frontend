@@ -127,7 +127,7 @@ class Autoridades extends React.Component {
         list: [
           {
             descripcion: "Dirección de Posgrado",
-            a_cargo: "Mg. Viviana Svensson"
+            a_cargo: "Mgter Alba Eterovich"
           }
         ]
       },
