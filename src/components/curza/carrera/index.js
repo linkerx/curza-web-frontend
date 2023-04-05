@@ -102,7 +102,7 @@ class CurzaCarrera extends React.Component {
                                                 <p className={this.state.selectedPlan === item.id ? "display-plan" : "no-display-plan"}>
                                                     { item.archivo === "" ? 
                                                         <i title="Plan no disponible" className="far fa-file"></i> : 
-                                                        <a href={item.archivo} title="Descargar plan">
+                                                        <a href={item.archivo} title="Descargar plan" target="_blank">
                                                             <i className="fas fa-file-download"></i> 
                                                         </a>
                                                     }
