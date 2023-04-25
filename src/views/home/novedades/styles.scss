@@ -95,18 +95,19 @@
 }
 
 #home-novedades .link-todas {
-  position:absolute;
-  bottom: 20px;
   width: 100%;
   text-align: center;
+  height: 5em;
 }
 
 #home-novedades .link-todas a {
-  color: #aaa;
+  color: #fff;
+  background: #263238;
+  padding: 1.5em;
   font-size: 1.2em;
   text-decoration: none;
 }
 
 #home-novedades .link-todas a:hover {
-  color: #777;
+  background: #37474F;
 }

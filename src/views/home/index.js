@@ -14,9 +14,9 @@ class Home extends React.Component {
     return(
       <section id='home'>
         <HomeInicio />
-        <HomeAccesos />
-        <HomeDepartamentos />
         <HomeNovedades />
+        <HomeDepartamentos />
+        <HomeAccesos />
         <HomeAgenda />
         <HomeProyectos />
         <BuscarCarreras />
