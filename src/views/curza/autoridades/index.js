@@ -139,7 +139,7 @@ class Autoridades extends React.Component {
 
       {
         descripcion: 'Secretaría de Extensión y Bienestar Estudiantil',
-        a_cargo: 'Mg. Juan Manuel Chironi',
+        a_cargo: 'Lic. María Laura Cabezas',
         list: []
       },
       {
