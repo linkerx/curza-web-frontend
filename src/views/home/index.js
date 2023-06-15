@@ -5,8 +5,7 @@ import BuscarCarreras from './buscar-carreras';
 import HomeNovedades from './novedades';
 import HomeDepartamentos from './departamentos';
 import HomeAgenda from './agenda';
-import HomeServicios from './servicios';
-import HomeProyectos from './proyectos';
+import HomePlano from './plano';
 import HomeSeparador from './separador';
 
 class Home extends React.Component {
@@ -18,7 +17,7 @@ class Home extends React.Component {
         <HomeDepartamentos />
         <HomeAccesos />
         <HomeAgenda />
-        <HomeProyectos />
+        <HomePlano />
         <BuscarCarreras />
         <HomeSeparador />
         <div></div>
