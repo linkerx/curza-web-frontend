@@ -8,7 +8,7 @@
    version="1.1"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    viewBox="0 0 58208.333 58208.333"
-   id="plano-svg"
+   id="plano-curza-svg"
    sodipodi:docname="planoCurza.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -596,63 +596,63 @@
    id="CorelCorpID_0Corel-Layer" />
   <path
    id="admin15"
-   style="fill:#d2d3d5;stroke-width:0.715213"
-   class="fil9"
+   class="admin place"
+   name="admin15"
    d="m 7739.0493,19071.482 h 1489.47 v 1601.292 h -1489.47 z" /><path
    id="aula11"
+   name="aula11"
    class="aula place"
    d="m 12455.681,23693.565 h 2482.44 v 3991.589 h -2482.44 z" /><path
    id="admin19"
-   style="fill:#d2d3d5;stroke-width:0.697082"
-   class="fil13"
+   name="admin19"
+   class="admin place"
    d="m 7822.2793,35261.105 h 1897.65 v 1131.916 h -1897.65 z" /><path
    id="aut1"
-   style="fill:#0071a1;stroke-width:0.584618"
-   class="fil12"
+   name="aut1"
+   class="aut place"
    d="m 32770.109,43258.281 h 1737.61 v 2381.945 h -1737.61 z" /><path
    id="aut5"
-   style="fill:#0071a1;stroke-width:0.584618"
-   class="fil12"
+   name="aut5"
+   class="aut place"
    d="m 32770.109,45533.707 h 1737.61 v 2381.945 h -1737.61 z" /><path
    id="admin7"
-   style="fill:#d2d3d5;stroke-width:0.571267"
-   class="fil9"
+   name="admin7"
+   class="admin place"
    d="m 30033.889,43337.672 h 1737.61 v 2231.212 h -1737.61 z" /><path
    id="admin8"
-   style="fill:#d2d3d5;stroke-width:0.571267"
-   class="fil9"
+   name="admin8"
+   class="admin place"
    d="m 30033.889,45613.098 h 1737.61 v 2231.212 h -1737.61 z" /><path
    id="admin9"
-   style="fill:#d2d3d5;stroke-width:0.775474"
-   class="fil9"
+   name="admin9"
+   class="admin place"
    d="m 40047.254,36407.926 h 1639.703 v 4503.59 h -1639.703 z" /><path
    id="admin12"
-   style="fill:#d2d3d5;stroke-width:0.709488"
-   class="fil9"
+   name="admin12"
+   class="admin place"
    d="m 49544.305,37753.734 h 2388.91 v 1232.433 h -2388.91 z" /><path
    id="dpto7"
-   style="fill:#ffcc29;stroke-width:0.682477"
-   class="fil10"
+   name="dpto7"
+   class="dpto place"
    d="m 49544.266,35354.609 h 2388.87 v 1108.314 h -2388.87 z" /><path
    id="aula6"
-   style="fill:#ed3237;stroke-width:0.576009"
-   class="fil8"
+   name="aula6"
+   class="aula place"
    d="m 45057.41,31834.455 h 3375.436 v 2272.23 H 45057.41 Z" /><path
    id="aula7"
-   style="fill:#ed3237;stroke-width:0.575222"
-   class="fil8"
+   class="aula place"
    d="m 48523.282,31834.462 h 3366.224 v 2272.23 h -3366.224 z" /><path
    id="aula4"
-   style="fill:#ed3237;stroke-width:0.482753"
-   class="fil8"
+   name="aula4"
+   class="aula place"
    d="m 32316.765,29603.101 h 3124.776 v 5138.124 h -3124.776 z" /><path
    id="aula3"
-   style="fill:#ed3237;stroke-width:0.487004"
-   class="fil8"
+   name="aula3"
+   class="aula place"
    d="m 29055.896,29603.101 h 3180.045 v 5138.124 h -3180.045 z" /><path
    id="aula2"
-   style="fill:#ed3237;stroke-width:0.37913"
-   class="fil8"
+   name="aula2"
+   class="aula place"
    d="m 27158.327,29621.524 h 1927.282 v 5138.124 h -1927.282 z" /><path
    class="fil0"
    d="M 52.916665,52.916665 H 58229.093 V 58221.671 H 52.916665 Z M 1325.5366,1433.7478 H 57101.393 V 56742.345 H 1325.5366 Z"
@@ -2890,8 +2890,8 @@
    d="m 49544.261,42023.559 v -7935.29 l -9867.89,-53.32 c 0,-6176.02 -2473.01,-6283.37 -2473.01,-1567.26 v 267.67 848.44 h 937.04 v 848.46 h 2.96 l -6.33,327.4 h -10827.39 -3523.7 -1612.8 v -662.72 c -2597.47,0 -5194.93,0 -7792.4,0 l -25.64,-2034.45 h -1010.78 l 17.72,2034.45 H 9719.9401 v 2329.47 h 4226.5709 c 3279.81,0 6559.61,0 9839.43,0 v 2227.45 h 980.58 l -19.83,2276.11 h -2562.55 l 0.07,2399.66 6724.61,-0.02 -38.73,-4651.45 h -1563.02 l 2.57,-2251.75 h 4423.37 v 15591.61 h 1037.17 v -15591.61 h 10225.04 l 4.74,-872.23 5457.97,32.38 v 6437.01 h 0.07 v 12.99 l 1086.28,-12.99 z"
    id="path641" /><path
    id="aux1"
-   class="fil13"
-   style="fill:#ffa216;stroke-width:2.31682;fill-opacity:1"
+   name="aux1"
+   class="aux place"
    d="m 22184.197,38653.855 h 6718.1 v 4660.056 h -6718.1 z" />
   <path
    class="fil2 str1"
@@ -2911,28 +2911,24 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="sala3"
-   class="fil5"
-   style="fill:#00a859"
+   name="sala3"
+   class="sala place"
    d="m 28870.091,36426.341 h 1362.03 v 2251.81 h -1362.03 z" />
-  
-  
-  
-  
   
   <path
    id="admin13"
-   class="fil9"
-   style="fill:#d2d3d5"
+   name="admin13"
+   class="admin place"
    d="m 35496.813,33293.762 h 2654.389 v 1465.88 h -2654.389 z" />
   <path
    id="dpto3"
-   class="fil10"
-   style="fill:#ffcc29"
+   name="dpto3"
+   class="dpto place"
    d="m 39676.383,31816.031 h 2083.31 v 2272.24 h -2083.31 z" />
   <path
    id="admin18"
-   class="fil9"
-   style="fill:#d2d3d5"
+   name="admin18"
+   class="admin place"
    d="m 35962.004,5758.5562 h 6943.97 v 2986.02 h -6943.97 z" />
   <polygon
    class="fil3"
@@ -2941,74 +2937,74 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="sala7"
-   class="fil5"
-   style="fill:#00a859"
+   name="sala7"
+   class="sala place"
    d="m 34126.501,8666.6767 h 8779.47 v 4251.0923 h -8779.47 z" />
   
   <path
    id="admin10"
-   style="fill:#d2d3d5;stroke-width:1.09368"
-   class="fil9"
+   name="admin10"
+   class="admin place"
    d="m 41830.961,35627.84 h 6516.494 v 7618.53 h -6516.494 z" />
   <path
    id="sala4"
-   class="fil5"
-   style="fill:#00a859"
+   naem="sala4"
+   class="sala place"
    d="m 42999.95,35554.169 h 3172.69 v 2560.89 h -3172.69 z" />
   <path
    id="dpto4"
-   class="fil10"
-   style="fill:#ffcc29"
+   name="dpto4"
+   class="dpto place"
    d="m 38533.734,36416.645 h 1453.68 v 4513.299 h -1453.68 z" />
   <path
    id="sala8"
-   class="fil5"
-   style="fill:#00a859"
+   name="sala8"
+   class="sala place"
    d="M 7739.0401,15433.349 H 10097.37 v 2050.64 H 7739.0401 Z" />
   <path
    id="sala2"
-   class="fil5"
-   style="fill:#00a859"
+   name="sala2"
+   class="sala place"
    d="m 14355.101,30594.019 h 1671.74 v 3502.91 h -1671.74 z" />
   <path
    id="dpto2"
-   class="fil10"
-   style="fill:#ffcc29"
+   name="dpto2"
+   class="dpto place"
    d="m 12052.871,32062.482 h 1309.16 v 2034.45 h -1309.16 z" />
   <path
    id="dpto1"
-   class="fil10"
-   style="fill:#ffcc29"
+   name="dpto1"
+   class="dpto place"
    d="m 12052.871,30594.012 h 2302.22 v 1468.47 h -2302.22 z" />
   <path
    id="dpto6"
-   style="fill:#ffcc29;stroke-width:0.688126"
-   class="fil10"
+   name="dpto6"
+   class="dpto place"
    d="m 49544.266,34157.105 h 2388.87 v 1126.737 h -2388.87 z" />
   <path
    id="sala6"
-   class="fil11"
-   style="fill:#00a859"
+   name="sala6"
+   class="sala place"
    d="m 48457.989,42036.54 h 3475.22 v 5818.93 h -3475.22 z" />
   <path
    id="sala5"
-   class="fil11"
-   style="fill:#00a859"
+   name="sala5"
+   class="sala place"
    d="m 49544.263,38984.997 h 2388.87 v 3051.54 h -2388.87 z" />
   <path
    id="sala1"
-   class="fil5"
-   style="fill:#00a859"
+   name="sala1"
+   class="sala place"
    d="m 30033.892,52018.021 h 4473.839 v 2272.25 h -4473.839 z" />
   <path
    id="aut3"
-   class="fil12"
-   style="fill:#0071a1"
+   name="aut3"
+   class="aut place"
    d="m 30033.889,49745.746 h 1737.61 v 2272.27 h -1737.61 z" />
   <path
    id="aut4"
-   class="fil12"
-   style="fill:#0071a1"
+   name="aut4"
+   class="aut place"
    d="m 32770.109,49745.746 h 1737.61 v 2272.27 h -1737.61 z" />
   <polyline
    class="fil2 str1"
@@ -3017,18 +3013,18 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="aut2"
-   style="fill:#0071a1;stroke-width:0.584618"
-   class="fil12"
+   name="aut2"
+   class="aut place"
    d="m 32770.109,40929.938 h 1737.61 v 2381.945 h -1737.61 z" />
   <path
    id="admin2"
-   class="fil13"
-   style="fill:#d2d3d5"
+   name="admin2"
+   class="admin place"
    d="m 22184.197,38653.855 h 2562.48 v 2276.111 h -2562.48 z" />
   <path
    id="admin17"
-   class="fil13"
-   style="fill:#d2d3d5"
+   name="admin17"
+   class="admin place"
    d="M 7822.2793,36426.348 H 14450.02 v 8942.21 H 7822.2793 Z" />
   <polygon
    class="fil3 str2"
@@ -3037,8 +3033,8 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="aula21"
-   class="fil8"
-   style="fill:#ed3237"
+   name="aula21"
+   class="aula place"
    d="m 26113.54,23791.458 h 4509.49 v 2567.93 h -4509.49 z" />
   <polyline
    class="fil2 str2"
@@ -3047,53 +3043,53 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="admin14"
-   style="fill:#d2d3d5;stroke-width:0.715213"
-   class="fil9"
+   name="admin14"
+   class="admin place"
    d="m 7739.0493,17483.986 h 1489.47 v 1601.292 h -1489.47 z" />
   <path
    id="admin5"
-   class="fil9"
-   style="fill:#d2d3d5"
+   name="admin5"
+   class="admin place"
    d="m 32770.168,36426.348 h 2726.66 v 4503.59 h -2726.66 z" />
   <path
    id="aula8"
-   class="fil8"
-   style="fill:#ed3237"
+   name="aula8"
+   class="aula place"
    d="m 35496.821,36426.341 h 3036.91 v 4503.59 h -3036.91 z" />
   <path
    id="admin4"
-   class="fil9"
-   style="fill:#d2d3d5"
+   name="admin4"
+   class="admin place"
    d="m 30266.988,36480.074 h 1466.01 v 2251.81 h -1466.01 z" />
   <path
    id="admin3"
-   class="fil13"
-   style="fill:#d2d3d5"
+   name="admin3"
+   class="admin place"
    d="m 27307.059,36426.348 h 1675.52 v 2251.81 h -1675.52 z" />
   <path
    id="admin1"
-   class="fil13"
-   style="fill:#d2d3d5"
+   name="admin1"
+   class="admin place"
    d="m 22184.197,36426.348 h 1601.73 v 2251.81 h -1601.73 z" />
   <path
    id="admin11"
-   style="fill:#d2d3d5;stroke-width:0.709488"
-   class="fil9"
+   name="admin11"
+   class="admin place"
    d="m 49544.305,36536.645 h 2388.91 v 1232.432 h -2388.91 z" />
   <path
    id="admin6"
-   style="fill:#d2d3d5;stroke-width:0.571267"
-   class="fil9"
+   name="admin6"
+   class="admin place"
    d="m 30033.889,41062.246 h 1737.61 v 2231.212 h -1737.61 z" />
   <path
    id="aula12"
-   class="fil14"
-   style="fill:#ed3237"
+   name="aula12"
+   class="aula place"
    d="M 7739.0499,22406.708 H 10221.48 v 2772.9 H 7739.0499 Z" />
   <path
    id="aula10"
-   style="fill:#ed3237;stroke-width:0.698035"
-   class="fil14"
+   name="aula10"
+   class="aula place"
    d="m 12455.681,19566.069 h 2482.44 v 3991.589 h -2482.44 z" />
   <polyline
    class="fil2 str1"
@@ -3102,13 +3098,13 @@
    transform="translate(1587.5,1799.1667)" />
   <path
    id="aula5"
-   style="fill:#ed3237;stroke-width:0.561684"
-   class="fil8"
+   name="aula5"
+   class="aula place"
    d="m 41759.692,31816.038 h 3209.629 v 2272.23 h -3209.629 z" />
   <path
    id="aula1"
-   style="class:aula;image-rendering:auto;stroke-dasharray:none;stroke-width:0.60000012;stroke:none;fill:#ed3237;"
-   class="fil8 aula place"
+   name="aula1"
+   class="aula place"
    d="m 22184.12,29584.679 h 4874.961 v 5138.124 H 22184.12 Z" />
   
   
@@ -3543,13 +3539,13 @@
      id="path2574" /></g>
   <path
    id="dpto5"
-   class="fil10"
-   style="fill:#ffcc29"
+   name="dpto5"
+   class="dpto place"
    d="m 46172.645,35534.39 h 1514.339 v 1871.5 h -1514.339 z" />
   <path
    id="admin16"
-   style="fill:#d2d3d5;stroke-width:0.697082"
-   class="fil13"
+   name="admin16"
+   class="admin place"
    d="m 7822.2793,34096.926 h 1897.65 v 1131.915 h -1897.65 z" />
   <g
    id="g952"
