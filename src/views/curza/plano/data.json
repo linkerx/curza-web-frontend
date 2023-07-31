@@ -1,11 +1,29 @@
 [
   {
-    "id": "aula1",
-    "name": "testname"
+    "type": "Aulas",
+    "data": [
+      {
+        "id": "aula1",
+        "name": "Aula 1"
+      },
+      {
+        "id": "aula2",
+        "name": "Aula 2"
+      }
+    ]
   },
   {
-    "id": "aula2",
-    "name": "testname"
+    "type": "Salas",
+    "data": [
+      {
+        "id": "sala1",
+        "name": "Sala 1"
+      },
+      {
+        "id": "sala2",
+        "name": "Sala 2"
+      }
+    ]
   }
 
 ]

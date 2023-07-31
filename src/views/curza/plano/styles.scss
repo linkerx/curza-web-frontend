@@ -77,8 +77,25 @@
 
 .places-list {
   margin: 2em;
+  position: -webkit-sticky;
+  position: sticky;
+  align-self: flex-start;
+  top: 70px;
 }
 
+.places-list > ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.place-type-title {
+  margin-left: 0.8em;
+}
+
+.place-type-li {
+  margin-left: 1.5em;
+}
 //Plano
 //
 path.place:hover {

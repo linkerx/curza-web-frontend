@@ -18,17 +18,21 @@ class Plano extends React.Component {
       places.item(i).addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
-        console.log(placeText);
         if(placeText){
-          placeText.style.color = "red"
+          placeText.style.background = "black"
+          placeText.style.color = "white"
+          placeText.style.padding = "0.5em" 
+          placeText.style.fontSize = "1.2em" 
         }
       })
       places.item(i).addEventListener('mouseout', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
-        console.log(placeText);
         if(placeText){
-          placeText.style.color = "black"
+          placeText.style.background = ""
+          placeText.style.color = ""
+          placeText.style.padding = "" 
+          placeText.style.fontSize = "" 
         }
       })
 
@@ -37,7 +41,7 @@ class Plano extends React.Component {
 
   setInitSize(svg){
     let sectionSize = document.getElementById('section-wrapper').clientWidth;
-    this.setSize(svg, sectionSize - 100);
+    this.setSize(svg, sectionSize - 200);
   }
 
   setSize(svg, width){
@@ -71,11 +75,20 @@ class Plano extends React.Component {
               <button id='btn-reduce'>-</button>
             </div>
             <div className='places-list'>
-              <h3>Lugares</h3>
+              <h2>Lugares</h2>
               <ul>
-                {PlacesData.map((place, index) => {
-                  return (
-                    <li key={index} id={place.id + "-text"}>{place.name}</li>
+                {PlacesData.map((placeType, indexTypes) => {
+                  return(
+                    <div key={indexTypes}>
+                      <h3 className='place-type-title'>{placeType.type}</h3>
+                      {
+                        placeType.data.map((place, index) => {
+                          return (
+                              <li className='place-type-li' key={index} id={place.id + "-text"}>{place.name}</li>
+                          )
+                        })
+                      }
+                    </div>
                   )
                 })}
               </ul>
