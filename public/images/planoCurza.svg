@@ -639,6 +639,7 @@
    name="aula6"
    class="aula place"
    d="m 45057.41,31834.455 h 3375.436 v 2272.23 H 45057.41 Z" /><path
+   name="aula7"
    id="aula7"
    class="aula place"
    d="m 48523.282,31834.462 h 3366.224 v 2272.23 h -3366.224 z" /><path
@@ -2948,7 +2949,7 @@
    d="m 41830.961,35627.84 h 6516.494 v 7618.53 h -6516.494 z" />
   <path
    id="sala4"
-   naem="sala4"
+   name="sala4"
    class="sala place"
    d="m 42999.95,35554.169 h 3172.69 v 2560.89 h -3172.69 z" />
   <path

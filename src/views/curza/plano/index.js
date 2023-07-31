@@ -7,13 +7,22 @@ class Plano extends React.Component {
 
   constructor(props) {
     super(props);
+    this.svg = null;
     this.init = this.init.bind(this)
   }
 
   init(svg){
-    this.changeSize(svg);
-    this.setInitSize(svg)
-    const places = svg.getElementsByClassName('place');
+    this.svg = svg;
+    this.places = this.svg.getElementsByClassName('place');
+    this.setColorToPlaces();
+    this.changeSize();
+    this.setInitSize();
+    this.mapPlacesHover();
+    this.listItemsHover();
+  }
+
+  mapPlacesHover() {
+    const places = this.svg.getElementsByClassName('place');
     for (let i = 0; i < places.length; i++) {
       places.item(i).addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
@@ -35,31 +44,81 @@ class Plano extends React.Component {
           placeText.style.fontSize = "" 
         }
       })
+    }
+  }
+
+  listItemsHover() {
+    const textItems = document.getElementsByClassName('place-type-li');
+    for (let i = 0; i < textItems.length; i++) {
+      textItems.item(i).addEventListener('mouseover', (e) => {
+        let placeName = e.target.getAttribute('name');
+        console.log(placeName);
+        let place = this.getPlaceByName(placeName)
+        if(place){
+          this.rmColorToPlaces();
+          place.style.fill = "#F57C00";
+        }
+      })
+      textItems.item(i).addEventListener('mouseout', (e) => {
+        let placeName = e.target.getAttribute('name');
+        let place = this.getPlaceByName(placeName)
+        if(place){
+          this.giveBackColorToPlaces()
+        }
+      })
 
     }
   }
 
-  setInitSize(svg){
+  getPlaceByName(name) {
+    for (let i = 0; i < this.places.length; i++) {
+      if (this.places.item(i).getAttribute('name') == name) {
+        return this.places.item(i);
+      }
+    }
+  }
+
+  setColorToPlaces() {
+    for (let i = 0; i < this.places.length; i++) {
+      this.places.item(i).setAttribute('color', this.places.item(i).style.fill)
+    }
+  }
+
+  rmColorToPlaces() {
+    for (let i = 0; i < this.places.length; i++) {
+      this.places.item(i).setAttribute('color', this.places.item(i).style.fill)
+      this.places.item(i).style.fill = 'white';
+    }
+  }
+  
+  giveBackColorToPlaces() {
+    for (let i = 0; i < this.places.length; i++) {
+      this.places.item(i).style.fill = this.places.item(i).getAttribute('color');
+    }
+  }
+
+
+  setInitSize(){
     let sectionSize = document.getElementById('section-wrapper').clientWidth;
-    this.setSize(svg, sectionSize - 200);
+    this.setSize(sectionSize - 200);
   }
 
-  setSize(svg, width){
-    svg.setAttribute('width', width);
-    svg.setAttribute('height', width);
+  setSize(width){
+    this.svg.setAttribute('width', width);
+    this.svg.setAttribute('height', width);
   }
 
-  changeSize(svg){
+  changeSize(){
     document.getElementById('btn-enlarge').addEventListener('click', () => {
-      let width = parseInt(svg.getAttribute('width'));
+      let width = parseInt(this.svg.getAttribute('width'));
       width += 200;
-      this.setSize(svg, width)
+      this.setSize(width)
     });
 
     document.getElementById('btn-reduce').addEventListener('click', () => {
-      let width = parseInt(svg.getAttribute('width'));
+      let width = parseInt(this.svg.getAttribute('width'));
       width -= 200;
-      this.setSize(svg, width)
+      this.setSize(width)
     });
   }
 
@@ -79,12 +138,12 @@ class Plano extends React.Component {
               <ul>
                 {PlacesData.map((placeType, indexTypes) => {
                   return(
-                    <div key={indexTypes}>
+                    <div key={indexTypes} className='places-group'>
                       <h3 className='place-type-title'>{placeType.type}</h3>
                       {
                         placeType.data.map((place, index) => {
                           return (
-                              <li className='place-type-li' key={index} id={place.id + "-text"}>{place.name}</li>
+                              <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
                           )
                         })
                       }

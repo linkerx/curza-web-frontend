@@ -4,11 +4,13 @@
     "data": [
       {
         "id": "aula1",
-        "name": "Aula 1"
+        "name": "Aula 1",
+        "code": "1"
       },
       {
         "id": "aula2",
-        "name": "Aula 2"
+        "name": "Aula 2",
+        "code": "2"
       }
     ]
   },
@@ -17,11 +19,28 @@
     "data": [
       {
         "id": "sala1",
-        "name": "Sala 1"
+        "name": "Sala 1",
+        "code": "S1"
       },
       {
         "id": "sala2",
-        "name": "Sala 2"
+        "name": "Sala 2",
+        "code": "S2"
+      }
+    ]
+  },
+  {
+    "type": "Departamentos",
+    "data": [
+      {
+        "id": "dpto1",
+        "name": "Lengua, Literatura y Comunicación",
+        "code": "D1"
+      },
+      {
+        "id": "dpto2",
+        "name": "Enfermeria",
+        "code": "D2"
       }
     ]
   }

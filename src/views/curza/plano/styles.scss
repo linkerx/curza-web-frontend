@@ -96,6 +96,17 @@
 .place-type-li {
   margin-left: 1.5em;
 }
+
+.place-type-li:hover {
+  cursor: pointer;
+  color: white;
+  background: #F57C00;
+}
+
+.places-group {
+  margin-top: 1em;
+}
+
 //Plano
 //
 path.place:hover {
