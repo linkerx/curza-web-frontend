@@ -147,11 +147,18 @@ class Plano extends React.Component {
 
   setInitSize(){
     let sectionSize = document.getElementById('section-wrapper').clientWidth;
+    let planoContainer = document.getElementById('plano-box');
+    let planoAside = document.getElementById('plano-aside');
     let space = 0;
     if (window.innerWidth > 640){
-      space = 200;
+      space = 250;
+    }
+    if(space){
+      planoAside.style.width = (space) + "px";
     }
     this.setSize(sectionSize - space);
+    planoContainer.style.width = (sectionSize - space) + "px";
+    planoContainer.style.height = (sectionSize - space) + "px";
   }
 
   setSize(width){
@@ -162,13 +169,13 @@ class Plano extends React.Component {
   changeSize(){
     document.getElementById('btn-enlarge').addEventListener('click', () => {
       let width = parseInt(this.svg.getAttribute('width'));
-      width += 200;
+      width += 100;
       this.setSize(width)
     });
 
     document.getElementById('btn-reduce').addEventListener('click', () => {
       let width = parseInt(this.svg.getAttribute('width'));
-      width -= 200;
+      width -= 100;
       this.setSize(width)
     });
   }
@@ -183,17 +190,19 @@ class Plano extends React.Component {
         <div id='section-wrapper' className='wrapper-central'>
           <h1>Plano Curza</h1>
           <div className='flex-container'>
-            <div>
+            <div id='plano-box'>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
             </div>
-            <div className='plano-aside'>
+            <div id='plano-aside' className='plano-aside'>
               <div className='places-list'>
-                <div className='places-list-title'>
-                  <h2>Lugares</h2>
-                </div>
-                <div className='search-box'>
-                  <h4>Buscar: </h4>
-                  <input id='search-input' type="text" onKeyUp={this.searchByEvent} />
+                <div className="places-list-header">
+                  <div className='places-list-title'>
+                    <h2>Lugares</h2>
+                  </div>
+                  <div className='search-box'>
+                    <h4>Buscar: </h4>
+                    <input id='search-input' type="text" onKeyUp={this.searchByEvent} />
+                  </div>
                 </div>
                 <ul>
                   {PlacesData.map((placeType, indexTypes) => {
