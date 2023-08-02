@@ -141,29 +141,33 @@ class Plano extends React.Component {
           <div className='flex-container'>
             <div>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
-              <button id='btn-enlarge'>+</button>
-              <button id='btn-reduce'>-</button>
             </div>
-            <div className='places-list'>
-              <div className='places-list-title'>
-                <h2>Lugares</h2>
+            <div className='plano-aside'>
+              <div className='places-list'>
+                <div className='places-list-title'>
+                  <h2>Lugares</h2>
+                </div>
+                <ul>
+                  {PlacesData.map((placeType, indexTypes) => {
+                    return(
+                      <div key={indexTypes} className='places-group'>
+                        <h3 className='place-type-title'>{placeType.type}</h3>
+                        {
+                          placeType.data.map((place, index) => {
+                            return (
+                                <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
+                            )
+                          })
+                        }
+                      </div>
+                    )
+                  })}
+                </ul>
               </div>
-              <ul>
-                {PlacesData.map((placeType, indexTypes) => {
-                  return(
-                    <div key={indexTypes} className='places-group'>
-                      <h3 className='place-type-title'>{placeType.type}</h3>
-                      {
-                        placeType.data.map((place, index) => {
-                          return (
-                              <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
-                          )
-                        })
-                      }
-                    </div>
-                  )
-                })}
-              </ul>
+              <div className='btn-group'>
+                <button id='btn-enlarge' className='btn'>+</button>
+                <button id='btn-reduce' className='btn'>-</button>
+              </div>
             </div>
           </div>
         </div>
