@@ -32,6 +32,7 @@ class Plano extends React.Component {
         searchedPlace && this.showSearched([searchedPlace]);
         this.clearSearchInput();
         if(placeText){
+          this.hiddePlacesTitles(true);
           placeText.style.background = "#F57C00"
           placeText.style.color = "white"
           placeText.style.padding = "0.5em" 
@@ -43,6 +44,7 @@ class Plano extends React.Component {
         let placeText = document.getElementById(placeName + "-text");
         this.searchByName('')
         if(placeText){
+          this.hiddePlacesTitles(false);
           placeText.style.background = ""
           placeText.style.color = ""
           placeText.style.padding = "" 
@@ -107,6 +109,17 @@ class Plano extends React.Component {
     });
   }
 
+  hiddePlacesTitles(hidde) {
+    const titles = document.getElementsByClassName('place-type-title');
+    for (let title of titles){
+      if(hidde){
+        title.setAttribute('hidden', true);
+      } else {
+        title.removeAttribute('hidden')
+      }
+    }
+  }
+
   searchById(id) {
     const listItems = document.getElementsByClassName('place-type-li');
     for (let listItem of listItems) {
@@ -153,9 +166,13 @@ class Plano extends React.Component {
     if (window.innerWidth > 640){
       space = 250;
     }
-    if(space){
-      planoAside.style.width = (space) + "px";
+    let asideSize = space;
+    if(!space){
+      asideSize = sectionSize;
+      planoAside.style.margin = 0;
+      planoAside.style.marginTop = "1em";
     }
+    planoAside.style.width = asideSize + "px";
     this.setSize(sectionSize - space);
     planoContainer.style.width = (sectionSize - space) + "px";
     planoContainer.style.height = (sectionSize - space) + "px";
