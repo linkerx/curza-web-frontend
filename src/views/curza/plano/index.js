@@ -8,7 +8,8 @@ class Plano extends React.Component {
   constructor(props) {
     super(props);
     this.svg = null;
-    this.init = this.init.bind(this)
+    this.init = this.init.bind(this);
+    this.searchByEvent = this.searchByEvent.bind(this);
   }
 
   init(svg){
@@ -23,10 +24,12 @@ class Plano extends React.Component {
 
   mapPlacesHover() {
     const places = this.svg.getElementsByClassName('place');
-    for (let i = 0; i < places.length; i++) {
-      places.item(i).addEventListener('mouseover', (e) => {
+    for (let place of places) {
+      place.addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
+        let searchedPlace = this.searchById(placeName);
+        searchedPlace && this.showSearched([searchedPlace]);
         if(placeText){
           placeText.style.background = "black"
           placeText.style.color = "white"
@@ -34,9 +37,10 @@ class Plano extends React.Component {
           placeText.style.fontSize = "1.2em" 
         }
       })
-      places.item(i).addEventListener('mouseout', (e) => {
+      place.addEventListener('mouseout', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
+        this.searchByName('')
         if(placeText){
           placeText.style.background = ""
           placeText.style.color = ""
@@ -49,8 +53,8 @@ class Plano extends React.Component {
 
   listItemsHover() {
     const textItems = document.getElementsByClassName('place-type-li');
-    for (let i = 0; i < textItems.length; i++) {
-      textItems.item(i).addEventListener('mouseover', (e) => {
+    for (let textItem of textItems) {
+      textItem.addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
         let place = this.getPlaceByName(placeName)
         if(place){
@@ -58,16 +62,16 @@ class Plano extends React.Component {
           place.style.fill = "#F57C00";
         }
       })
-      textItems.item(i).addEventListener('mouseout', (e) => {
+      textItem.addEventListener('mouseout', (e) => {
         let placeName = e.target.getAttribute('name');
         let place = this.getPlaceByName(placeName)
         if(place){
           this.giveBackColorToPlaces()
         }
       })
-      if(textItems.item(i).dataset.url){
-        textItems.item(i).addEventListener('click', (e) => {
-          console.log('redirect', textItems.item(i).dataset.url)
+      if(textItem.dataset.url){
+        textItem.addEventListener('click', (e) => {
+          console.log('redirect', textItem.dataset.url)
           // TODO - Redirect on ckick
           // redirect
         })
@@ -77,30 +81,66 @@ class Plano extends React.Component {
     }
   }
 
+  searchByEvent(e){
+    this.searchByName(e.target.value);
+  }
+
+  searchByName(name) {
+    const listItems = document.getElementsByClassName('place-type-li');
+    let finded = [];
+    for (let listItem of listItems) {
+      if(listItem.dataset.name.includes(name)) {
+        finded.push(listItem)
+      }
+    }
+    this.showSearched(finded);
+  }
+
+  showSearched(finded){
+    console.log(finded)
+    const listItems = document.getElementsByClassName('place-type-li');
+    for (let listItem of listItems) {
+      listItem.setAttribute('hidden', true)
+    }
+    finded.forEach(element => {
+      element.removeAttribute('hidden')
+    });
+  }
+
+  searchById(id) {
+    const listItems = document.getElementsByClassName('place-type-li');
+    for (let listItem of listItems) {
+      if(listItem.attributes.name.value == id) {
+        return listItem;
+      }
+    }
+    return false;
+  }
+
   getPlaceByName(name) {
-    for (let i = 0; i < this.places.length; i++) {
-      if (this.places.item(i).getAttribute('name') == name) {
-        return this.places.item(i);
+    for (let place of this.places) {
+      if (place.getAttribute('name') == name) {
+        return place;
       }
     }
   }
 
   setColorToPlaces() {
-    for (let i = 0; i < this.places.length; i++) {
-      this.places.item(i).setAttribute('color', this.places.item(i).style.fill)
+    for (let place of this.places) {
+      place.setAttribute('color', place.style.fill)
     }
   }
 
   rmColorToPlaces() {
-    for (let i = 0; i < this.places.length; i++) {
-      this.places.item(i).setAttribute('color', this.places.item(i).style.fill)
-      this.places.item(i).style.fill = 'white';
+    for (let place of this.places) {
+      place.setAttribute('color', place.style.fill)
+      place.style.fill = 'white';
     }
   }
   
   giveBackColorToPlaces() {
-    for (let i = 0; i < this.places.length; i++) {
-      this.places.item(i).style.fill = this.places.item(i).getAttribute('color');
+    for (let place of this.places) {
+      place.style.fill = place.getAttribute('color');
     }
   }
 
@@ -147,6 +187,10 @@ class Plano extends React.Component {
                 <div className='places-list-title'>
                   <h2>Lugares</h2>
                 </div>
+                <div className='search-box'>
+                  <h4>Buscar: </h4>
+                  <input id='search-input' type="text" onKeyUp={this.searchByEvent} />
+                </div>
                 <ul>
                   {PlacesData.map((placeType, indexTypes) => {
                     return(
@@ -155,7 +199,7 @@ class Plano extends React.Component {
                         {
                           placeType.data.map((place, index) => {
                             return (
-                                <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
+                                <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url} data-name={place.name}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
                             )
                           })
                         }
