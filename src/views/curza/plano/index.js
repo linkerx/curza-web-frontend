@@ -52,7 +52,6 @@ class Plano extends React.Component {
     for (let i = 0; i < textItems.length; i++) {
       textItems.item(i).addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
-        console.log(placeName);
         let place = this.getPlaceByName(placeName)
         if(place){
           this.rmColorToPlaces();
@@ -66,6 +65,14 @@ class Plano extends React.Component {
           this.giveBackColorToPlaces()
         }
       })
+      if(textItems.item(i).dataset.url){
+        textItems.item(i).addEventListener('click', (e) => {
+          console.log('redirect', textItems.item(i).dataset.url)
+          // TODO - Redirect on ckick
+          // redirect
+        })
+
+      }
 
     }
   }
@@ -100,7 +107,11 @@ class Plano extends React.Component {
 
   setInitSize(){
     let sectionSize = document.getElementById('section-wrapper').clientWidth;
-    this.setSize(sectionSize - 200);
+    let space = 0;
+    if (window.innerWidth > 640){
+      space = 200;
+    }
+    this.setSize(sectionSize - space);
   }
 
   setSize(width){
@@ -134,7 +145,9 @@ class Plano extends React.Component {
               <button id='btn-reduce'>-</button>
             </div>
             <div className='places-list'>
-              <h2>Lugares</h2>
+              <div className='places-list-title'>
+                <h2>Lugares</h2>
+              </div>
               <ul>
                 {PlacesData.map((placeType, indexTypes) => {
                   return(
@@ -143,7 +156,7 @@ class Plano extends React.Component {
                       {
                         placeType.data.map((place, index) => {
                           return (
-                              <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
+                              <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
                           )
                         })
                       }

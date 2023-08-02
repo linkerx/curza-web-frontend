@@ -73,20 +73,34 @@
 
 .flex-container{
   display: flex;
+  @media only screen and (max-width: 640px) {
+    flex-direction: column;
+  }
 }
 
 .places-list {
-  margin: 2em;
+  margin-left: 1em;
   position: -webkit-sticky;
   position: sticky;
   align-self: flex-start;
   top: 70px;
+  overflow-y: scroll;
+  height:400px;
 }
 
 .places-list > ul {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+}
+
+.places-list-title {
+  background-color: #10396d;
+  color: white;
+  padding: 1em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .place-type-title {
