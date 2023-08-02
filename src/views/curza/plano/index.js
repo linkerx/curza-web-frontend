@@ -30,8 +30,9 @@ class Plano extends React.Component {
         let placeText = document.getElementById(placeName + "-text");
         let searchedPlace = this.searchById(placeName);
         searchedPlace && this.showSearched([searchedPlace]);
+        this.clearSearchInput();
         if(placeText){
-          placeText.style.background = "black"
+          placeText.style.background = "#F57C00"
           placeText.style.color = "white"
           placeText.style.padding = "0.5em" 
           placeText.style.fontSize = "1.2em" 
@@ -97,7 +98,6 @@ class Plano extends React.Component {
   }
 
   showSearched(finded){
-    console.log(finded)
     const listItems = document.getElementsByClassName('place-type-li');
     for (let listItem of listItems) {
       listItem.setAttribute('hidden', true)
@@ -171,6 +171,10 @@ class Plano extends React.Component {
       width -= 200;
       this.setSize(width)
     });
+  }
+
+  clearSearchInput() {
+    document.getElementById('search-input').value = '';
   }
 
   render(){
