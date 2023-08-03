@@ -10,13 +10,14 @@ class Plano extends React.Component {
     this.svg = null;
     this.init = this.init.bind(this);
     this.searchByEvent = this.searchByEvent.bind(this);
+    this.zoomIn = this.zoomIn.bind(this);
+    this.zoomOut = this.zoomOut.bind(this);
   }
 
   init(svg){
     this.svg = svg;
     this.places = this.svg.getElementsByClassName('place');
     this.setColorToPlaces();
-    this.changeSize();
     this.setInitSize();
     this.mapPlacesHover();
     this.listItemsHover();
@@ -183,18 +184,24 @@ class Plano extends React.Component {
     this.svg.setAttribute('height', width);
   }
 
-  changeSize(){
-    document.getElementById('btn-enlarge').addEventListener('click', () => {
-      let width = parseInt(this.svg.getAttribute('width'));
-      width += 100;
-      this.setSize(width)
-    });
+  zoomIn(){
+    let width = parseInt(this.svg.getAttribute('width'));
+    for (let i = 0; i < 100; i++) {
+      setTimeout(() => {
+        width += 1;
+        this.setSize(width);
+      }, i * 3)
+    }
+  }
 
-    document.getElementById('btn-reduce').addEventListener('click', () => {
-      let width = parseInt(this.svg.getAttribute('width'));
-      width -= 100;
-      this.setSize(width)
-    });
+  zoomOut(){
+    let width = parseInt(this.svg.getAttribute('width'));
+    for (let i = 0; i < 100; i++) {
+      setTimeout(() => {
+        width -= 1;
+        this.setSize(width);
+      }, i * 3)
+    }
   }
 
   clearSearchInput() {
@@ -239,8 +246,9 @@ class Plano extends React.Component {
                 </ul>
               </div>
               <div className='btn-group'>
-                <button id='btn-enlarge' className='btn'>+</button>
-                <button id='btn-reduce' className='btn'>-</button>
+                <h3 className='btn-title'>Zoom</h3>
+                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}>+</button>
+                <button id='btn-reduce' className='btn' onClick={this.zoomOut}>-</button>
               </div>
             </div>
           </div>
