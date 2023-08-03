@@ -12,6 +12,7 @@ class Plano extends React.Component {
     this.searchByEvent = this.searchByEvent.bind(this);
     this.zoomIn = this.zoomIn.bind(this);
     this.zoomOut = this.zoomOut.bind(this);
+    this.goToUrl = this.goToUrl.bind(this);
   }
 
   init(svg){
@@ -73,14 +74,7 @@ class Plano extends React.Component {
           this.giveBackColorToPlaces()
         }
       })
-      if(textItem.dataset.url){
-        textItem.addEventListener('click', (e) => {
-          console.log('redirect', textItem.dataset.url)
-          // TODO - Redirect on ckick
-          // redirect
-        })
 
-      }
 
     }
   }
@@ -93,7 +87,7 @@ class Plano extends React.Component {
     const listItems = document.getElementsByClassName('place-type-li');
     let finded = [];
     for (let listItem of listItems) {
-      if(listItem.dataset.name.includes(name)) {
+      if(listItem.dataset.name.toUpperCase().includes(name.toUpperCase())) {
         finded.push(listItem)
       }
     }
@@ -204,6 +198,13 @@ class Plano extends React.Component {
     }
   }
 
+  goToUrl(e){
+    let textItem = e.target;
+    if(textItem.dataset.url){
+      this.props.history.push(textItem.dataset.url);
+    }
+  }
+
   clearSearchInput() {
     document.getElementById('search-input').value = '';
   }
@@ -236,7 +237,16 @@ class Plano extends React.Component {
                         {
                           placeType.data.map((place, index) => {
                             return (
-                                <li className='place-type-li' key={index} id={place.id + "-text"} name={place.id} data-url={place.url} data-name={place.name}><strong name={place.id}>{place.code} - </strong> {place.name}</li>
+                                <li className='place-type-li'
+                                  key={index} 
+                                  id={place.id + "-text"} 
+                                  name={place.id} 
+                                  data-url={place.url} 
+                                  data-name={place.name}
+                                  onClick={this.goToUrl}
+                                  >
+                                    <strong name={place.id}>{place.code} - </strong> {place.name}
+                                </li>
                             )
                           })
                         }
