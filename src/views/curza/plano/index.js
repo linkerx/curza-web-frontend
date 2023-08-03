@@ -26,6 +26,14 @@ class Plano extends React.Component {
 
   mapPlacesHover() {
     const places = this.svg.getElementsByClassName('place');
+    //TODO - zoomin keyboard
+    document.addEventListener('keyup', (e) => {
+      let key = e.which || e.keyCode;
+      console.log(key);
+      if(key === 171){
+        this.zoomIn();
+      }
+    })
     for (let place of places) {
       let click = false;
       place.addEventListener('mouseover', (e) => {
@@ -170,6 +178,7 @@ class Plano extends React.Component {
     let sectionSize = document.getElementById('section-wrapper').clientWidth;
     let planoContainer = document.getElementById('plano-box');
     let planoAside = document.getElementById('plano-aside');
+    let btnBox = document.getElementById('btn-box');
     let space = 0;
     if (window.innerWidth > 640){
       space = 250;
@@ -179,6 +188,8 @@ class Plano extends React.Component {
       asideSize = sectionSize;
       planoAside.style.margin = 0;
       planoAside.style.marginTop = "1em";
+      btnBox.style.right = 0;
+      btnBox.style.padding = 0;
     }
     planoAside.style.width = asideSize + "px";
     this.setSize(sectionSize - space);
@@ -229,6 +240,10 @@ class Plano extends React.Component {
           <h1>Plano Curza</h1>
           <div className='flex-container'>
             <div id='plano-box'>
+              <div id='btn-box' className='btn-group'>
+                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}>+</button>
+                <button id='btn-reduce' className='btn' onClick={this.zoomOut}>-</button>
+              </div>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
             </div>
             <div id='plano-aside' className='plano-aside'>
@@ -267,11 +282,6 @@ class Plano extends React.Component {
                     )
                   })}
                 </ul>
-              </div>
-              <div className='btn-group'>
-                <h3 className='btn-title'>Zoom</h3>
-                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}>+</button>
-                <button id='btn-reduce' className='btn' onClick={this.zoomOut}>-</button>
               </div>
             </div>
           </div>
