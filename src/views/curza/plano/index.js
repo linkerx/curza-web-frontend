@@ -27,6 +27,7 @@ class Plano extends React.Component {
   mapPlacesHover() {
     const places = this.svg.getElementsByClassName('place');
     for (let place of places) {
+      let click = false;
       place.addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
@@ -34,6 +35,7 @@ class Plano extends React.Component {
         searchedPlace && this.showSearched([searchedPlace]);
         this.clearSearchInput();
         if(placeText){
+          click = false;
           this.hiddePlacesTitles(true);
           placeText.style.background = "#F57C00"
           placeText.style.color = "white"
@@ -41,18 +43,29 @@ class Plano extends React.Component {
           placeText.style.fontSize = "1.2em" 
         }
       })
-      place.addEventListener('mouseout', (e) => {
+      place.addEventListener('click', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
-        this.searchByName('')
         if(placeText){
-          this.hiddePlacesTitles(false);
-          placeText.style.background = ""
-          placeText.style.color = ""
-          placeText.style.padding = "" 
-          placeText.style.fontSize = "" 
+          click = true;
         }
       })
+
+      place.addEventListener('mouseout', (e) => {
+        if(!click){
+          let placeName = e.target.getAttribute('name');
+          let placeText = document.getElementById(placeName + "-text");
+          this.searchByName('')
+          if(placeText){
+            this.hiddePlacesTitles(false);
+            placeText.style.background = ""
+            placeText.style.color = ""
+            placeText.style.padding = "" 
+            placeText.style.fontSize = "" 
+          }
+        }
+      })
+
     }
   }
 
