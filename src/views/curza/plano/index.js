@@ -7,6 +7,9 @@ class Plano extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      click: false
+    }
     this.svg = null;
     this.init = this.init.bind(this);
     this.searchByEvent = this.searchByEvent.bind(this);
@@ -14,6 +17,7 @@ class Plano extends React.Component {
     this.zoomOut = this.zoomOut.bind(this);
     this.goToUrl = this.goToUrl.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
+    this.lock = this.lock.bind(this);
   }
 
   init(svg){
@@ -25,37 +29,39 @@ class Plano extends React.Component {
     this.listItemsHover();
   }
 
+  setClick(value){
+    this.setState({click: value});
+  }
+
+  setListSelectedStyle(placeName, placeText){
+          let searchedPlace = this.searchById(placeName);
+          searchedPlace && this.showSearched([searchedPlace]);
+          this.clearSearchInput();
+          if(placeText){
+            this.setClick(false);
+            this.hiddePlacesTitles(true);
+            placeText.style.background = "#F57C00"
+            placeText.style.color = "white"
+            placeText.style.padding = "0.5em" 
+            placeText.style.fontSize = "1.2em" 
+          }
+
+  }
+
   mapPlacesHover() {
     const places = this.svg.getElementsByClassName('place');
 
     for (let place of places) {
-      let click = false;
-      place.addEventListener('click', (e) => {
-        let placeName = e.target.getAttribute('name');
-        let placeText = document.getElementById(placeName + "-text");
-        if(placeText){
-          click = true;
-        }
-      })
-
       place.addEventListener('mouseover', (e) => {
-        let placeName = e.target.getAttribute('name');
-        let placeText = document.getElementById(placeName + "-text");
-        let searchedPlace = this.searchById(placeName);
-        searchedPlace && this.showSearched([searchedPlace]);
-        this.clearSearchInput();
-        if(placeText){
-          click = false;
-          this.hiddePlacesTitles(true);
-          placeText.style.background = "#F57C00"
-          placeText.style.color = "white"
-          placeText.style.padding = "0.5em" 
-          placeText.style.fontSize = "1.2em" 
+        if(!this.state.click){
+          let placeName = e.target.getAttribute('name');
+          let placeText = document.getElementById(placeName + "-text");
+          this.setListSelectedStyle(placeName, placeText);
         }
       })
 
       place.addEventListener('mouseout', (e) => {
-        if(!click){
+        if(!this.state.click){
           let placeName = e.target.getAttribute('name');
           let placeText = document.getElementById(placeName + "-text");
           this.searchByName('')
@@ -65,6 +71,20 @@ class Plano extends React.Component {
           }
         }
       })
+
+      place.addEventListener('click', (e) => {
+        console.log(this.state.click)
+        let placeName = e.target.getAttribute('name');
+        let placeText = document.getElementById(placeName + "-text");
+         if(placeText){
+           if(this.state.click){
+              this.setListSelectedStyle(placeName, placeText)
+            }else{
+              this.setClick(true);
+          }
+        }
+      })
+
     }
   }
 
@@ -256,8 +276,15 @@ class Plano extends React.Component {
   }
 
   resetSearch(){
+    this.setClick(false);
     this.clearSearchInput();
+    this.hiddePlacesTitles(false);
+    this.cleanListStyles();
     this.searchByName('');
+  }
+  
+  lock(){
+    this.setClick(true);
   }
 
   render(){
@@ -267,9 +294,14 @@ class Plano extends React.Component {
           <h1>Plano Curza</h1>
           <div className='flex-container'>
             <div id='plano-box'>
-              <div id='btn-box' className='btn-group' title='Zoom'>
-                <button id='btn-enlarge' className='btn btn-sm' onClick={this.zoomIn}><i className='fas fa-plus'></i></button>
-                <button id='btn-reduce' className='btn btn-sm' onClick={this.zoomOut}><i className='fas fa-minus'></i></button>
+              <div id='btn-box' className='btn-group'>
+                <button id='btn-enlarge' className='btn btn-sm' onClick={this.zoomIn} title="Zoom In"><i className='fas fa-plus'></i></button>
+                <button id='btn-reduce' className='btn btn-sm' onClick={this.zoomOut} title="Zoom Out"><i className='fas fa-minus'></i></button>
+                {this.state.click ? 
+                  <button className='btn btn-sm' onClick={this.resetSearch} title="Desbloquear"><i className='fas fa-lock'></i></button>
+                  :
+                  <button className='btn btn-sm' onClick={this.lock} title="Bloquear"><i className='fas fa-unlock'></i></button>
+                }
               </div>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
             </div>
