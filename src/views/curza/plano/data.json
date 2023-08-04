@@ -120,6 +120,60 @@
     ]
   },
   {
+    "type": "Departamentos",
+    "data": [
+      {
+        "id": "dpto1",
+        "name": "Lengua, Literatura y Comunicación",
+        "code": "D1",
+        "info": "",
+        "url": "lengua-comunicacion"
+      },
+      {
+        "id": "dpto2",
+        "name": "Enfermeria",
+        "code": "D2",
+        "info": "",
+        "url": "enfermeria"
+      },
+      {
+        "id": "dpto3",
+        "name": "Psicopedagogía",
+        "code": "D3",
+        "info": "",
+        "url": "psicopedagogia"
+      },
+      {
+        "id": "dpto4",
+        "name": "Estudios Políticos",
+        "code": "D4",
+        "info": "",
+        "url": "estudios-politicos"
+      },
+      {
+        "id": "dpto5",
+        "name": "Gestión Agropecuaria",
+        "code": "D5",
+        "info": "",
+        "url": "gestion-agropecuaria"
+      },
+      {
+        "id": "dpto6",
+        "name": "Ciencia y Tecntología",
+        "code": "D6",
+        "info": "",
+        "url": "tecnologia"
+      },
+      {
+        "id": "dpto7",
+        "name": "Administración Pública",
+        "code": "D7",
+        "info": "",
+        "url": "admin-publica"
+      }
+    ]
+  },
+  {
     "type": "Aulas",
     "data": [
       {
@@ -226,60 +280,6 @@
         "id": "sala8",
         "name": "Espacio compartido",
         "code": "S8"
-      }
-    ]
-  },
-  {
-    "type": "Departamentos",
-    "data": [
-      {
-        "id": "dpto1",
-        "name": "Lengua, Literatura y Comunicación",
-        "code": "D1",
-        "info": "",
-        "url": "lengua-comunicacion"
-      },
-      {
-        "id": "dpto2",
-        "name": "Enfermeria",
-        "code": "D2",
-        "info": "",
-        "url": "enfermeria"
-      },
-      {
-        "id": "dpto3",
-        "name": "Psicopedagogía",
-        "code": "D3",
-        "info": "",
-        "url": "psicopedagogia"
-      },
-      {
-        "id": "dpto4",
-        "name": "Estudios Políticos",
-        "code": "D4",
-        "info": "",
-        "url": "estudios-politicos"
-      },
-      {
-        "id": "dpto5",
-        "name": "Gestión Agropecuaria",
-        "code": "D5",
-        "info": "",
-        "url": "gestion-agropecuaria"
-      },
-      {
-        "id": "dpto6",
-        "name": "Ciencia y Tecntología",
-        "code": "D6",
-        "info": "",
-        "url": "tecnologia"
-      },
-      {
-        "id": "dpto7",
-        "name": "Administración Pública",
-        "code": "D7",
-        "info": "",
-        "url": "admin-publica"
       }
     ]
   }
