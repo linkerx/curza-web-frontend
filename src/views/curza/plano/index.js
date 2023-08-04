@@ -36,6 +36,14 @@ class Plano extends React.Component {
     })
     for (let place of places) {
       let click = false;
+      place.addEventListener('click', (e) => {
+        let placeName = e.target.getAttribute('name');
+        let placeText = document.getElementById(placeName + "-text");
+        if(placeText){
+          click = true;
+        }
+      })
+
       place.addEventListener('mouseover', (e) => {
         let placeName = e.target.getAttribute('name');
         let placeText = document.getElementById(placeName + "-text");
@@ -51,13 +59,6 @@ class Plano extends React.Component {
           placeText.style.fontSize = "1.2em" 
         }
       })
-      place.addEventListener('click', (e) => {
-        let placeName = e.target.getAttribute('name');
-        let placeText = document.getElementById(placeName + "-text");
-        if(placeText){
-          click = true;
-        }
-      })
 
       place.addEventListener('mouseout', (e) => {
         if(!click){
@@ -66,14 +67,20 @@ class Plano extends React.Component {
           this.searchByName('')
           if(placeText){
             this.hiddePlacesTitles(false);
-            placeText.style.background = ""
-            placeText.style.color = ""
-            placeText.style.padding = "" 
-            placeText.style.fontSize = "" 
+            this.cleanListStyles(); 
           }
         }
       })
+    }
+  }
 
+  cleanListStyles() {
+    const textItems = document.getElementsByClassName('place-type-li');
+    for (let textItem of textItems) {
+      textItem.style.background = ""
+      textItem.style.color = ""
+      textItem.style.padding = "" 
+      textItem.style.fontSize = "" 
     }
   }
 
@@ -271,7 +278,8 @@ class Plano extends React.Component {
                                   name={place.id} 
                                   data-url={place.url} 
                                   data-name={place.name}
-                                  onClick={this.goToUrl}
+                                  onDoubleClick={this.goToUrl}
+                                  title={place.url && 'Doble Click para más información'}
                                   >
                                     <strong name={place.id}>{place.code} - </strong> {place.name}
                                 </li>
