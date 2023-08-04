@@ -13,6 +13,7 @@ class Plano extends React.Component {
     this.zoomIn = this.zoomIn.bind(this);
     this.zoomOut = this.zoomOut.bind(this);
     this.goToUrl = this.goToUrl.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
   init(svg){
@@ -26,14 +27,7 @@ class Plano extends React.Component {
 
   mapPlacesHover() {
     const places = this.svg.getElementsByClassName('place');
-    //TODO - zoomin keyboard
-    document.addEventListener('keyup', (e) => {
-      let key = e.which || e.keyCode;
-      console.log(key);
-      if(key === 171){
-        this.zoomIn();
-      }
-    })
+
     for (let place of places) {
       let click = false;
       place.addEventListener('click', (e) => {
@@ -102,8 +96,6 @@ class Plano extends React.Component {
           this.giveBackColorToPlaces()
         }
       })
-
-
     }
   }
 
@@ -229,6 +221,29 @@ class Plano extends React.Component {
     }
   }
 
+  zoomWithKeyboard(){
+    //TODO - zoomin keyboard
+    document.addEventListener('keyup', (e) => {
+      let key = e.key;
+      if(key === '+'){
+        this.zoomIn();
+      }
+      if(key === '-'){
+        this.zoomOut();
+      }
+    })
+    this.svg.addEventListener('wheel', (e) => {
+      let wheel = e.deltaY;
+      console.log(wheel);
+      if(wheel > 0){
+        this.zoomIn();
+      }
+      if(wheel < 0){
+        this.zoomOut();
+      }
+    })
+  }
+
   goToUrl(e){
     let textItem = e.target;
     if(textItem.dataset.url){
@@ -240,6 +255,11 @@ class Plano extends React.Component {
     document.getElementById('search-input').value = '';
   }
 
+  resetSearch(){
+    this.clearSearchInput();
+    this.searchByName('');
+  }
+
   render(){
     return(
       <section id='plano'>
@@ -248,8 +268,8 @@ class Plano extends React.Component {
           <div className='flex-container'>
             <div id='plano-box'>
               <div id='btn-box' className='btn-group' title='Zoom'>
-                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}><i className='fas fa-plus'></i></button>
-                <button id='btn-reduce' className='btn' onClick={this.zoomOut}><i className='fas fa-minus'></i></button>
+                <button id='btn-enlarge' className='btn btn-sm' onClick={this.zoomIn}><i className='fas fa-plus'></i></button>
+                <button id='btn-reduce' className='btn btn-sm' onClick={this.zoomOut}><i className='fas fa-minus'></i></button>
               </div>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
             </div>
@@ -262,6 +282,7 @@ class Plano extends React.Component {
                   <div className='search-box'>
                     <h4>Buscar: </h4>
                     <input id='search-input' type="text" onKeyUp={this.searchByEvent} />
+                    <button id='reset-btn' className='btn btn-sm btn-danger' title='Reset' onClick={this.resetSearch}><i className='fas fa-window-close'></i></button>
                   </div>
                 </div>
                 <ul>
