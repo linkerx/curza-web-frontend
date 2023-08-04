@@ -189,7 +189,7 @@ class Plano extends React.Component {
       planoAside.style.margin = 0;
       planoAside.style.marginTop = "1em";
       btnBox.style.right = 0;
-      btnBox.style.padding = 0;
+      btnBox.style.margin = '1em';
     }
     planoAside.style.width = asideSize + "px";
     this.setSize(sectionSize - space);
@@ -240,9 +240,9 @@ class Plano extends React.Component {
           <h1>Plano Curza</h1>
           <div className='flex-container'>
             <div id='plano-box'>
-              <div id='btn-box' className='btn-group'>
-                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}>+</button>
-                <button id='btn-reduce' className='btn' onClick={this.zoomOut}>-</button>
+              <div id='btn-box' className='btn-group' title='Zoom'>
+                <button id='btn-enlarge' className='btn' onClick={this.zoomIn}><i className='fas fa-plus'></i></button>
+                <button id='btn-reduce' className='btn' onClick={this.zoomOut}><i className='fas fa-minus'></i></button>
               </div>
               <ReactSVG id='plano-container' src='images/planoCurza.svg' afterInjection={this.init}/>
             </div>
