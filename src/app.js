@@ -17,6 +17,7 @@ import RouterCurzaCms from "components/curza/routerCms"
 import Megamenu from 'views/megamenu';
 import 'styles/main.scss';
 import 'styles/transition.scss';
+import Plano from 'views/curza/plano';
 
 class App extends Component {
 
@@ -139,6 +140,7 @@ handleScroll() {
                     <Route exact path='/publicaciones/libros' render={ function() { return ( <Libros {...props} show={this.endLoading}  /> ) }.bind(this) } />
                     <Route exact path='/publicaciones/actas' render={ function() { return ( <Actas  {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route exact path='/academica/tramites' render={ function() { return ( <Tramites  {...props} show={this.endLoading} /> ) }.bind(this) } />
+                    <Route exact path='/plano' render={ function() { return ( <Plano  {...props} show={this.endLoading} /> ) }.bind(this) } />
                     <Route path='/:slug' render={ function(props) { return ( <CurzaWpNetwork {...props} show={this.endLoading} template={2} /> ) }.bind(this) } />
                   </Switch>
                 </div>
