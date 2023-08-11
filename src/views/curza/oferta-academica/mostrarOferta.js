@@ -91,14 +91,18 @@ class MostrarOferta extends Component {
       <div id="mostrar-oferta">
         <header>
           <div className='fondo'></div>
-          <h1>Oferta de grado</h1>
+          <h1>Oferta de grado y pre-grado</h1>
           <Filter onChange={this.filtrarOfertas} text={this.state.text} />
         </header>
         <OfertaAcademica
           carreras={this.state.ofertasFiltrada}
           match={this.props.match}
         />
-       <NavLink to='/posgrado'>Oferta de Posgrado</NavLink>
+        <div className='wrapper-central'>
+          <div className='btn-box-center'>
+            <NavLink className='btn' to='/posgrado'>OFERTA DE POSGRADO</NavLink>
+          </div>
+        </div>
       </div>
     )
   }
