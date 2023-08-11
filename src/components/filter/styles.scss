@@ -3,11 +3,15 @@
 .searcher{
     position: absolute;
     bottom: 20px;
-    right:20px;
+    right:120px;
     display:flex;
     justify-content: end;
     margin-right: 20px;
     z-index: 33;
+    @media #{$all-narrow}{
+        bottom: 5px;
+        right:0px;
+    }
     & p{
         margin-top: 6px;        
         font-size: 1.5em;
