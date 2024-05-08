@@ -136,12 +136,17 @@ class Autoridades extends React.Component {
         a_cargo: 'Esp. Lucrecia Avilés',
         list: []
       },
-
       {
-        descripcion: 'Secretaría de Extensión y Bienestar Estudiantil',
-        a_cargo: 'Lic. María Laura Cabezas',
+        descripcion: 'Secretaría de Extensión Universitaria',
+        a_cargo: 'Esp. Mónica Amado',
         list: []
       },
+      {
+        descripcion: 'Secretaría de Bienestar',
+        a_cargo: 'Esp. Carlos Comolay',
+        list: []
+      },
+
       {
         descripcion: 'Dirección de Gestión Administrativa',
         a_cargo: 'Mg. Fabián Fernandez',
