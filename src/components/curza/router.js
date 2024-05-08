@@ -5,6 +5,7 @@ import CurzaCarrera from 'components/curza/carrera';
 import WpSiteContent from 'wp/site/content';
 import WpSite from 'wp/site';
 import { Switch, Route } from 'react-router-dom';
+import MesaExtraordinariaForm from 'components/forms/mesaExtraordinariaForm';
 
 class CurzaWpSiteRouter extends React.Component {
 
@@ -123,9 +124,17 @@ componentDidMount(){
                       <WpSite {...props} template={template} site={this.state.site} site_data={this.props.site_data} />
                     )}.bind(this)}/>
                   :
+
+                  <Switch>                
+                      <Route path={'/forms/mesa-extraordinaria'} render={function(props){console.log("forms"); return(
+                        <MesaExtraordinariaForm/>
+                      )}.bind(this)}/>
+
                     <Route path={'/:slug1?/:slug2?/:slug3?'} render={function(props){return(
                       <WpSite {...props} template={template} site_data={this.props.site_data} />
                     )}.bind(this)}/>
+
+                  </Switch>
                   }
                 </div>
             }
