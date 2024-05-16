@@ -122,7 +122,7 @@ class Autoridades extends React.Component {
     ]
     let array_secretarias = [
       {
-        descripcion: 'Secreataría Académica',
+        descripcion: 'Secretaría Académica',
         a_cargo: 'Mg. Alba Eterovich',
         list: [
           {
@@ -132,7 +132,7 @@ class Autoridades extends React.Component {
         ]
       },
       {
-        descripcion: 'Secreataría de Ciencia y Técnica',
+        descripcion: 'Secretaría de Ciencia y Técnica',
         a_cargo: 'Esp. Lucrecia Avilés',
         list: []
       },
