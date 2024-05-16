@@ -123,7 +123,7 @@ class Autoridades extends React.Component {
     let array_secretarias = [
       {
         descripcion: 'Secreataría Académica',
-        a_cargo: 'Dra. Soledad Vercellino',
+        a_cargo: 'Mg. Alba Eterovich',
         list: [
           {
             descripcion: "Dirección de Posgrado",
@@ -136,12 +136,17 @@ class Autoridades extends React.Component {
         a_cargo: 'Esp. Lucrecia Avilés',
         list: []
       },
-
       {
-        descripcion: 'Secretaría de Extensión y Bienestar Estudiantil',
-        a_cargo: 'Lic. María Laura Cabezas',
+        descripcion: 'Secretaría de Extensión Universitaria',
+        a_cargo: 'Esp. Mónica Amado',
         list: []
       },
+      {
+        descripcion: 'Secretaría de Bienestar Estudiantil',
+        a_cargo: 'Esp. Carlos Comolay',
+        list: []
+      },
+
       {
         descripcion: 'Dirección de Gestión Administrativa',
         a_cargo: 'Mg. Fabián Fernandez',
