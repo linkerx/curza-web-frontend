@@ -68,7 +68,7 @@ class CurzaCarreras extends React.Component {
                             }): null }
                             
                             readMore={url}
-                            brochure={item.related_files.brochure}
+                            brochure={item.hasOwnProperty('related_files') && item.related_files.hasOwnProperty('brochure') && item.related_files.brochure}
                         >
                                
                             {item.duracion_total_anos < 0 ? null :"Duración total: "+  item.duracion_total_anos+" años"}
