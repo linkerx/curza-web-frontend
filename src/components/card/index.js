@@ -25,13 +25,23 @@ const Card = props => (
         }) : null
       }
     </div>
-    { //boton de leer más
-    
-      props.readMore ? 
-      <div className="readMore"><a href={props.readMore}>Leer más</a></div> 
-      : 
-      null 
-    }
+    <div className="actions">
+        { //boton de leer más
+        
+          props.readMore ? 
+          <div className="btn" title="Leer más"><a href={props.readMore}><i className="fas fa-eye"></i></a></div> 
+          : 
+          null 
+        }
+        { //boton descarga del folleto
+        
+          props.folleto ? 
+          <div className="btn" title="Descargar Información"><a href={props.folleto}><i className="fas fa-download"></i></a></div> 
+          : 
+          null 
+        }
+    </div>
+
     { //botones de modalidades
       props.icons ? 
       <div className="icons">
