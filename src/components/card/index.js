@@ -35,8 +35,8 @@ const Card = props => (
         }
         { //boton descarga del folleto
         
-          props.folleto ? 
-          <div className="btn" title="Descargar Información"><a href={props.folleto}><i className="fas fa-download"></i></a></div> 
+          props.brochure ? 
+          <div className="btn" title="Descargar Información"><a href={props.brochure} target='_blank'><i className="fas fa-download"></i></a></div> 
           : 
           null 
         }

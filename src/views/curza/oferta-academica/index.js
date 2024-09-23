@@ -90,6 +90,7 @@ class OfertaAcademica extends React.Component {
                             }): null }
                             
                             readMore={this.urlDpto(child)}
+                            brochure={child.related_files.brochure}
                         >
                                
                             {child.duracion_total_anos < 0 ? null :"Duración total: "+  child.duracion_total_anos+" años"}
