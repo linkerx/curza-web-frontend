@@ -41,6 +41,15 @@
             display:none;
         }
     }
+
+    & .folleto {
+      float: left;
+      color:white;
+      & a {
+        color:white;
+      }
+    }
+
     & .info-carrera{
         display: inline-block;
         text-align: justify;

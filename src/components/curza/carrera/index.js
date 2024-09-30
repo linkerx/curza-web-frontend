@@ -5,6 +5,7 @@ import './styles.scss';
 class CurzaCarrera extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props)
         this.state = {
             carrera: null,
             selectedPlan: null,
@@ -114,6 +115,15 @@ class CurzaCarrera extends React.Component {
                                 }
                             </ul>
                         </div>
+                        {this.state.carrera.related_files && this.state.carrera.related_files.brochure ? 
+                            <div className="folleto">
+                                <div className="btn" title="Descargar Información">
+                                    <a href={this.state.carrera.related_files.brochure} target='_blank'><i className="fas fa-download"></i> Descargar Información</a>
+                                </div> 
+                            </div>
+                            : 
+                            null
+                        }
                         <div className='info-carrera'>
                             {this.state.carrera.fundamentacion ? 
                                 <div><span>Fundamentación:</span> <div dangerouslySetInnerHTML={{__html: this.state.carrera.fundamentación}}></div></div>
