@@ -18,7 +18,7 @@ class Footer extends React.Component {
             </div>
             <div className="vertical-line"></div>
             <div className="columna-2">
-              <h3>Centro Regional Universitario Zona Atlántica</h3>
+              <h3>Complejo Universitario Regional Zona Atlántica y Sur</h3>
               <p>Monseñor Esandi y Ayacucho.</p>
               <p>Viedma(85009), Río Negro, Argentina.</p>
               <p>Teléfonos: +54-2920-422921/423772</p>
