@@ -12,8 +12,8 @@ class HomeHeader extends React.Component {
                         <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
                         <div className='logo-text'>
                             <Link to='/'>
-                                <div className='titulo'>C.U.R.Z.A.</div>
-                                <div className='descripcion'>Centro Universitario Regional Zona Atlántica</div>
+                                <div className='titulo'>C.U.R.Z.A.S.</div>
+                                <div className='descripcion'>Complejo Universitario Regional Zona Atlántica y Sur</div>
                             </Link>
                             <a href='https://www.uncoma.edu.ar/'>
                                <div className='unco'>Universidad Nacional del Comahue</div>
