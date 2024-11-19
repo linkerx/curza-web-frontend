@@ -11,7 +11,7 @@ class HomePlano extends React.Component {
     return(
       <section id='home-plano'>
         <div className='wrapper-central'>
-          <h1>Plano Curza</h1>
+          <h1>Plano CURZAS</h1>
           <a href="/plano">
             <div className="image-container">
               <img id='plano-curza' src='images/planoCurza.jpg'/>
