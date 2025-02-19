@@ -20,7 +20,7 @@ class Footer extends React.Component {
             <div className="columna-2">
               <h3>Complejo Universitario Regional Zona Atlántica y Sur</h3>
               <p>Monseñor Esandi y Ayacucho.</p>
-              <p>Viedma(85009), Río Negro, Argentina.</p>
+              <p>Viedma(8500), Río Negro, Argentina.</p>
               <p>Teléfonos: +54-2920-422921/423772</p>
               <div className='redes-sociales'>
                 <WpMenu location='redes-sociales-menu-location' />
