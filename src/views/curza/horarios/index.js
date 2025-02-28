@@ -31,7 +31,7 @@ class Horarios extends React.Component {
     });
 
     var opts = {
-      site: "academica",
+      site: "bedelia",
       type: "horario",
       queries: ["_embed"],
       debug: false,
@@ -39,7 +39,7 @@ class Horarios extends React.Component {
 
     WpApi.getList(opts).then(
       function (response_items) {
-        WpApi.getSite({ name: "academica" }).then(
+        WpApi.getSite({ name: "bedelia" }).then(
           function (main_site) {
             this.setState({
               items: response_items.data,
@@ -69,7 +69,7 @@ class Horarios extends React.Component {
     return (
       <div>
         {this.state.site_data && (
-          <WpSite site="academica" site_data={this.state.site_data}>
+          <WpSite site="bedelia" site_data={this.state.site_data}>
             <section id="horarios">
               <header>
                 <div className="fondo"></div>
