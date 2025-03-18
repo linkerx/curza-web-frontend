@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
-
+import MainMenu from "../main-menu";
 class FixedHeader extends React.Component {
   render() {
     let headerClass = "hidden";
@@ -16,6 +16,7 @@ class FixedHeader extends React.Component {
             <img src="/images/logo_blanco.png" alt="Logo UNCo" />
           </Link>
         </div>
+        <MainMenu />
       </div>
     );
   }
