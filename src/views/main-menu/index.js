@@ -45,6 +45,11 @@ class MainMenu extends Component {
     }));
   };
 
+  // Función para determinar si un enlace es externo
+  isExternalLink(url) {
+    return url.startsWith("http://") || url.startsWith("https://");
+  }
+
   render() {
     const { activeMenu, menu } = this.state;
 
@@ -75,13 +80,19 @@ class MainMenu extends Component {
                     <span onClick={() => this.handleMenuClick(menuItem.title)}>
                       {menuItem.title}
                     </span>
-                  ) : (
-                    // Si no tiene hijos, es un enlace directo
-                    <NavLink
-                      to={menuItem.url} // Usa la URL del ítem
-                      activeClassName="active"
-                      exact
+                  ) : // Si no tiene hijos, es un enlace directo
+                  this.isExternalLink(menuItem.url) ? (
+                    // Enlace externo: usa <a> con target="_blank" para abrir en una nueva pestaña
+                    <a
+                      href={menuItem.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
+                      {menuItem.title}
+                    </a>
+                  ) : (
+                    // Enlace interno: usa NavLink
+                    <NavLink to={menuItem.url} activeClassName="active" exact>
                       {menuItem.title}
                     </NavLink>
                   )}

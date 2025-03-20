@@ -1,6 +1,6 @@
-// MainMenu.scss
 .main-menu-container {
   position: relative;
+  background-color: #10396d; // Color de fondo solicitado
 }
 
 .main-menu {
@@ -8,7 +8,8 @@
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  padding-right: 40px;
+  padding-right: 32px; // Padding reducido un 20% (40px * 0.8 = 32px)
+
   .menu-list {
     display: flex;
     list-style: none;
@@ -16,14 +17,55 @@
     padding: 0;
 
     .menu-item {
-      font-size: 1.2em;
+      font-size: 0.96em; // Reducción del 20% (1.2em * 0.8 = 0.96em)
       color: #fff;
-      margin-left: 20px;
+      margin-left: 24px; // Espaciado reducido un 20% (30px * 0.8 = 24px)
       cursor: pointer;
       font-weight: bold;
+      position: relative; // Para el efecto de subrayado
+      padding: 8px 0; // Padding reducido un 20% (10px * 0.8 = 8px)
+      transition:
+        color 0.3s ease,
+        transform 0.2s ease; // Transiciones suaves
+
+      // Estilos para los enlaces (<a>)
+      a {
+        color: inherit; // Hereda el color del .menu-item
+        text-decoration: none; // Elimina el subrayado
+        display: block; // Ocupa todo el espacio del .menu-item
+      }
 
       &:hover {
-        color: #bbb;
+        color: #4dabf7; // Cambio de color al hacer hover
+        transform: translateY(-2px); // Efecto de levitación
+      }
+
+      // Efecto de subrayado al hacer hover
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 4px; // Posición ajustada un 20% (5px * 0.8 = 4px)
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #4dabf7; // Color del subrayado
+        transform: scaleX(0); // Inicialmente invisible
+        transform-origin: right;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1); // Subrayado visible al hacer hover
+        transform-origin: left;
+      }
+
+      // Estilo para el enlace activo (opcional)
+      &.active {
+        color: #4dabf7;
+
+        &::after {
+          transform: scaleX(1); // Subrayado visible para el activo
+        }
       }
     }
   }
