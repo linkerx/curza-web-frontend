@@ -35,10 +35,6 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-        <div>
-          {/* Pasar la referencia del header como prop a MainMenu */}
-          <MainMenu headerRef={this.headerRef} />
-        </div>
       </div>
     );
   }

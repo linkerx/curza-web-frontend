@@ -28,7 +28,7 @@ class Menu extends Component {
           {items &&
             items.map((item) => (
               <li key={item.id}>
-                {item.url === "/" ? ( // Si la URL es "/", no es un enlace, sino un dropdown
+                {item.url === "#" ? ( // Si la URL es "/", no es un enlace, sino un dropdown
                   <button onClick={() => this.closeMenu()}>{item.title}</button>
                 ) : (
                   <NavLink to={item.url} onClick={() => this.closeMenu()}>

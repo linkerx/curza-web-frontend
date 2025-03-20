@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import WpApi from "wp/api"; // Importa el módulo para llamar a la API
-import Menu from "../menu"; // Importa el componente Menu
+import Menu from "../menu";
+import { NavLink } from "react-router-dom"; // Importa NavLink para manejar enlaces
 import "./styles.scss";
 
 class MainMenu extends Component {
@@ -10,7 +11,7 @@ class MainMenu extends Component {
       activeMenu: null, // Controla qué menú está activo
       menu: null, // Almacena los items del menú obtenidos de la API
     };
-    this.updateItems = this.updateItems.bind(this); // Bind the method to the component instance
+    this.updateItems = this.updateItems.bind(this);
   }
 
   componentDidMount() {
@@ -65,10 +66,25 @@ class MainMenu extends Component {
               menu.items.map((menuItem, index) => (
                 <li
                   key={index}
-                  className="menu-item"
-                  onClick={() => this.handleMenuClick(menuItem.title)}
+                  className={`menu-item ${
+                    activeMenu === menuItem.title ? "active" : ""
+                  }`}
                 >
-                  {menuItem.title}
+                  {/* Si el ítem tiene hijos, abre un submenú */}
+                  {menuItem.children && menuItem.children.length > 0 ? (
+                    <span onClick={() => this.handleMenuClick(menuItem.title)}>
+                      {menuItem.title}
+                    </span>
+                  ) : (
+                    // Si no tiene hijos, es un enlace directo
+                    <NavLink
+                      to={menuItem.url} // Usa la URL del ítem
+                      activeClassName="active"
+                      exact
+                    >
+                      {menuItem.title}
+                    </NavLink>
+                  )}
                 </li>
               ))
             )}
