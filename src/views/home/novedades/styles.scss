@@ -1,78 +1,87 @@
-@import 'styles/variables/colors.scss';
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/colors.scss";
+@import "styles/variables/mqueries.scss";
 
 #home-novedades {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: #eee9e6ff;
   padding-top: 40px;
 }
 
-#home-novedades h1 {
-  font-size: 2.5em;
-  color: #333;
-  font-weight: normal;
-  margin-bottom: 20px;
-  padding-top: 5px;
-  border-top: 1px solid #333;
-  text-align: left;  
+#home-novedades::before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 20%;
+  height: 98%;
+  background-color: #c0b6b4ff;
 }
 
 #home-novedades .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 30px;
+  justify-content: center; /* cambia de space-between a center */
+  gap: 20px; /* en lugar de margin manual, para mantener separación uniforme */
+  margin: 30px auto 0 auto;
   padding-bottom: 60px;
+  width: 90%;
+  position: relative;
+  z-index: 1;
 }
 
 #home-novedades .list article {
-  width: 280px;
-  margin: 10px;
   overflow: hidden;
-  @media #{$all-narrow} {
-    margin: 5%;
+  background-color: #eee9e6ff;
+  max-width: 29%;
+
+  @media (max-width: 1000px) {
     width: 90%;
+    max-width: 600px;
   }
 }
 
 #home-novedades .list article .fecha {
-  width: 80px;
-  float: left;
+  display: none;
 }
 
 #home-novedades .list article header {
-  height: 30px;
+  //height: 30px;
+  display: none;
 }
-
+// NOTE: descomentar si se quiere el area, y los "display"
+/*
 #home-novedades .list article .area {
-  width: 180px;
+  width: 100%;
   float: right;
-  text-align: right;
+  text-align: center;
   box-sizing: border-box;
   padding-right: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-bottom: 6px;
+  padding-top: 6px;
   background-color: #193f69;
-  font-size: 0.9em;
+  font-size: 1em;
 }
-
+*/
 #home-novedades .list article .area a {
   color: #fff;
   text-decoration: none;
+  display: none;
 }
 
 #home-novedades .list article .area a:hover {
-    color: #aaa;
+  color: #aaa;
+  display: none;
 }
 
 #home-novedades .list article .image_container {
-  margin: 10px auto;
+  margin: 0px;
 }
 
 #home-novedades .list article .image_container .image_wrapper {
   width: 100%;
-  height: auto;
+  position: relative;
+  top: 0px;
 }
 
 #home-novedades .list article .image_container img {
@@ -84,14 +93,22 @@
 #home-novedades .list article .titulo {
   clear: both;
   margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+article .resumen {
+  padding: 9px;
+  //text-align: center;
 }
 
 #home-novedades .list article .titulo a {
   text-decoration: none;
-  color: #6194af;
+  color: #21adcaff;
   font-size: 1.1em;
   text-align: left;
   font-weight: bold;
+  text-align: center;
 }
 
 #home-novedades .link-todas {
@@ -109,5 +126,5 @@
 }
 
 #home-novedades .link-todas a:hover {
-  background: #37474F;
+  background: #37474f;
 }
