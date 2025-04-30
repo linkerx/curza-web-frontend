@@ -96,15 +96,6 @@ section#home-inicio .slider .page article.mode1 .post_content .content {
   display: none;
 }
 
-section#home-inicio .slider .page article.mode2 .post_content .content img {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 80%;
-  object-fit: contain;
-  filter: drop-shadow(3px 3px 20px #091f3c);
-}
-
 section#home-inicio .slider .page article .post_content .excerpt {
   display: none;
 }
@@ -131,4 +122,12 @@ section#home-inicio
   margin: 10px;
   border-radius: 8px;
   color: #fff;
+}
+
+.destacadas > img {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  max-width: 25%; /* o lo que quieras para que no sea gigante */
 }

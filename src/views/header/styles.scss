@@ -6,6 +6,7 @@
   top: 0;
   height: 150px;
   z-index: 38;
+  background-color: #ffff;
 
   @media #{$all-narrow} {
     height: 220px;

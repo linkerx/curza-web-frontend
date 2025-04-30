@@ -5,11 +5,7 @@ require("./styles.scss");
 function Destacadas() {
   return (
     <div className="destacadas">
-      <img
-        src="./path1.png"
-        alt="Imagen destacada"
-        className="imagen-encabezado"
-      />
+      <img src="/images/logo_blanco.png" alt="Logo UNCo" />
       <Slider template={3} showContent="true" />
     </div>
   );

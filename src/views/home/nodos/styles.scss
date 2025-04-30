@@ -1,6 +1,11 @@
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/mqueries.scss";
+
+#home-nodos {
+  background-color: #eee9e6ff;
+}
 
 #nodos-curza {
   width: 100%;
   padding: 2em;
+  background-color: #eee9e6ff;
 }
