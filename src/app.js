@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import FixedHeader from "views/fixed-header";
-import Header from "views/header";
 import Footer from "views/footer";
 import Novedades from "views/curza/novedades";
 import Autoridades from "views/curza/autoridades";
@@ -106,7 +105,6 @@ class App extends Component {
                             render={function (props) {
                               return (
                                 <div className="wrapper">
-                                  <Header />
                                   <Switch location={location}>
                                     <Route
                                       exact

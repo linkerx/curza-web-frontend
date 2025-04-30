@@ -38,7 +38,6 @@ class HomeInicio extends React.Component {
     return (
       <section id="home-inicio">
         <div className="fondo"></div>
-        <HomeHeader />
         <Notificacion />
         <HomeDestacadas />
         <div id="scroll-proposal">

@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 100px;
   background-color: #10396d;
   color: #fff;
   z-index: 80;
@@ -22,9 +22,31 @@
 }
 
 #fixed-header .logo {
-  height: 40px;
+  max-height: 70px;
+  display: flex; // Hacemos que el contenedor del logo use flexbox
+  align-items: center; // Alineamos verticalmente los elementos
 }
 
 #fixed-header .logo img {
-  height: 100%;
+  height: 75px;
 }
+
+
+.logo .logo-text {
+  color: #fff;
+  margin-left: 15px; // Añadimos un margen para separar el texto del logo
+}
+
+.logo .logo-text .titulo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.logo .logo-text .descripcion {
+  color: #fff;
+  font-size: 0.9em;
+
+}
+
