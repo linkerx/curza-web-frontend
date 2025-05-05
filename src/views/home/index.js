@@ -7,7 +7,7 @@ import HomeDepartamentos from "./departamentos";
 import HomeAgenda from "./agenda";
 import HomeNodos from "./nodos";
 import HomeSeparador from "./separador";
-
+import Plano from "./plano";
 class Home extends React.Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class Home extends React.Component {
         <HomeInicio />
         <HomeNovedades />
         <HomeAgenda />
-        <HomeNodos />
+        <Plano />
       </section>
     );
   }

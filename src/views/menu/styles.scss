@@ -1,74 +1,85 @@
 .dropdown-menu {
-  position: fixed; // Posición fija para que esté debajo del header
-  top: 100px; // Justo debajo del header (ajusta según la altura del header)
+  position: fixed; /* Posición fija para que esté debajo del header */
+  top: 100px; /* Justo debajo del header (ajusta según la altura del header) */
   left: 0;
   right: 0;
-  background-color: #0a2a4d; // Color más oscuro que el header (#10396d)
-  width: 100%; // Ocupa todo el ancho
+  background-color: #eee9e6ff; /* Color más oscuro que el header (#10396d) */
+  width: 100%; /* Ocupa todo el ancho */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  max-height: 0; // Inicialmente oculto
-  transition: max-height 0.5s ease-in-out; // Animación más suave y rápida
+  max-height: 0; /* Inicialmente oculto */
+  transition: max-height 0.5s ease-in-out; /* Animación más suave y rápida */
 
   &.open {
-    max-height: 500px; // Altura máxima para mostrar el menú
+    max-height: 500px; /* Altura máxima para mostrar el menú */
   }
 
   ul {
     list-style: none;
     margin: 0;
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
+    gap: 15px; /* Espaciado entre los elementos */
+    justify-content: flex-start; /* Alineación a la izquierda de los ítems */
+  }
 
-    li {
-      font-size: 1.2em;
-      color: #fff;
-      padding: 10px 20px; // Más padding horizontal para mejor espaciado
-      cursor: pointer;
-      position: relative; // Para el efecto de subrayado
-      transition:
-        background-color 0.3s ease,
-        transform 0.2s ease; // Transiciones suaves
+  li {
+    font-size: 1.2em;
+    border-radius: 8px;
+    color: #000;
+    padding: 10px 15px; /* Más padding horizontal para mejor espaciado */
+    cursor: pointer;
+    position: relative; /* Para el efecto de subrayado */
+    max-width: 40%;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease; /* Transiciones suaves */
+
+    &:hover {
+      background-color: #c0b6b4ff; /* Color del header al hacer hover */
+      transform: translateX(
+        10px
+      ); /* Efecto de desplazamiento hacia la derecha */
+    }
+
+    /* Efecto de subrayado al hacer hover */
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5px; /* Posición debajo del texto */
+      left: 20px; /* Alineado con el padding del li */
+      width: calc(100% - 40px); /* Ancho ajustado al padding */
+      height: 2px;
+      background-color: #000; /* Color del subrayado */
+      transform: scaleX(0); /* Inicialmente invisible */
+      transform-origin: right;
+      transition: transform 1s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1); /* Subrayado visible al hacer hover */
+      transform-origin: left;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria entre items */
+    }
+
+    a {
+      color: inherit; /* Hereda el color del texto del li */
+      text-decoration: none; /* Sin subrayado */
+      display: block; /* Ocupa todo el espacio del li */
+      transition: color 0.3s ease;
 
       &:hover {
-        background-color: #10396d; // Color del header al hacer hover
-        transform: translateX(
-          10px
-        ); // Efecto de desplazamiento hacia la derecha
-      }
-
-      // Efecto de subrayado al hacer hover
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 5px; // Posición debajo del texto
-        left: 20px; // Alineado con el padding del li
-        width: calc(100% - 40px); // Ancho ajustado al padding
-        height: 2px;
-        background-color: #4dabf7; // Color del subrayado
-        transform: scaleX(0); // Inicialmente invisible
-        transform-origin: right;
-        transition: transform 1s ease;
-      }
-
-      &:hover::after {
-        transform: scaleX(1); // Subrayado visible al hacer hover
-        transform-origin: left;
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Línea divisoria entre items
-      }
-
-      a {
-        color: inherit; // Hereda el color del texto del li
-        text-decoration: none; // Sin subrayado
-        display: block; // Ocupa todo el espacio del li
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #4dabf7; // Cambia el color del texto al hacer hover
-        }
+        color: #000; /* Cambia el color del texto al hacer hover */
       }
     }
   }
+}
+
+/* Para asegurar que los ítems no sean demasiados anchos y no se vean feos */
+.dropdown-menu ul li {
+  flex: 1 calc(35% - 10px); /* Establece un ancho máximo de 33% y un pequeño margen entre ellos */
 }
