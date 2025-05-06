@@ -7,9 +7,12 @@
   color: #000;
   z-index: 80;
   box-shadow: 0 0 5px #000;
-  display: flex; // Usamos flexbox para alinear logo y menú
+  display: flex;
   align-items: center;
-  padding: 0 20px; // Espaciado a los lados
+  padding: 0 20px;
+  @media (max-width: 750px) {
+    justify-content: space-between;
+  }
 }
 
 #fixed-header.hidden {
@@ -17,13 +20,13 @@
 }
 
 #fixed-header.visible {
-  display: flex; // Mantenemos flex para alinear los elementos
+  display: flex;
 }
 
 #fixed-header .logo {
   max-height: 70px;
-  display: flex; // Hacemos que el contenedor del logo use flexbox
-  align-items: center; // Alineamos verticalmente los elementos
+  display: flex;
+  align-items: center;
 }
 
 #fixed-header .logo img {
@@ -32,7 +35,7 @@
 
 .logo .logo-text {
   color: #000;
-  margin-left: 15px; // Añadimos un margen para separar el texto del logo
+  margin-left: 15px;
 }
 
 .logo .logo-text .titulo {

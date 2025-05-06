@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import WpApi from "wp/api"; // Importa el módulo para llamar a la API
+import WpApi from "wp/api";
 import Menu from "../menu";
-import { NavLink } from "react-router-dom"; // Importa NavLink para manejar enlaces
+import { NavLink } from "react-router-dom";
 import "./styles.scss";
 
 class MainMenu extends Component {
