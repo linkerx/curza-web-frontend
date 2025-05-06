@@ -10,7 +10,7 @@ class FixedHeader extends React.Component {
       <div id="fixed-header" className={headerClass}>
         <div className="logo">
           <Link to="/">
-            <img src="/images/logo_blanco.png" alt="Logo UNCo" />
+            <img src="/images/CURZAS.png" alt="Logo UNCo" />
           </Link>
         </div>
         <MainMenu />

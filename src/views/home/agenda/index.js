@@ -6,7 +6,7 @@ class HomeAgenda extends React.Component {
   render() {
     return (
       <section id="home-agenda">
-        <div className="wrapper-central">
+        <div className="centrado">
           <h1>PRÓXIMOS EVENTOS</h1>
           {this.renderSchedule()}
         </div>

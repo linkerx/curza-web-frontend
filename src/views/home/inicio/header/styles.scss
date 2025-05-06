@@ -1,141 +1,140 @@
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/mqueries.scss";
 
 #home-header {
-    position: absolute;
-    width:100%;
-    top:0;
-    height:150px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 150px;
 
-    @media #{$all-narrow} {
-        height: 165px;
-    }
-    
+  @media #{$all-narrow} {
+    height: 165px;
+  }
 }
 
 #home-header > .fondo {
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color: #10396d;
-    opacity: 0.6;
-    z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #10396d;
+  opacity: 0.6;
+  z-index: 30;
 }
 
 #home-header .wrapper-central {
-    z-index:35;
-    @media #{$all-narrow} {
-        text-align: center;
-    }
+  z-index: 35;
+  @media #{$all-narrow} {
+    text-align: center;
+  }
 }
 
 #home-header .logo {
-    position: absolute;
-    top: 32px;
-    height: 80px;
-    width:450px;
+  position: absolute;
+  top: 32px;
+  height: 80px;
+  width: 450px;
 
-    @media #{$all-narrow} {
-        position:relative;
-        top:12px;
-        width:342px;
-        margin:auto;     
-    }
+  @media #{$all-narrow} {
+    position: relative;
+    top: 12px;
+    width: 342px;
+    margin: auto;
+  }
 }
 
 #home-header .logo img {
-    height: 100%;
-    width:auto;
-    float:left;
-    margin-right: 10px;
+  height: 100%;
+  width: auto;
+  float: left;
+  margin-right: 10px;
 }
 
 #home-header .logo .logo-text {
-    color: #fff;
-    margin-top: 5px;
+  color: #fff;
+  margin-top: 5px;
 }
 
-#home-header .logo .logo-text .titulo{
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fff;
+#home-header .logo .logo-text .titulo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
 }
-#home-header .logo .logo-text .descripcion{
-    color: #fff;
+#home-header .logo .logo-text .descripcion {
+  color: #fff;
 }
-#home-header .logo .logo-text .unco{
-    color: #fff;
+#home-header .logo .logo-text .unco {
+  color: #fff;
 }
-#home-header  .wrapper-servicios {
-    float:right;
-    
-    @media #{$all-narrow} {
-        width: 100%;
-        margin:auto;
-        float:none;
-    }
-}
+#home-header .wrapper-servicios {
+  float: right;
 
-#home-header  .redes-sociales {
-    float: right;
-    margin-top:60px;
-    @media #{$all-narrow} {
-        position:relative;
-        margin-top:30px;
-        float:left;
-        max-width: 156px;
-        margin-left:5px;
-    }
+  @media #{$all-narrow} {
+    width: 100%;
+    margin: auto;
+    float: none;
   }
+}
+
+#home-header .redes-sociales {
+  float: right;
+  margin-top: 60px;
+  @media #{$all-narrow} {
+    position: relative;
+    margin-top: 30px;
+    float: left;
+    max-width: 156px;
+    margin-left: 5px;
+  }
+}
 
 #home-header .redes-sociales ul {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-  
+
 #home-header .redes-sociales li {
-    list-style: none;
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    position: relative;
-    text-align: center;
-    color:white;
-    box-sizing: border-box;
-    padding-top: 10px;
-    font-size: 10px;
-    margin-bottom: 10px;
+  list-style: none;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  padding-top: 10px;
+  font-size: 10px;
+  margin-bottom: 10px;
 }
 
 #home-header .redes-sociales li a {
-    display:block;
-    position:absolute;
-    top:0;
-    height: 0;
-    width:100%;
-    height:100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #home-header .redes-sociales li span {
-    display: none;
+  display: none;
 }
 
 #home-header .telefonos {
-    margin-top:70px;
+  margin-top: 70px;
+  float: right;
+  color: #fff;
+  margin-right: 20px;
+  @media #{$all-narrow} {
+    position: relative;
     float: right;
-    color: #fff;
-    margin-right: 20px;
-    @media #{$all-narrow} {
-        position:relative;
-        float:right;
-        margin-right: 5px;
-        margin-top:38px;
-    }
+    margin-right: 5px;
+    margin-top: 38px;
+  }
 }
 
 #home-header .telefonos i {
-    margin-right: 5px;
+  margin-right: 5px;
 }

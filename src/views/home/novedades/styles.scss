@@ -25,7 +25,7 @@
   gap: 20px; /* en lugar de margin manual, para mantener separación uniforme */
   margin: 30px auto 0 auto;
   padding-bottom: 60px;
-  width: 90%;
+  width: 95%;
   position: relative;
   z-index: 1;
 }
@@ -33,7 +33,7 @@
 #home-novedades .list article {
   overflow: hidden;
   background-color: #eee9e6ff;
-  max-width: 29%;
+  max-width: 30%;
 
   @media (max-width: 1000px) {
     width: 90%;

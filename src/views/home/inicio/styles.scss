@@ -1,4 +1,4 @@
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/mqueries.scss";
 
 #home-inicio {
   position: relative;
@@ -9,16 +9,17 @@
 
 #home-inicio #scroll-proposal {
   z-index: 90;
-  position:absolute;
+  position: absolute;
   bottom: 10px;
   width: 100%;
-  height:40px;
+  height: 40px;
   text-align: center;
 }
 
-#home-inicio #scroll-proposal i{
+#home-inicio #scroll-proposal i {
   color: #fff;
   font-size: 40px;
-  margin:auto;
+  margin: auto;
   cursor: pointer;
 }
+

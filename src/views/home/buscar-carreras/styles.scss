@@ -1,46 +1,46 @@
 @import "styles/variables/colors.scss";
 @import "styles/variables/mqueries.scss";
-#buscar-carreras{
-    position: relative;
-    width: 100%;
-    background-color: #ccc;
-    display: flex;
-    text-align: center;
-    padding-top: 40px;
-    & h1{
-        font-size:2.5em;
-        color: #333;
-        font-weight: normal;
-        margin-bottom: 20px;
-        padding-top: 5px;
-        border-top:1px solid #333;
-        text-align: left;
-    }    
-    & input {
-        background-color: #eee;
-        font-size: 1.2em;
-        line-height: 10px;
-        border: 2px solid #008dc2;
-        border-radius: 10px;
-        justify-content: center;
-        margin: 10px;
-        width: 30vw;
-        padding: 12px;
-        color: #555;
+#buscar-carreras {
+  position: relative;
+  width: 100%;
+  background-color: #ccc;
+  display: flex;
+  text-align: center;
+  padding-top: 40px;
+  & h1 {
+    font-size: 2.5em;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    border-top: 1px solid #333;
+    text-align: left;
+  }
+  & input {
+    background-color: #eee;
+    font-size: 1.2em;
+    line-height: 10px;
+    border: 2px solid #008dc2;
+    border-radius: 10px;
+    justify-content: center;
+    margin: 10px;
+    width: 30vw;
+    padding: 12px;
+    color: #555;
 
-        @media #{$all-narrow} {
-            width: 50vw;
-        }
+    @media #{$all-narrow} {
+      width: 50vw;
     }
-    & .button {
-        background-color: #10396d;
-        padding: 8px 8px;
-        color: #fff;
-        display: block;
-        width: 80px;
-        margin: auto;
-        border-radius: 10px;
-        margin: 20px auto;
-        
-    }
+  }
+  & .button {
+    background-color: #10396d;
+    padding: 8px 8px;
+    color: #fff;
+    display: block;
+    width: 80px;
+    margin: auto;
+    border-radius: 10px;
+    margin: 20px auto;
+  }
 }
+
