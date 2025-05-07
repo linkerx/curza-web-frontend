@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
-import MainMenu from "views/menu";
 import FixedHeader from "views/fixed-header";
-import Header from "views/header";
 import Footer from "views/footer";
 import Novedades from "views/curza/novedades";
 import Autoridades from "views/curza/autoridades";
@@ -15,7 +13,6 @@ import Horarios from "views/curza/horarios";
 import Home from "views/home";
 import CurzaWpNetwork from "components/network";
 import RouterCurzaCms from "components/curza/routerCms";
-import Megamenu from "views/megamenu";
 import "styles/main.scss";
 import "styles/transition.scss";
 import Plano from "views/curza/plano";
@@ -26,18 +23,10 @@ class App extends Component {
     this.state = {
       loading: true,
       showHeader: false,
-      menuOpen: false,
-      megamenuOpen: false,
-      megamenuData: null,
-      menuSelected: null,
       transClass: "inicial",
     };
 
     this.endLoading = this.endLoading.bind(this);
-    this.openMenu = this.openMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-    this.openMegamenu = this.openMegamenu.bind(this);
-    this.closeMegamenu = this.closeMegamenu.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -59,35 +48,6 @@ class App extends Component {
         showHeader: false,
       });
     }
-  }
-  openMenu() {
-    this.setState({
-      menuOpen: true,
-    });
-  }
-
-  closeMenu() {
-    this.setState({
-      menuOpen: false,
-    });
-  }
-
-  openMegamenu(item) {
-    this.setState(function () {
-      return {
-        megamenuOpen: true,
-        menuSelected: item.id,
-        megamenuData: item.children,
-      };
-    });
-  }
-
-  closeMegamenu() {
-    this.setState({
-      megamenuOpen: false,
-      megamenuData: null,
-      menuSelected: null,
-    });
   }
 
   endLoading() {
@@ -131,16 +91,7 @@ class App extends Component {
                     {(state) => (
                       <div id="transition" className={this.state.transClass}>
                         <div id="fondo-transition"></div>
-                        <MainMenu
-                          openMenu={this.openMegamenu}
-                          opened={this.state.menuOpen}
-                          closeMenu={this.closeMenu}
-                          showHeader={this.state.showHeader}
-                        />
-                        <FixedHeader
-                          openMenu={this.openMenu}
-                          showHeader={this.state.showHeader}
-                        />
+                        <FixedHeader showHeader={this.state.showHeader} />
                         <Switch location={location}>
                           <Route
                             exact
@@ -154,7 +105,6 @@ class App extends Component {
                             render={function (props) {
                               return (
                                 <div className="wrapper">
-                                  <Header openMenu={this.openMenu} />
                                   <Switch location={location}>
                                     <Route
                                       exact
@@ -271,15 +221,6 @@ class App extends Component {
                           />
                         </Switch>
                         <Footer />
-                        <div id="main-megamenu">
-                          <Megamenu
-                            open={this.state.megamenuOpen}
-                            close={this.closeMegamenu}
-                            closeMenu={this.closeMenu}
-                            items={this.state.megamenuData}
-                            showHeader={this.state.showHeader}
-                          />
-                        </div>
                       </div>
                     )}
                   </Transition>

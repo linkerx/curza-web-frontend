@@ -1,96 +1,46 @@
-import React from 'react';
-import WpApi from 'wp/api';
-import MenuItem from 'wp/menu-item';
-import { NavLink } from 'react-router-dom';
-import MenuTrigger from './closeMenuBtn';
-import './styles.scss';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom"; // Importa NavLink para los enlaces
+import "./styles.scss";
 
-class MainMenu extends React.Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: null,
+      isOpen: true, // Controla si el menú está abierto o cerrado
+    };
+  }
+
+  // Cierra el menú
+  closeMenu = () => {
+    this.setState({ isOpen: false });
+    if (this.props.closeMenu) {
+      this.props.closeMenu(); // Llama a la función closeMenu de MainMenu si existe
     }
-    this.updateItems = this.updateItems.bind(this);
-  }
-
-  componentDidMount(){
-      this.updateItems();
-  }
-
-  updateItems(){
-    this.setState(function () {
-      return {
-        menu: null,
-      }
-    });
-
-    var opts = {
-      location: 'main-menu-location',
-      debug: false
-    }
-
-    WpApi.getMenuIdByLocation(opts)
-      .then(function(menu) {
-        this.setState(function () {
-          return {
-            menu: menu,
-          }
-        });
-      }.bind(this));
-  }
+  };
 
   render() {
-    var mainMenuClass = 'closed';
-    if(typeof(this.props.opened) !== 'undefined'){
-      if(this.props.opened){
-        mainMenuClass = 'opened';
-      } else {
-        mainMenuClass = 'closed';
-      }
-    }
-
-    if (this.props.showHeader) {
-      mainMenuClass+= ' arriba';
-    } else {
-      mainMenuClass+= ' abajo';
-    }
-
+    const { menuName, items } = this.props;
+    const { isOpen } = this.state;
 
     return (
-      <div id='main-menu' className={mainMenuClass}>
-        <nav className='menu'>
-        {!this.state.menu
-          ?
-            this.props.children
-          :
-          <ul className='menu'>
-          {
-            this.state.menu.items.map(function (menuItem, index) {
-                var active = false;
-                if(this.props.activeSubmenuItem === menuItem.id){
-                  active = true;
-                }
-                return (<MenuItem key={index} showSubmenu={false} item={menuItem} path={this.props.path} action={() => {this.props.openMenu(menuItem) }} activeSubmenu={active} activeSubmenuClass='submenu-active' />)
-            }.bind(this))
-          }
-          {
-            this.props.extraItems &&
-              this.props.extraItems.map(function (item, index) {
-                return (
-                  <li key={100+index}>
-                    <NavLink exact to={item.url} activeClassName="active" >{item.title}</NavLink>
-                  </li>)
-            })
-          }
-          </ul>
-        }
-        </nav>
-        <MenuTrigger closeMenu={this.props.closeMenu}/>
+      <div className={`dropdown-menu ${isOpen ? "open" : ""}`}>
+        <ul>
+          {items &&
+            items.map((item) => (
+              <li key={item.id}>
+                {item.url === "#" ? ( // Si la URL es "/", no es un enlace, sino un dropdown
+                  <button onClick={() => this.closeMenu()}>{item.title}</button>
+                ) : (
+                  <NavLink to={item.url} onClick={() => this.closeMenu()}>
+                    {item.title}
+                  </NavLink>
+                )}
+              </li>
+            ))}
+        </ul>
       </div>
-    )
+    );
   }
 }
 
-
-export default MainMenu;
+export default Menu;

@@ -1,5 +1,5 @@
 @import "styles/variables/colors.scss";
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/mqueries.scss";
 /**
 * Estilo para footer
 * Utiliza variables de  la paleta de colores
@@ -7,19 +7,19 @@
 
 #footer {
   position: relative;
-  background-color: $background-footer;
-  color:#fff;
-  display:flex;
+  background-color: #5c575dff;
+  color: #fff;
+  display: flex;
   /**
   * estilos dentro de footer 
   */
-  & .contenedor{
+  & .contenedor {
     position: relative;
-    display:flex;
+    display: flex;
     margin: 40px 0;
     @media #{$all-narrow} {
-      display:block;
-      width:100%;
+      display: block;
+      width: 100%;
     }
   }
   /* columnaas laterales  */
@@ -27,33 +27,32 @@
     flex-grow: 2;
     width: 30%;
     @media #{$all-narrow} {
-      display:block;
-      width:100%;
+      display: block;
+      width: 100%;
     }
   }
   /* logo en la primer columna */
-  & .footer-logo{
+  & .footer-logo {
     margin: auto;
-    width:150px;
-    position:relative;
+    width: 150px;
+    position: relative;
     display: flex;
   }
   /* columna central */
   & .contenedor .columna-2 {
     flex-grow: 1;
     width: 40%;
-    margin:auto 20px;
+    margin: auto 20px;
     @media #{$all-narrow} {
       text-align: center;
       margin: auto;
-      display:block;
-      width:100%;
+      display: block;
+      width: 100%;
     }
   }
-  & .columna-2 h3{
+  & .columna-2 h3 {
     text-transform: uppercase;
     margin: 10px 0;
-    
   }
   /* redes sociales */
   & .redes-sociales ul {
@@ -62,8 +61,8 @@
     @media #{$all-narrow} {
       text-align: center;
       margin: 0;
-      display:block;
-      width:100%;
+      display: block;
+      width: 100%;
     }
   }
   & .redes-sociales li {
@@ -76,19 +75,19 @@
     border-radius: 50%;
     position: relative;
     text-align: center;
-    color:#fff;
+    color: #fff;
     box-sizing: border-box;
     padding-top: 10px;
     font-size: 10px;
     margin-bottom: 10px;
   }
   & .redes-sociales li a {
-    display:block;
-    position:absolute;
-    top:0;
+    display: block;
+    position: absolute;
+    top: 0;
     height: 0;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
   }
   & .redes-sociales li span {
     display: none;
@@ -101,32 +100,32 @@
     @media #{$all-narrow} {
       text-align: center;
       margin: 0;
-      display:none;
-      width:100%;
+      display: none;
+      width: 100%;
     }
   }
-  & .columna .main-menu ul li{
+  & .columna .main-menu ul li {
     list-style: none;
     & a {
       line-height: 25px;
       font-size: 1.2em;
-      text-transform: uppercase; 
+      text-transform: uppercase;
       text-decoration: none;
       color: $font-1;
-      &:hover{
+      &:hover {
         color: #fff;
       }
     }
   }
 
   & .columna .main-menu ul li img {
-    display:none;
+    display: none;
   }
 
   /* linea separadora */
-  & .vertical-line{
-    padding:0 2px;
-    border-left:1px solid $font-1;
+  & .vertical-line {
+    padding: 0 2px;
+    border-left: 1px solid $font-1;
   }
   /* 
   * Boton de subir 
@@ -145,20 +144,20 @@
     position: absolute;
     bottom: 30px;
     right: 30px;
-    transition: background-color .4s;
+    transition: background-color 0.4s;
     z-index: 30;
     &:hover {
       background-color: $background-1;
     }
-    & span{
+    & span {
       text-decoration: none;
       margin: 13px auto;
       text-align: center;
-    }  
+    }
   }
-
 }
 /* Scroll suave */
-html{
+html {
   scroll-behavior: smooth;
 }
+

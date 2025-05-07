@@ -1,18 +1,21 @@
-@import 'styles/variables/mqueries.scss';   
+@import "styles/variables/mqueries.scss";
 @import "styles/variables/colors.scss";
 
 #wp-site .wp-site-wrapper {
-    position: relative;
-    display:flex;
-    flex-wrap: nowrap;
-    max-width: 100vw;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 100vw;
 
-    @media #{$all-narrow} {
-        display: block;
-    }
+  @media #{$all-narrow} {
+    display: block;
+  }
 }
 
 #site-home {
-    max-width: 1200px;
-    margin: auto;
+  max-width: 1200px;
+  margin: auto;
+
+  background-color: #eee9e6ff;
 }
+

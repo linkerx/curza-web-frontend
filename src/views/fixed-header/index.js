@@ -1,27 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './styles.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import MainMenu from "../main-menu";
+import MobileMenu from "../mobile-menu";
+import useWindowWidth from "../../hooks/useWindowWidth"; // Asegurate de poner bien la ruta
+import "./styles.scss";
 
-class FixedHeader extends React.Component {
+const FixedHeader = () => {
+  const width = useWindowWidth();
+  const isMobile = width < 750;
 
-  render(){
-
-    let headerClass = 'hidden';
-    if(this.props.showHeader){
-      headerClass = 'visible';
-    }
-
-    return(
-      <div id='fixed-header' className={headerClass}>
-        <div className='logo'>
-          <Link to='/'><img src='/images/logo_blanco.png' alt='Logo UNCo' /></Link>
-        </div>
-        <div className='menu-opener'>
-            <i onClick={() => this.props.openMenu()} className='fas fa-bars'></i>
-        </div>
+  return (
+    <div id="fixed-header" className="visible">
+      <div className="logo">
+        <Link to="/">
+          <img src="/images/CURZAS.png" alt="Logo UNCo" />
+        </Link>
       </div>
-    );
-  }
-}
+
+      {isMobile ? <MobileMenu /> : <MainMenu />}
+    </div>
+  );
+};
 
 export default FixedHeader;

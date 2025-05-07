@@ -1,48 +1,48 @@
 @import "styles/variables/mqueries.scss";
 
-.searcher{
-    position: absolute;
-    bottom: 20px;
-    right:120px;
-    display:flex;
-    justify-content: end;
+.searcher {
+  position: absolute;
+  bottom: 0px;
+  right: 120px;
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  z-index: 33;
+  @media #{$all-narrow} {
+    bottom: -90px;
+    right: 0px;
+  }
+  & p {
+    margin-top: 6px;
+    font-size: 1.5em;
     margin-right: 20px;
-    z-index: 33;
-    @media #{$all-narrow}{
-        bottom: 5px;
-        right:0px;
+    display: inline-flex;
+    z-index: 34;
+    color: #fff;
+    text-shadow: 3px 3px 15px #008dc2;
+  }
+  input[type="text"] {
+    float: right;
+    background-image: url("./search-icon.png");
+    background-position: 10px 12px;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 34;
+  }
+
+  /* When the input field gets focus, change its width to 100% */
+  input[type="text"]:focus {
+    width: 20vw;
+    @media #{$all-narrow} {
+      width: 80%;
     }
-    & p{
-        margin-top: 6px;        
-        font-size: 1.5em;
-        margin-right: 20px;
-        display: inline-flex;
-        z-index: 34;
-        color: #fff;
-        text-shadow: 3px 3px 15px #008dc2;
-    }
-    input[type=text] {
-        float:right;
-        background-image: url('./search-icon.png');
-        background-position: 10px 12px;
-        background-color: white;
-        background-repeat: no-repeat;
-        padding: 12px 20px 12px 40px;
-        width: 130px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-        border: 1px solid #ccc;
-        color: #333;
-        border-radius: 10px;
-        box-sizing: border-box;
-        z-index: 34;
-    }
-    
-    /* When the input field gets focus, change its width to 100% */
-    input[type=text]:focus {
-        width: 20vw;
-        @media #{$all-narrow} {
-            width:80%;
-        }
-    }
+  }
 }
