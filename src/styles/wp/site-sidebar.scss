@@ -1,42 +1,43 @@
-@import 'styles/variables/mqueries.scss';
+@import "styles/variables/mqueries.scss";
 
 #wp-site-sidebar {
-    background-color: #fff;
-    color: #333;
-    box-sizing: border-box;
-    padding:10px 20px;
-    order: 3;
-    flex-shrink: 0;
-    transition: margin-right 1s;
-    z-index: 42;
+  background-color: #eee9e6ff;
+  color: #333;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  order: 3;
+  flex-shrink: 0;
+  transition: margin-right 1s;
+  z-index: 42;
 
-    @media #{$all-wide} {
-        width: 300px;
-    }
+  @media #{$all-wide} {
+    width: 300px;
+  }
 
-    @media #{$square} {
-        width: 180px;
-    }
+  @media #{$square} {
+    width: 180px;
+  }
 
-    @media #{$all-narrow} {
-        position: absolute;
-        right: 0;
-        width: 250px;
-        top: 0;
-        min-height: 500px;
-        transition: right 1s;
-        box-shadow: -3px 3px 10px #777;
-    }
+  @media #{$all-narrow} {
+    position: absolute;
+    right: 0;
+    width: 250px;
+    top: 0;
+    min-height: 500px;
+    transition: right 1s;
+    box-shadow: -3px 3px 10px #777;
+  }
 }
 
-#wp-site-sidebar.closed{
-    @media #{$all-wide} {
-        margin-right: -300px;
-    }
-    @media #{$square} {
-        margin-right: -180px;
-    }
-    @media #{$all-narrow} {
-        right: -250px;   
-    }
+#wp-site-sidebar.closed {
+  @media #{$all-wide} {
+    margin-right: -300px;
+  }
+  @media #{$square} {
+    margin-right: -180px;
+  }
+  @media #{$all-narrow} {
+    right: -250px;
+  }
 }
+
