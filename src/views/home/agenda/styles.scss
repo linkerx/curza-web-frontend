@@ -19,13 +19,13 @@
     margin: 0 auto;
 
     h1 {
-      font-size: 5em;
-      font-family: "Bebas Neue", sans-serif;
-      color: black;
-      font-weight: 600;
+      font-size: 3.3em;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      color: #1ab1cfff;
       position: absolute;
       text-align-last: center;
-      top: 85%;
+      top: 88%;
       transform: rotate(-90deg) translateY(-50%);
       transform-origin: left center;
       margin: 0;
@@ -41,6 +41,13 @@
         transform: none;
         position: relative;
         margin-top: 20px;
+        @media (max-width: 700px) {
+          font-size: 5em;
+          top: auto;
+          transform: none;
+          position: relative;
+          margin-top: 20px;
+        }
       }
     }
 
@@ -91,8 +98,9 @@
           .titulo {
             order: 1;
             padding: 20px 20px 0;
-
-            a {
+            font-size: 1.3em;
+            font-family: "Slabo 27px", serif;
+            .3 a {
               color: #333 !important;
               font-size: 1.2em !important;
               font-weight: 600;

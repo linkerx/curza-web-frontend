@@ -92,14 +92,24 @@
 
 #home-novedades .list article .titulo {
   clear: both;
+  font-size: 1.2em;
+  font-family: "Slabo 27px", serif;
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
+  @media (max-width: 700px) {
+    font-size: 1em;
+  }
 }
 
 article .resumen {
   padding: 9px;
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
   //text-align: center;
+  @media (max-width: 700px) {
+    font-size: 1em;
+  }
 }
 
 #home-novedades .list article .titulo a {
