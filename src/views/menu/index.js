@@ -28,10 +28,21 @@ class Menu extends Component {
           {items &&
             items.map((item) => (
               <li key={item.id}>
-                {item.url === "#" ? ( // Si la URL es "/", no es un enlace, sino un dropdown
-                  <button onClick={() => this.closeMenu()}>{item.title}</button>
+                {item.url === "#" ? (
+                  <button onClick={this.closeMenu}>{item.title}</button>
+                ) : item.url.startsWith("http") ? (
+                  // Enlace externo
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={this.closeMenu}
+                  >
+                    {item.title}
+                  </a>
                 ) : (
-                  <NavLink to={item.url} onClick={() => this.closeMenu()}>
+                  // Enlace interno
+                  <NavLink to={item.url} onClick={this.closeMenu}>
                     {item.title}
                   </NavLink>
                 )}
