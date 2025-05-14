@@ -35,7 +35,7 @@ section#home-inicio .slider .page article .image_container .image {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 25;
+  z-index: -10;
   background-position: 75% center;
   background-size: cover;
   opacity: 0.5;
@@ -65,6 +65,7 @@ section#home-inicio .slider .page article .post_content h2 {
   color: #fff;
   font-size: 4em;
   text-align: center;
+  opacity: 1 !important;
   @media (max-width: 700px) {
     padding-left: 8vw;
   }
@@ -113,8 +114,10 @@ section#home-inicio
   position: absolute;
   top: 50%;
   left: 25%;
+  z-index: 30;
   transform: translate(-50%, -50%);
   max-width: 25%; /* o lo que quieras para que no sea gigante */
+  opacity: 1 !important;
   @media (max-width: 700px) {
     display: none;
   }
