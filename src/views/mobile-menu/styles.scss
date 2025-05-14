@@ -15,13 +15,13 @@
     right: 0;
     background-color: #eee9e6ff;
     max-height: 0;
-    width: 90vw;
+    width: 95vw;
     overflow: hidden;
     transition: max-height 0.5s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
     &.open {
-      max-height: 85vh;
+      max-height: 150vh;
     }
 
     ul {
@@ -31,7 +31,7 @@
     }
   }
   li {
-    padding: 5px;
+    padding: 3px;
     font-size: 1.5em;
     border-bottom: 1px solid #ccc;
 
@@ -51,14 +51,14 @@
 
     .sub-menu {
       margin-top: 5px;
-      padding-left: 15px;
+      padding-left: 10px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
       pointer-events: none;
 
       &.open {
-        max-height: 500px;
+        max-height: 700px;
         pointer-events: auto;
       }
 

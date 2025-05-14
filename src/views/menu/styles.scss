@@ -7,7 +7,7 @@
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  max-height: 0;
+  max-height: 90vh;
   transition: max-height 0.5s ease-in-out;
 
   &.open {
@@ -31,7 +31,7 @@
     padding: 10px 15px;
     cursor: pointer;
     position: relative;
-    max-width: 40%;
+    max-width: 10%;
     transition:
       background-color 0.3s ease,
       transform 0.2s ease;
