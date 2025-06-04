@@ -16,6 +16,7 @@ class Home extends React.Component {
         <HomeAccesos />
         <HomeNovedades />
         <HomeAgenda />
+        <HomeDepartamentos />
         <Plano />
       </section>
     );
