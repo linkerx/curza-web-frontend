@@ -2967,10 +2967,10 @@
    name="sala2"
    class="sala place"
    d="m 14355.101,30594.019 h 1671.74 v 3502.91 h -1671.74 z" />
-  <path
-   id="dpto2"
-   name="dpto2"
-   class="dpto place"
+<path
+   id="aula9"
+   name="aula9"
+   class="aula place"
    d="m 12052.871,32062.482 h 1309.16 v 2034.45 h -1309.16 z" />
   <path
    id="dpto1"
