@@ -63,7 +63,7 @@ class CurzaCarreras extends React.Component {
                             if (element) {
                                    if (element.nombre === "Presencial")
                                      return {
-                                       i: "bi bi-person-standing",
+                                       i: "bi bi-person-fill",
                                        text: (
                                          <span>
                                            Presencial<br/>
@@ -71,16 +71,16 @@ class CurzaCarreras extends React.Component {
                                          </span>
                                        ),
                                      };
-                                   else if (element.nombre === "Presencial con nodos")
-                                     return {
-                                       i: "bi bi-person-standing bi bi-display bi bi-hand-index",
-                                       text: (
-                                         <span>
-                                           Presencial<br/>
-                                           <span style={{color: '#1976d2', fontSize: '0.95em'}}>Viedma | Nodos</span>
-                                         </span>
-                                       ),
-                                     };
+                                  else if (element.nombre === "Presencial con nodos")
+                                    return {
+                                      i: "fas fa-chalkboard-teacher",
+                                      text: (
+                                        <span>
+                                          Presencial<br/>
+                                          <span style={{color: '#1976d2', fontSize: '0.95em'}}>Viedma | Nodos</span>
+                                        </span>
+                                      ),
+                                    };
                                    else if (element.nombre === "Virtual")
                                      return {
                                        i: "bi bi-display bi bi-hand-index",

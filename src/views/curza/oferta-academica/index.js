@@ -81,7 +81,7 @@ class OfertaAcademica extends React.Component {
                                 if(element) {
                                   if (element.nombre === "Presencial") 
                                     return {
-                                      i: "bi bi-person-standing",
+                                      i: "bi bi-person-fill",
                                       text: (
                                         <span>
                                           Presencial<br/>
@@ -91,7 +91,7 @@ class OfertaAcademica extends React.Component {
                                     }
                                   else if (element.nombre === "Presencial con nodos")
                                     return {
-                                      i: "bi bi-display",
+                                      i: "fas fa-chalkboard-teacher",
                                       text: (
                                         <span>
                                           Presencial<br/>

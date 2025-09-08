@@ -52,7 +52,9 @@
   right: 12px;
       &.popover__message {
         text-align: center;
-       font-weight: 0;
+      }
+      span, .modalidad-text {
+        font-weight: bold;
       }
       
       & i{
