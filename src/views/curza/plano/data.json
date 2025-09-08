@@ -44,7 +44,7 @@
       },
       {
         "id": "admin4",
-        "name": "Dpto. Extensión",
+        "name": "Dpto. Orientación Estudiantil",
         "code": "D"
       },
       {
@@ -79,7 +79,7 @@
       },
       {
         "id": "admin11",
-        "name": "Dpto. Orientación Estudiantil",
+        "name": "Dpto. Extensión",
         "code": "K"
       },
       {
@@ -128,13 +128,6 @@
         "code": "D1",
         "info": "",
         "url": "lengua-comunicacion"
-      },
-      {
-        "id": "dpto2",
-        "name": "Enfermeria",
-        "code": "D2",
-        "info": "",
-        "url": "enfermeria"
       },
       {
         "id": "dpto3",
@@ -235,6 +228,11 @@
         "id": "aula21",
         "name": "Aula 21",
         "code": "21"
+      },
+      {
+        "id": "aula9",
+        "name": "Aula 9",
+        "code": "9"
       }
     ]
   },

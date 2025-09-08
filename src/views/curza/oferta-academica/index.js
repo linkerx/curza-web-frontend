@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import Card  from 'components/card'
 import WpApi from 'wp/api';
 
@@ -79,14 +80,38 @@ class OfertaAcademica extends React.Component {
                             icons={child.modalidades ? child.modalidades.map( (element) => {
                                 if(element) {
                                   if (element.nombre === "Presencial") 
-                                  return {'i': "fas fa-chalkboard-teacher" , 'text':'Modalidad presencial'}
-                                  else if( element.nombre === "Semipresencial") 
-                                    return {'i': "fas fa-laptop" , 'text': 'Modalidad semipresencial'}
+                                    return {
+                                      i: "bi bi-person-fill",
+                                      text: (
+                                        <span>
+                                          Presencial<br/>
+                                          <span style={{color: '#1976d2', fontSize: '0.95em'}}>Viedma</span>
+                                        </span>
+                                      )
+                                    }
+                                  else if (element.nombre === "Presencial con nodos")
+                                    return {
+                                      i: "fas fa-chalkboard-teacher",
+                                      text: (
+                                        <span>
+                                          Presencial<br/>
+                                          <span style={{color: '#1976d2', fontSize: '0.95em'}}>Viedma | Nodos</span>
+                                        </span>
+                                      )
+                                    }
+                                  else if( element.nombre === "Virtual")
+                                    return {
+                                      i: "bi bi-display bi bi-hand-index",
+                                      text: (
+                                        <span>
+                                          Virtual
+                                        </span>
+                                      )
+                                    }
                                   else 
                                     return ("fas fa-chalkboard")
                                 }
                                 return null;
-                               
                             }): null }
                             
                             readMore={this.urlDpto(child)}

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "bootstrap-icons": "^1.13.1",
     "form-serialize": "*",
     "moment": "*",
     "node-sass": "*",
