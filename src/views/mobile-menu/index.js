@@ -30,6 +30,10 @@ const MobileMenu = () => {
     setOpenSubMenu(null);
   };
 
+  const isExternalLink = (url) => {
+    return url.startsWith("http://") || url.startsWith("https://");
+  };
+
   return (
     <div className="mobile-menu-wrapper">
       <button className="hamburger" onClick={() => setOpen(!open)}>
@@ -51,13 +55,33 @@ const MobileMenu = () => {
                   >
                     {item.children.map((child) => (
                       <li key={child.id}>
-                        <NavLink to={child.url} onClick={closeMenu}>
-                          {child.title}
-                        </NavLink>
+                        {isExternalLink(child.url) ? (
+                          <a
+                            href={child.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={closeMenu}
+                          >
+                            {child.title}
+                          </a>
+                        ) : (
+                          <NavLink to={child.url} onClick={closeMenu}>
+                            {child.title}
+                          </NavLink>
+                        )}
                       </li>
                     ))}
                   </ul>
                 </>
+              ) : isExternalLink(item.url) ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                >
+                  {item.title}
+                </a>
               ) : (
                 <NavLink to={item.url} onClick={closeMenu}>
                   {item.title}
