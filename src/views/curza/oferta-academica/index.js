@@ -74,9 +74,10 @@ class OfertaAcademica extends React.Component {
                   {carreraxDpto.length > 0 ? <h2> {carreraxDpto[0].departamento.nombre}</h2> : null }
                   <div className="flex-ofertas" >
                     {carreraxDpto ? carreraxDpto.map((child,index) => {
-                      return (
-                        <Card key={index} 
-                            title={child.nombre} 
+                      if (!child.es_titulo_intermedio) {
+                        return (
+                          <Card key={index} 
+                              title={child.nombre} 
                             icons={child.modalidades ? child.modalidades.map( (element) => {
                                 if(element) {
                                   if (element.nombre === "Presencial") 
@@ -117,10 +118,21 @@ class OfertaAcademica extends React.Component {
                             readMore={this.urlDpto(child)}
                             brochure={child.hasOwnProperty('related_files') && child.related_files.hasOwnProperty('brochure') && child.related_files.brochure}
                         >
-                               
-                            {child.duracion_total_anos < 0 ? null :"Duración total: "+  child.duracion_total_anos+" años"}
-                        </Card>    
-                      )
+                              <div>
+                                {child.duracion_total_anos < 0 ? null : "Duración total: " + child.duracion_total_anos + " años"}
+                              </div>
+                              {child.titulo_intermedio && (
+                                <div>
+                                  <strong>Título intermedio:</strong> {child.titulo_intermedio.nombre}
+                                  {child.titulo_intermedio.duracion_total_anos > 0 && (
+                                    <span> ({child.titulo_intermedio.duracion_total_anos} años)</span>
+                                  )}
+                                </div>
+                              )}
+                          </Card>    
+                        )
+                      }
+                      return null;
                     }) : null}
                   </div>
                 </div>
