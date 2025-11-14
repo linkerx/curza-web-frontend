@@ -122,7 +122,7 @@ class OfertaAcademica extends React.Component {
                                 {child.duracion_total_anos < 0 ? null : "Duración total: " + child.duracion_total_anos + " años"}
                               </div>
                               {child.titulo_intermedio && (
-                                <div>
+                                <div className="titulo-intermedio-info">
                                   <strong>Título intermedio:</strong> {child.titulo_intermedio.nombre}
                                   {child.titulo_intermedio.duracion_total_anos > 0 && (
                                     <span> ({child.titulo_intermedio.duracion_total_anos} años)</span>
