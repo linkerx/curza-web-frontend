@@ -28,6 +28,231 @@
     margin: 20px 0;
     clear: both;
   }
+
+  // Estilos modernos para las tarjetas de oferta académica con identidad CURZA
+  .card {
+    // Sobrescribir estilos base con colores institucionales
+    background: linear-gradient(135deg, 
+      darken($background-3, 5%) 0%, 
+      $background-3 30%, 
+      lighten($background-2, 5%) 70%, 
+      $background-2 100%);
+    border: 1px solid rgba(lighten($background-1, 20%), 0.2);
+    box-shadow: 
+      0 6px 20px rgba(darken($background-3, 10%), 0.4),
+      0 2px 8px rgba($background-2, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    // Efecto hover más sutil y elegante
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 12px 24px rgba(darken($background-3, 15%), 0.5),
+        0 4px 12px rgba($background-1, 0.3);
+      border-color: rgba($background-1, 0.4);
+      
+      .titulo::after {
+        width: 60px;
+      }
+    }
+    
+    // Efecto de borde brillante más sutil
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba($background-1, 0.1) 50%, 
+        transparent 70%);
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    &:hover::before {
+      opacity: 1;
+    }
+    
+    // Responsive design mejorado
+    @media #{$all-narrow} {
+      width: calc(100% - 20px);
+      margin: 15px 10px;
+      min-height: 160px;
+    }
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+      width: calc(50% - 20px);
+      margin: 15px 10px;
+    }
+    
+    @media (min-width: 1025px) {
+      width: calc(33.333% - 20px);
+      margin: 15px 10px;
+      max-width: 380px;
+    }
+    
+    // Título con estilo institucional
+    & h3.titulo {
+      color: #ffffff !important;
+      font-size: 1.25em !important;
+      font-weight: 500 !important;
+      line-height: 1.4 !important;
+      margin-bottom: 18px !important;
+      text-shadow: 0 1px 3px rgba(darken($background-3, 20%), 0.6);
+      position: relative;
+      letter-spacing: 0.3px;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 45px;
+        height: 3px;
+        background: linear-gradient(90deg, $background-1, lighten($background-1, 10%));
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+    }
+    
+    // Descripción mejorada
+    .descripcion {
+      color: #e1e5e9 !important;
+      margin-top: 20px !important;
+      margin-bottom: 60px !important;
+      line-height: 1.5;
+      
+      & > div {
+        margin-bottom: 12px;
+        line-height: 1.5;
+        font-size: 0.95em;
+        
+        &:first-child {
+          font-weight: 500;
+          color: #ffffff;
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      // Estilos específicos para el título intermedio con identidad CURZA
+      .titulo-intermedio-info {
+        margin-top: 16px;
+        padding: 14px;
+        background: rgba(lighten($background-1, 10%), 0.15);
+        border-left: 4px solid $background-1;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.88em;
+        position: relative;
+        backdrop-filter: blur(5px);
+        
+        &::before {
+          content: '📋';
+          position: absolute;
+          top: 14px;
+          left: -18px;
+          background: linear-gradient(135deg, $background-1, lighten($background-1, 15%));
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          box-shadow: 0 3px 8px rgba($background-1, 0.4);
+          border: 2px solid rgba(white, 0.1);
+        }
+        
+        strong {
+          color: lighten($background-1, 25%);
+          font-weight: 600;
+          text-shadow: 0 1px 2px rgba(darken($background-3, 20%), 0.5);
+        }
+        
+        span {
+          color: rgba(white, 0.8);
+          font-style: italic;
+          font-weight: 400;
+        }
+      }
+    }
+    
+    // Iconos con estilo institucional
+    .icons {
+      background: rgba(darken($background-3, 10%), 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 10px 0 0 0;
+      padding: 10px;
+      bottom: 0;
+      right: 0;
+      
+      & i {
+        background: rgba($background-1, 0.2);
+        border-color: rgba($background-1, 0.6);
+        color: lighten($background-1, 15%);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $background-1;
+          color: #ffffff;
+          transform: scale(1.05);
+          border-color: $background-1;
+        }
+      }
+    }
+    
+    // Botones de acción con identidad CURZA - Esquina inferior izquierda
+    .actions {
+      background: rgba(darken($background-3, 10%), 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 10px 0 0 0;
+      padding: 10px;
+      bottom: 0;
+      left: 0;
+      right: auto; // Sobrescribir el right del estilo base
+      
+      .btn {
+        background: linear-gradient(135deg, $background-1, darken($background-1, 8%));
+        border: 1px solid rgba(lighten($background-1, 10%), 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 8px rgba($background-1, 0.3);
+        
+        &:hover {
+          background: linear-gradient(135deg, lighten($background-1, 5%), $background-1);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba($background-1, 0.4);
+        }
+      }
+    }
+  }
+  
+  // Contenedor flex mejorado y responsive
+  .flex-ofertas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    margin: 0 auto;
+    max-width: 1400px;
+    
+    @media #{$all-narrow} {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+      justify-content: space-around;
+    }
+  }
 }
 #mostrar-oferta {
   & header {
